@@ -1,0 +1,21 @@
+{
+  "name": "nay",
+  "description": "e commerce com laravel",
+  "main": "",
+  "authors": [
+    "alphabraga <alphabraga@hotmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "ecommerce"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ]
+}
