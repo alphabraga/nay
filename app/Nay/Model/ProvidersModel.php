@@ -6,7 +6,7 @@ namespace App\Nay\Model;
 use App\Nay\Model\BaseModel;
 
 
-class ProductsModel extends BaseModel
+class ProvidersModel extends BaseModel
 {
 
 	use SoftDeletes;
