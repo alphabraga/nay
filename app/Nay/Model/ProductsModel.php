@@ -9,9 +9,11 @@ use App\Nay\Model\BaseModel;
 class ProductsModel extends BaseModel
 {
 
-	use SoftDeletes;
+	use \Illuminate\Database\Eloquent\SoftDeletes;
 
 	protected $table = 'products';
+
+	protected $imagePath = 'public/images/products/';
 
 
 	protected $fillable = [
@@ -36,4 +38,7 @@ class ProductsModel extends BaseModel
 	public $timestamps = true;
 
 	protected $casts = ['tags' => 'array'];
+
+	
+
 }
