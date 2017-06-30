@@ -15,6 +15,8 @@ class BrandsModel extends BaseModel
 
 	protected $table = 'brands';
 
+	protected $imagePath = 'public/images/brands/';
+
 
 	protected $fillable = [
 							'id', 
