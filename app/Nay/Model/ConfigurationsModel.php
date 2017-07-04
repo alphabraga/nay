@@ -81,4 +81,6 @@ class ConfigurationsModel extends Model
 
 		return $config->save();
 	}
+
+
 }
