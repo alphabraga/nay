@@ -12,7 +12,26 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Nay'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Codename
+    |--------------------------------------------------------------------------
+    |
+    | Application codename is an alias for the major version of the sistem
+    */
+
+    'codename' => env('APP_CODENAME', 'Baby'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Version
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'version' => env('APP_VERSION', '1.0'),
 
     /*
     |--------------------------------------------------------------------------
@@ -38,7 +57,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------

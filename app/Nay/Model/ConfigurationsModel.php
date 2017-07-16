@@ -82,5 +82,8 @@ class ConfigurationsModel extends Model
 		return $config->save();
 	}
 
-
+	public static function get()
+	{
+		return self::first();
+	}
 }

@@ -10,9 +10,9 @@ class FrontController extends Controller
 
 	public function __construct()
 	{
-        $this->middleware('auth');
+        //$this->middleware('auth');
 
-        $pluckedRoles = array();
+        /*$pluckedRoles = array();
 
         $photo = null;
 
@@ -32,17 +32,18 @@ class FrontController extends Controller
 
           (is_array($photo) && count($photo)>0)? $photo = $photo[0]: $photo = null;
 
-        }*/
+        }
 
         $data =[ 
-        			'controller'        => (new \ReflectionClass($this))->getShortName(),
-        			'configuracao'      => \App\Nay\Model\ConfigurationsModel::get(),
-        			'userDefiniedRoles' => $pluckedRoles,
-                    'photo'             => $photo,
-                    'usuarioLogado'     => \Auth::user()   
+           			'controller'        => (new \ReflectionClass($this))->getShortName(),
+          			'configuracao'      => \App\Nay\Model\ConfigurationsModel::get(),
+          			'userDefiniedRoles' => $pluckedRoles,
+                'photo'             => $photo,
+                'usuarioLogado'     => \Auth::user(),
+                'usuario'           => \Auth::user()   
         		];
 
-		view()->share($data);
+		    view()->share($data);*/
 	}
 
 }

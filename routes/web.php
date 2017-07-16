@@ -25,3 +25,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('configuration', 'ConfigurationController');
+Route::get('/system', 'ConfigurationController@system');
