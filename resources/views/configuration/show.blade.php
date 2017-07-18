@@ -51,14 +51,13 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-5">
             <div class="form-group">
               <label>Tags</label>
               <select name="tags[]" class="form-control select2-tags" multiple >
-                <option>sistema</option>
-                <option>vendas</option>
-                <option>produtos</option>
-                <option>loja</option>
+              @foreach($object->tags as $t):
+                <option value="{{$t}}" selected="selected">{{$t}}</option>
+              @endforeach
               </select>
             </div>
           </div>
@@ -75,7 +74,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>CNPJ</label>
-              <input id="cnpj" type="text" name="cnpj" value="" class="form-control input-sm up">
+              <input id="cnpj" type="text" name="cnpj" value="{{$object->cnpj}}" value="" class="form-control input-sm up">
             </div>
           </div>
         </div>
@@ -98,12 +97,21 @@
           </div>
         </div>
 
+         <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>PagSeguro API Key</label>
+              <input id="pagseguro_api_key" type="text" name="pagseguro_api_key" value="{{$object->pagseguro_api_key}}" class="form-control input-sm up">
+            </div>
+          </div>
+        </div>
+
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
               <label>Email de Contato do Administrador</label>
               <div class="input-group">
-              <input id="administrator__system_email" type="text" name="administrator__system_email" value="{{$object->administrator__system_email}}" class="form-control input-sm up">
+              <input id="administrator_system_email" type="text" name="administrator_system_email" value="{{$object->administrator_system_email}}" class="form-control input-sm up">
               <div class="input-group-btn">
                   <button type="button" class="btn btn-info input-info" data-text="Esse email deve ser utilizado para que os usuários do sistema entrem em contato com os administradores do sistema "><i class="fa fa-info"></i></button>
                 </div>
@@ -116,6 +124,22 @@
             <div class="form-group">
               <label>Endereço</label>
               <input id="address" type="text" name="address" value="{{$object->address}}" class="form-control input-sm up">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Estado</label>
+              <input id="state_code" type="text" name="state_code" value="{{$object->state_code}}" class="form-control input-sm up">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>País</label>
+              <input id="country_code" type="text" name="country_code" value="{{$object->country_code}}" class="form-control input-sm up">
             </div>
           </div>
         </div>

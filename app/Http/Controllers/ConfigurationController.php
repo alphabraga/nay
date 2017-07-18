@@ -92,6 +92,8 @@ class ConfigurationController extends FrontController
         $config->fantasy_name  = $request->input('fantasy_name');
         $config->social_name   = $request->input('social_name');
         $config->description   = $request->input('description');
+        $config->cnpj          = $request->input('cnpj');
+        $config->administrator_system_email          = $request->input('administrator_system_email');
         $config->tags          = $request->input('tags');
         $config->email         = $request->input('email');
         $config->address       = $request->input('address');
