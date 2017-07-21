@@ -27,4 +27,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('configuration', 'ConfigurationController');
+Route::resource('brands', 'BrandsController');
+
+
 Route::get('/system', 'ConfigurationController@system');

@@ -35,7 +35,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="../../index2.html" class="logo">
+    <a href="/" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>N</b>ay</span>
       <!-- logo for regular state and mobile devices -->
@@ -115,13 +115,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="#" class="user-image" alt="User Image">
+              <img src="/{{$usuario->getPhoto()}}" class="user-image" alt="User Image">
               <span class="hidden-xs">{{$usuario->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="#" class="img-circle" alt="User Image">
+                <img src="/{{$usuario->getPhoto()}}" class="img-circle" alt="User Image">
 
                 <p>
                   {{$usuario->name}} - {{$usuario->email}}
@@ -192,25 +192,25 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery 2.2.3 -->
-<script src="{{URL::to('packages/node_modules/admin-lte/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="{{URL::to('packages/node_modules/admin-lte/bootstrap/js/bootstrap.min.js')}}"></script>
-<!-- SlimScroll -->
-<script src="{{URL::to('packages/node_modules/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
-<!-- FastClick -->
-<script src="{{URL::to('packages/node_modules/admin-lte/plugins/fastclick/fastclick.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{URL::to('packages/node_modules/admin-lte/dist/js/app.min.js')}}"></script>
+@include('includes.scripts')
 
-<script src="{{URL::to('packages/node_modules/bootbox/bootbox.min.js')}}"></script>
+<script type="text/javascript">
 
-<script type="text/javascript" src="{{URL::to('packages/node_modules/admin-lte/plugins/select2/select2.js')}}" ></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{URL::to('packages/node_modules/admin-lte/dist/js/demo.js')}}"></script>
+  /*
+  Url Base da aplicação. Preciso disso pois o JS não consegue me dizer se o app usa
+  uma pasta na raiz do projeto.
+  */   
+  var currentRouteName = '{{explode(".", Route::getCurrentRoute()->getName())[0]}}';
 
-<!-- AdminLTE for demo purposes -->
-<script src="{{URL::to('/js/application.js')}}"></script>
+  var currentBaseUrl   = '{{Url::to('/') . '/' . explode(".", Route::getCurrentRoute()->getName())[0]}}';
+
+  var baseUrl          = '{{Url::to('/')}}';
+
+  var configuracao     = <?php if(isset($configuracao)) echo json_encode($configuracao); else echo "''"; ?>;
+
+  var usuarioLogado    = <?php if(isset($usuarioLogado)) echo json_encode($usuarioLogado); else echo "''";  ?>
+
+</script>
 
 </body>
 </html>

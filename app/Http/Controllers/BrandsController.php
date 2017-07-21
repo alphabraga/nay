@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BrandsController extends Controller
+class BrandsController extends FrontController
 {
+
+    public function __construct()
+    {
+       parent::__construct();
+    }
 
 
     /**
@@ -15,7 +20,27 @@ class BrandsController extends Controller
      */
     public function index()
     {
-    	//
+
+        $grid = [
+                    'header' => [
+                                 ['data' => 'id', 'title' => 'ID'],
+                                 ['data' => 'codigo', 'title' => 'CODIGO'],
+                                 ['data' => 'nome', 'title' => 'NOME'],
+                                 ['data' => 'valor', 'title' => 'Valor'],
+                                 ['data' => 'action', 'title' => 'Ação', 'orderable' => false, 'searchable' => false]  
+                                ]
+                ];
+
+                $data = ['grid' => $grid, 'usuario' => \Auth::user()];        
+
+        return view('brands.index')->with($data);
+    }
+
+    public function search()
+    {
+
+     return \Datatables::of(\App\BrandsModel::select('id', 'name'))->setRowId('id')->make(true);
+
     }
 
     public function system()

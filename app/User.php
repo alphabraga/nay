@@ -22,4 +22,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+
+
+    public function getPhoto()
+    {
+        $photo = 'images/users/' . $this->id . '.jpg';
+
+        $defaultPhoto = 'images/users/user.jpg';
+
+        return \File::exists( public_path($photo))? $photo:$defaultPhoto;
+    }
 }

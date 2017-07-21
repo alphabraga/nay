@@ -5,7 +5,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-           <img src="#" class="img-circle" alt="{{$usuario->name}}">
+           <img src="/{{$usuario->getPhoto()}}" class="img-circle" alt="{{$usuario->name}}">
         </div>
         <div class="pull-left info">
           <p>{{$usuario->name}}</p>
@@ -47,7 +47,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i>Marcas</a></li>
+            <li><a href="{{action('BrandsController@index')}}"><i class="fa fa-circle-o"></i>Marcas</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i>Categorias</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i>Fornecedores</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i>Transportadoras</a></li>

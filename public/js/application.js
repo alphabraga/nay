@@ -37,3 +37,483 @@ $(document).ready(function()
   		tokenSeparators: [',']
 	});
 });
+
+
+
+function showHistory(guiaId)
+{
+        $.ajax(
+        {
+          url: baseUrl+'/guia/'+guiaId+'/history', 
+          success: function(data)
+          { 
+            bootbox.alert(data);
+          }
+        });
+
+}
+
+
+function disableForm(formId)
+{
+    $('form#'+formId+' :input').prop("disabled", true);
+
+    return false;    
+}
+
+
+function padLeft(nr, n, str){
+    return Array(n-String(nr).length+1).join(str||'0')+nr;
+}
+
+function dateDiff(inicio, fim)
+{
+    var hoursDiff = ( new Date("1970-1-1 " + fim) - new Date("1970-1-1 " + inicio) ) / 1000 / 60 / 60; 
+
+    var hora      = Math.abs(hoursDiff);                     
+
+    var minutos   = (hoursDiff % 1) * 60;
+
+    if(!isNaN(hora) || !isNaN(minutos))
+    {
+
+        //descontando hora do almoÃ§o
+        if(hora>4)
+        {
+            hora = hora - 1;
+        }
+
+        var horasMinutos = padLeft(hora, 2) + ':' + padLeft(minutos, 2);
+
+        return horasMinutos;
+    }
+
+}
+
+$(document).ready(function()
+{
+        $('span.user-id').each(function(i,d)
+        {
+            that = $(this);
+
+            $.getJSON(
+            {
+              url: baseUrl+'/getUSername/'+that.data('userid'), 
+              success: function(data)
+              { 
+                that.html(data.name);                      
+              }
+          });
+
+        });
+
+
+        /**
+            Ao clicar na no link de historico da 
+            guia exibir um modal com o hsitorico
+        */
+        $('a.guia-history').on('click', function(e)
+        {
+            e.preventDefault();
+
+            showHistory($(this).data('guiaid'));
+
+            return false;
+
+        });
+
+
+        /**
+            Sempre que o usuario clicar em um link ou botÃ£o
+            que possuir a classe .input-info exibir em um modal
+            o texto do parametro data-text
+        */
+        $('a.input-info,button.input-info').on('click', function(e)
+        {
+            e.preventDefault();
+
+            bootbox.alert($(this).data('text'));            
+        });
+
+
+
+
+        function makeSearch()
+        {
+
+          $('table#modal-table thead tr').empty();
+          $('table#modal-table tbody').empty();
+
+
+
+          $.ajax(
+          {
+              url: baseUrl+'/home/modal?model='+ that.data('model')+'&term='+$('input[name=term]').val(), 
+              success: function(data)
+              { 
+
+                  htmlHeader = '';
+
+                  $(data.header).each(function(i, h)
+                  {
+                    htmlHeader += '<th>'+h+'</th>';                    
+
+                  });
+
+                  $('table#modal-table thead tr').append(htmlHeader);
+
+
+                htmlTableRows = '';
+
+                $.each(data.rows, function(i, d)
+                {
+
+                  var recordId = d.id;  
+
+                  if(that.data('model') == 'pessoa')
+                  {
+
+                    var str      = '' + d.id;
+                    var pad      = '000000';
+                    var recordId = pad.substring(0, pad.length - str.length) + str;
+
+                  }  
+
+                  htmlTableRows = '<tr data-id="'+recordId+'" data-name="'+d.nome+'">';
+
+                  $.each(data.header, function(i, h)
+                  {
+                    htmlTableRows += '<td>'+d[h]+'</td>';
+                  });
+
+
+                   htmlTableRows += '</tr>'; 
+
+                    $("table#modal-table tbody:last-child").append(htmlTableRows);                   
+
+                })
+              }
+          });
+
+
+        }
+
+
+     $('button.modal-link').on('click', function(e)
+      {
+          that = $(this);
+
+          //pegar hidden
+          inputHidden = that.parent().parent().children('input[type=hidden]');
+
+          //pegar input text
+          inputName = that.parent().parent().children('input[type=text]');
+
+
+          makeSearch();
+
+      });
+
+
+      $('form#modal-form').on('submit', function(e)
+      {
+        e.preventDefault();
+
+        makeSearch();
+
+
+      });
+
+$('div#modal-table-body').on('click', 'table#modal-table tbody tr', function(e)
+  {
+    e.preventDefault();
+
+    $('div.modal-header button.close').trigger('click');
+
+
+    inputHidden.val($(this).data('id'));
+    inputName.val($(this).data('name')); 
+  
+  });
+
+
+/*$(document).on('event', '.chosen-select', function(){
+  $(this).chosen();
+});*/
+
+    /*
+        Controla a aparencia do menu
+    */
+    if(localStorage.menuState == 'mini')
+    {
+        $('body').addClass('sidebar-collapse');
+    }
+
+    /*
+        Controla a aparencia do menu
+    */
+    $('a.sidebar-toggle').on('click', function(e)
+    {
+        if(localStorage.menuState == 'mini')
+        {
+            localStorage.menuState = 'normal';            
+        }
+        else if(localStorage.menuState == 'normal')
+        {
+
+            localStorage.menuState = 'mini';               
+        }
+        else
+        {
+            localStorage.menuState = 'normal';
+        }    
+
+    });
+
+
+    $('input#horas').val(dateDiff($('input#trabalho-inicio').val(), $('input#trabalho-fim').val()));
+
+    $('input#trabalho-inicio, input#trabalho-fim').on('keyup', function(e)
+    {
+        if($(this).attr('id') == 'trabalho-inicio')
+        {
+            inicio = $(this).val(); 
+        }
+        else
+        {
+            fim = $(this).val();
+        }
+
+        $('input#horas').val(dateDiff(inicio, fim));
+
+    });
+
+    //iniciando o tooltip
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('a#info').on('click', function(e)
+    {
+        e.preventDefault();
+
+        var info = $('div#info-text').html();
+
+        if(info)
+        {
+            bootbox.alert({title:'<i class="fa fa-info fa-fw"></i>InformaÃ§Ãµes', message:info});            
+        }
+        else
+        {
+            bootbox.alert({title: '<i class="fa fa-info fa-fw"></i>InformaÃ§Ãµes', message:'Ainda nÃ£o existem informaÃ§Ãµes sobre essa tela.'});
+        }    
+
+        return false;
+    });
+
+
+    //$('select.chosen-select').chosen();
+
+    if(currentRouteName != 'home' && currentRouteName.length>0)
+    {
+
+         //Abre o menu na pagina correspondente
+        $('a[href^="'+currentBaseUrl+'"]').parent().parent().parent('li').children('a[href="#"]').trigger('click');
+          
+        $('a[href^="'+currentBaseUrl+'"]').parent('li:first').css('background-color', '#ddd');
+
+    }
+
+    var simpleTable = $('table#data-simple').DataTable( 
+                                { 
+                                    "language": { "url": baseUrl+'/assets/js/datatables-pt-br.json' },
+                                    "bFilter": true,
+                                    'bPaginate':false
+                                } 
+                            ); 
+
+    $('div#table-painel, div.btn-group, table#data').on( 'click', 'a.delete-link', function (e)
+    {
+
+        console.log($(this).html());
+
+        e.preventDefault();
+
+        $that = $(this);
+
+
+        var box = bootbox.prompt('VocÃª tem certeza que deseja excluir o registro selecionado? Informe o motivo da exclusÃ£o.', function(motivo)
+        {
+
+            if(motivo == null){
+
+
+                box.modal('hide');
+
+            }
+
+
+            if((typeof motivo) != 'string' )
+            {   
+                return false;
+            }
+
+
+            if((typeof motivo) == 'string' && motivo.length > 0)
+            {
+                $.ajax(
+                {
+                    url: $that.attr('href'),
+                    type: 'DELETE',
+                    data:{'_token': $that.data('token'), 'motivo_exclusao': motivo}, 
+                    success: function(result)
+                    {
+
+                        if(result.error != null || result.afectedRows == undefined)
+                        {
+                            if(result.error == undefined)
+                            {
+                                bootbox.alert('Aparentemente houve um erro. Entre em contato com o administrador do sistema');
+                            }
+
+                            if(result.error == 2292)
+                            {
+                                bootbox.alert('Esse registro nÃ£o pode ser excluÃ­do, pois existem outros cadastros no sistema que utilizam esse registro (ORA:2292)');
+                            }
+                            else
+                            {
+                                bootbox.alert(result.error);
+                            }
+                        }
+                        else
+                        {
+                            bootbox.alert('Registro excluido com sucesso.\n Um registro excluido');
+
+                            console.log(typeof table); 
+
+                            if(typeof table === 'undefined' || !table)
+                            {
+
+                                //depois de 5 segundos redirecionar par o inicio do modulo
+                                window.setTimeout(function()
+                                {
+                                    window.location = 'http://'+window.location.host +'/' + window.location.pathname.split('/')[1];
+                                },3000);
+
+                            }
+                            else
+                            {
+                                table.row( $that.parents('tr') ).remove().draw();
+
+                                //depois de 3 segundos redirecionar par o inicio do modulo
+                                window.setTimeout(function()
+                                {
+                                    window.location.reload();
+                                },3000);
+
+
+                            }  
+                        }    
+                    }
+                });
+            }
+        });
+    });
+
+         
+  atualizaCampo();
+  
+  upperText();
+  
+  $(".tooltipBtn").tooltip({
+      placement:'top'
+  });
+
+
+
+
+
+
+
+
+
+  //link no tr da tada grid
+  $('table#data').on( 'dblclick', 'tbody tr', function ()
+  {
+    // NÃ£o sei por que mas essa rota nÃ£o tÃ¡ sendo passada para o front end?!!?!    
+    if(currentRouteName == "")
+    {
+        currentRouteName = 'guia';
+    }    
+
+    window.location.href = baseUrl + '/' + currentRouteName + '/' + $(this).attr('id');
+  });
+
+});
+
+//Funcao que faz o texto ficar em uppercase  
+function upperText() {  
+    // Para tratar o colar  
+    jQuery(".up").bind('paste', function(e) {  
+        var el = jQuery(this);  
+        setTimeout(function() {  
+            var text = jQuery(el).val();  
+            el.val(text.toUpperCase());  
+        }, 100);  
+    });  
+
+    // Para tratar quando Ã© digitado  
+    jQuery(".up").keypress(function() {  
+        var el = jQuery(this);  
+        setTimeout(function() {  
+            var text = jQuery(el).val();  
+            el.val(text.toUpperCase());  
+        }, 100);  
+    });  
+}  
+
+function atualizaCampo(){
+    
+    $('.data').datepicker({
+        language: 'pt-BR',
+        pickTime: false,
+        icons: {
+            time: "fa fa-clock-o",
+            date: "fa fa-calendar",
+            up: "fa fa-arrow-up",
+            down: "fa fa-arrow-down"
+        }
+
+    });
+    
+    $('.data-hora').datepicker({
+        language: 'pt-BR',
+        icons: {
+            time: "fa fa-clock-o",
+            date: "fa fa-calendar",
+            up: "fa fa-arrow-up",
+            down: "fa fa-arrow-down"
+        }
+    });
+
+    $('.cnpj').mask("99.999.999/9999-99");
+    $('.cpf').mask("999.999.999-99");
+    
+    $('.data input').mask("99/99/9999");
+    $('.data-hora input').mask("99/99/9999 99:99");
+    $('.hora input').mask("99:99");
+    $('.ano').mask("9999");
+    
+    $(".quantidade").maskMoney({thousands:'', precision:0, allowZero:false});
+    $(".dinheiro").maskMoney({thousands:'', precision:2, allowZero:true});
+    $('.real').maskMoney('destroy');
+    $('.decimal').maskMoney('destroy');
+    
+    $('.real').maskMoney({symbol:"R$", decimal:",", thousands:"."});
+    $('.decimal').maskMoney({symbol:"", decimal:",", thousands:"."});
+    
+    
+    $('input.hora').mask('99:99');
+
+    $('input.numero').mask('9');
+
+    
+}
