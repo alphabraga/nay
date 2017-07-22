@@ -25,7 +25,7 @@ class BrandsController extends FrontController
                     'header' => [
                                  ['data' => 'id', 'title' => 'ID'],
                                  ['data' => 'name', 'title' => 'NOME'],
-                                 //['data' => 'action', 'title' => 'Ação', 'orderable' => false, 'searchable' => false]  
+                                 ['data' => 'action', 'title' => 'Ação', 'orderable' => false, 'searchable' => false]  
                                 ]
                 ];
 
@@ -37,7 +37,21 @@ class BrandsController extends FrontController
     public function search()
     {
 
-        return \Datatables::of(\App\Nay\Model\BrandsModel::select('id', 'name'))->setRowId('id')->make(true);
+        return \Datatables::of(\App\Nay\Model\BrandsModel::select('id', 'name'))
+        ->setRowId('id')
+        ->addColumn('action', function($object)
+        {
+            return '<div id="table-painel" class="btn-group">
+                <a href="' . \URL::to("brands/" . $object->id . "/edit") . '" title="" data-id="' . $object->id . '" class="btn btn-primary btn-xs tooltipBtn edit" data-original-title="Alterar"   title="Editar"  data-toggle="tooltip" data-placement="top">
+                    <i class="fa fa-pencil"></i>
+                </a>
+              <a href="' . \URL::to("brands/" . $object->id) . '" title="" data-id="' . $object->id . '" data-token="' . csrf_token() . '" class="btn btn-danger btn-xs tooltipBtn delete-link" data-original-title="Excluir"   title="Excluir"  data-toggle="tooltip" data-placement="top">
+                    <i class="fa fa-times "></i>
+                </a>
+            </div>';
+
+        })
+        ->make(true);
     }
 
     public function system()
@@ -74,7 +88,24 @@ class BrandsController extends FrontController
      */
     public function show($id)
     {
-    	//
+
+         $object  = \App\Nay\Model\BrandsModel::find($id);
+
+        if($object === null)
+        {
+            \Session::flash('flash_message','Não encontramos informação desejada');
+
+            return $this->index();            
+        }    
+
+        $data = [
+                    'object'  => $object,
+                    'showMode'=> true,
+                    'usuario' => \Auth::user()
+                ];
+
+        return view('brands.update')->with($data);
+
     }
 
     /**
@@ -85,7 +116,9 @@ class BrandsController extends FrontController
      */
     public function edit($id)
     {
-    	//
+        $object = \App\Nay\Model\BrandsModel::find($id);
+
+        return view('brands.update')->with(['object' => $object, 'usuario' => \Auth::user()]);
     }
 
     /**
@@ -97,7 +130,13 @@ class BrandsController extends FrontController
      */
     public function update(Request $request, $id)
     {
-    	//
+         $object = \App\Nay\Model\BrandsModel::find($id);
+
+                $this->validate($request, [ 'name' => 'required|unique:brands,name,' . $object->id]);
+
+                $object->update($request->all());
+
+                return redirect('brands/' . $object->id);
     }
 
     /**
