@@ -24,14 +24,12 @@ class BrandsController extends FrontController
         $grid = [
                     'header' => [
                                  ['data' => 'id', 'title' => 'ID'],
-                                 ['data' => 'codigo', 'title' => 'CODIGO'],
-                                 ['data' => 'nome', 'title' => 'NOME'],
-                                 ['data' => 'valor', 'title' => 'Valor'],
-                                 ['data' => 'action', 'title' => 'Ação', 'orderable' => false, 'searchable' => false]  
+                                 ['data' => 'name', 'title' => 'NOME'],
+                                 //['data' => 'action', 'title' => 'Ação', 'orderable' => false, 'searchable' => false]  
                                 ]
                 ];
 
-                $data = ['grid' => $grid, 'usuario' => \Auth::user()];        
+        $data = ['grid' => $grid, 'usuario' => \Auth::user()];        
 
         return view('brands.index')->with($data);
     }
@@ -39,8 +37,7 @@ class BrandsController extends FrontController
     public function search()
     {
 
-     return \Datatables::of(\App\BrandsModel::select('id', 'name'))->setRowId('id')->make(true);
-
+        return \Datatables::of(\App\Nay\Model\BrandsModel::select('id', 'name'))->setRowId('id')->make(true);
     }
 
     public function system()

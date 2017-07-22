@@ -10,6 +10,22 @@ bootbox@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/bootbox/-/bootbox-4.4.0.tgz#ff7f898fb87d4527e547feb64158f88450d1a0c9"
 
+bootstrap-datepicker@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/bootstrap-datepicker/-/bootstrap-datepicker-1.7.1.tgz#4ee7faf34888dbec7834fbf9dbe7c4277e01ddaf"
+  dependencies:
+    jquery ">=1.7.1 <4.0.0"
+
+jquery-maskmoney@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/jquery-maskmoney/-/jquery-maskmoney-3.0.2.tgz#f18de4f06b8c66ad97cae8b320571c936ac637b7"
+  dependencies:
+    jquery ">=1.6"
+
 jquery.maskedinput@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/jquery.maskedinput/-/jquery.maskedinput-1.4.1.tgz#3ea8f4cdc4eafce7354c27b66a73d0f44defc327"
+
+jquery@>=1.6, "jquery@>=1.7.1 <4.0.0":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
