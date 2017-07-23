@@ -1,8 +1,15 @@
-table#configuration-table tr td{
+table#data tbody tr{
+
+	cursor: pointer;
+}
+
+table#configuration-table tr td
+{
 
 	font-size: 8px;
 }
 
-div#info-text{ 
+div#info-text
+{ 
 	display: none;  
 }

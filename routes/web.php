@@ -31,3 +31,8 @@ Route::resource('brands', 'BrandsController');
 Route::get('brandsSearch', 'BrandsController@search');
 
 Route::get('/system', 'ConfigurationController@system');
+
+
+Route::resource('users', 'UsersController');
+
+Route::get('perfil', 'UsersController@profile');

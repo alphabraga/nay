@@ -436,7 +436,7 @@ $('div#modal-table-body').on('click', 'table#modal-table tbody tr', function(e)
 
 
   //link no tr da tada grid
-  $('table#data').on( 'dblclick', 'tbody tr', function ()
+  $('table#data').on( 'click', 'tbody tr', function ()
   {
     // NÃ£o sei por que mas essa rota nÃ£o tÃ¡ sendo passada para o front end?!!?!    
     if(currentRouteName == "")
