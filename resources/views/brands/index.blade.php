@@ -14,6 +14,9 @@
     <div class="box">
       <!-- /.box-header -->
       <div class="box-body">
+
+        <a class="btn btn-info" href="{{URL::to('/brands/create')}}"> <i class="fa fa-plus-o fa-fw"></i> Nova Marca</a>
+
         {{-- @include('includes.menu') --}}
         <div class="ui-datatable ui-widget">
           @include('grid.comon')

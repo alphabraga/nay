@@ -66,7 +66,7 @@ class BrandsController extends FrontController
      */
     public function create()
     {
-        //
+        return view('brands.create')->with('usuario', \Auth::user());
     }
 
     /**
@@ -77,7 +77,17 @@ class BrandsController extends FrontController
      */
     public function store(Request $request)
     {
-        //
+
+        $brand = new \App\Nay\Model\BrandsModel();
+
+        $brand->name        = $request->input('name');
+        $brand->description = $request->input('description');
+        $brand->tags        = $request->input('tags');
+        $brand->slug        = str_slug($request->input('name'));
+
+        $brand->save();
+
+        return redirect('brands/' . $brand->id);
     }
 
     /**
@@ -130,13 +140,18 @@ class BrandsController extends FrontController
      */
     public function update(Request $request, $id)
     {
-         $object = \App\Nay\Model\BrandsModel::find($id);
+        $object = \App\Nay\Model\BrandsModel::find($id);
 
-                $this->validate($request, [ 'name' => 'required|unique:brands,name,' . $object->id]);
+        $this->validate($request, [ 'name' => 'required|unique:brands,name,' . $object->id]);
 
-                $object->update($request->all());
+        $object->name        = $request->input('name');
+        $object->description = $request->input('description');
+        $object->tags        = $request->input('tags');
+        $object->slug        = str_slug($request->input('name'));
 
-                return redirect('brands/' . $object->id);
+        $object->save();
+
+        return redirect('brands/' . $object->id);
     }
 
     /**
