@@ -27,12 +27,30 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('configuration', 'ConfigurationController');
+
+Route::resource('products', 'ProductsController');
+Route::get('productsSearch', 'ProductsController@search');
+
 Route::resource('brands', 'BrandsController');
 Route::get('brandsSearch', 'BrandsController@search');
+
+Route::resource('categories', 'CategoriesController');
+Route::get('categoriesSearch', 'CategoriesController@search');
+
+Route::resource('providers', 'ProvidersController');
+Route::get('providersSearch', 'ProvidersController@search');
+
+Route::resource('shippingcompany', 'ShippingCompanyController');
+Route::get('shippingcompanySearch', 'ShippingCompanyController@search');
+
+Route::resource('orders', 'OrdersController');
+Route::get('ordersSearch', 'OrdersController@search');
+
+Route::resource('users', 'UsersController');
+Route::get('usersSearch', 'UsersController@seacrh');
 
 Route::get('/system', 'ConfigurationController@system');
 
 
-Route::resource('users', 'UsersController');
 
 Route::get('perfil', 'UsersController@profile');

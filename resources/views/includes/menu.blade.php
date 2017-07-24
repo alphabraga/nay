@@ -48,10 +48,10 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{action('BrandsController@index')}}"><i class="fa fa-circle-o"></i>Marcas</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>Categorias</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>Fornecedores</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>Transportadoras</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i>Produtos</a></li>
+            <li><a href="{{action('CategoriesController@index')}}"><i class="fa fa-circle-o"></i>Categorias</a></li>
+            <li><a href="{{action('ProvidersController@index')}}"><i class="fa fa-circle-o"></i>Fornecedores</a></li>
+            <li><a href="{{action('ShippingCompanyController@index')}}"><i class="fa fa-circle-o"></i>Transportadoras</a></li>
+            <li><a href="{{action('ProductsController@index')}}"><i class="fa fa-circle-o"></i>Produtos</a></li>
           </ul>
         </li>
         <li class="treeview">
