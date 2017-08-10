@@ -29,7 +29,7 @@ class BrandsController extends FrontController
                                 ]
                 ];
 
-        $data = ['grid' => $grid, 'usuario' => \Auth::user()];        
+        $data = [ 'currentRouteName' => 'brands', 'grid' => $grid, 'usuario' => \Auth::user()];        
 
         return view('brands.index')->with($data);
     }
@@ -66,7 +66,10 @@ class BrandsController extends FrontController
      */
     public function create()
     {
-        return view('brands.create')->with('usuario', \Auth::user());
+
+        $data = ['usuario' => \Auth::user() , 'currentRouteName' => 'brands'];
+
+        return view('brands.create')->with($data);
     }
 
     /**

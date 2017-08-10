@@ -14,7 +14,7 @@
   <div class="box">
     <!-- /.box-header -->
     <div class="box-body">
-      {{-- @include('includes.painel') --}}
+      @include('includes.menu-cadastro')
       <form id="update" name="update" method="post" action="{{action('BrandsController@store')}}" >
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <input type="hidden" name="_method" value="POST" />
