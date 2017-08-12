@@ -22,6 +22,6 @@ class HomeController extends FrontController
 
     public function index()
     {
-        return view('home')->with(['usuario' => \Auth::user()]);
+        return view('home');
     }
 }

@@ -10,18 +10,18 @@ class FrontController extends Controller
 
 	public function __construct()
 	{
-        $this->middleware('auth');
+    $this->middleware(function ($request, $next)
+    {
 
-        $pluckedRoles = array();
+      view()->share('controller',  (new \ReflectionClass($this))->getShortName());
+      view()->share('configuracao', \App\Nay\Model\ConfigurationsModel::get());
+      view()->share('userDefiniedRoles', null);
+      view()->share('photo',          null);
+      view()->share('usuarioLogado', \Auth::user());
+      view()->share('usuario', \Auth::user());   
 
-        $data =[ 
-           			'controller'        => (new \ReflectionClass($this))->getShortName(),
-          			'configuracao'      => \App\Nay\Model\ConfigurationsModel::get(),
-          			'userDefiniedRoles' => $pluckedRoles,
-                'usuario'           => \Auth::user()   
-        		];
+      return $next($request);
 
-		    view()->share($data);
+    });
 	}
-
 }
