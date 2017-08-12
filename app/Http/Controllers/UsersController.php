@@ -41,7 +41,7 @@ class UsersController extends FrontController
 
     public function profile()
     {
-      return view('users.profile')->with(['object' => \Auth::user(), 'usuario' => \Auth::user()]);
+      return view('users.profile')->with(['object' => \Auth::user());
     }
 
     public function search()
@@ -153,10 +153,6 @@ class UsersController extends FrontController
         $user->desconto    = $request->input('desconto');
 
         $user->save();
-
-        //atualizar tabela de consistencia de ids de usuarios do odonto
-        //com id's das entidades do RM
-        \Artisan::call('odonto:consistencia');
 
         return redirect('/usuario/' . $id);
     }

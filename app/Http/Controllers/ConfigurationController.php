@@ -59,7 +59,7 @@ class ConfigurationController extends FrontController
     {
     	$configuration = \App\Nay\Model\ConfigurationsModel::get();
 
-    	return view('configuration.show')->with(['object' => $configuration, 'usuario' => \Auth::user()]);
+    	return view('configuration.show')->with(['object' => $configuration]);
     }
 
     /**
@@ -85,8 +85,6 @@ class ConfigurationController extends FrontController
     public function update(Request $request, $id)
     {
     	$config = \App\Nay\Model\ConfigurationsModel::get();
-
-        //dd($request->all());
 
         $config->system_name   = $request->input('system_name');
         $config->fantasy_name  = $request->input('fantasy_name');

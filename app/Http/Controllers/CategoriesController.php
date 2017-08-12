@@ -27,11 +27,9 @@ class CategoriesController extends FrontController
                                  ['data' => 'name', 'title' => 'NOME'],
                                  ['data' => 'action', 'title' => 'Ação', 'orderable' => false, 'searchable' => false]  
                                 ]
-                ];
+                ];        
 
-        $data = ['grid' => $grid, 'usuario' => \Auth::user()];        
-
-        return view('categories.index')->with($data);
+        return view('categories.index')->with('grid', $grid);
     }
 
     public function search()
@@ -61,7 +59,7 @@ class CategoriesController extends FrontController
      */
     public function create()
     {
-        return view('categories.create')->with('usuario', \Auth::user());
+        return view('categories.create');
     }
 
     /**
@@ -105,8 +103,7 @@ class CategoriesController extends FrontController
 
         $data = [
                     'object'  => $object,
-                    'showMode'=> true,
-                    'usuario' => \Auth::user()
+                    'showMode'=> true
                 ];
 
         return view('categories.update')->with($data);
@@ -123,7 +120,7 @@ class CategoriesController extends FrontController
     {
         $object = \App\Nay\Model\BrandsModel::find($id);
 
-        return view('categories.update')->with(['object' => $object, 'usuario' => \Auth::user()]);
+        return view('categories.update')->with(['object' => $object);
     }
 
     /**

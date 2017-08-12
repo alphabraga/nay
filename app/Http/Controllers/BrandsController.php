@@ -29,9 +29,7 @@ class BrandsController extends FrontController
                                 ]
                 ];
 
-        $data = [ 'currentRouteName' => 'brands', 'grid' => $grid, 'usuario' => \Auth::user()];        
-
-        return view('brands.index')->with($data);
+       return view('brands.index')->with('grid', $grid);
     }
 
     public function search()
@@ -67,9 +65,7 @@ class BrandsController extends FrontController
     public function create()
     {
 
-        $data = ['usuario' => \Auth::user() , 'currentRouteName' => 'brands'];
-
-        return view('brands.create')->with($data);
+        return view('brands.create');
     }
 
     /**
@@ -113,8 +109,7 @@ class BrandsController extends FrontController
 
         $data = [
                     'object'  => $object,
-                    'showMode'=> true,
-                    'usuario' => \Auth::user()
+                    'showMode'=> true
                 ];
 
         return view('brands.update')->with($data);
@@ -131,7 +126,7 @@ class BrandsController extends FrontController
     {
         $object = \App\Nay\Model\BrandsModel::find($id);
 
-        return view('brands.update')->with(['object' => $object, 'usuario' => \Auth::user()]);
+        return view('brands.update')->with(['object' => $object]);
     }
 
     /**
