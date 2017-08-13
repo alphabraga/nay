@@ -1,6 +1,9 @@
 $(document).ready(function()
 {
 
+
+
+
 	$('button.input-info').on('click', function(e)
 	{
 		e.preventDefault();
@@ -34,7 +37,7 @@ $(document).ready(function()
     $('.select2-tags').select2({
 		
 		tags: true,
-  		tokenSeparators: [',']
+  		tokenSeparators: [',', ' ','    ']
 	});
 });
 
@@ -340,7 +343,7 @@ $('div#modal-table-body').on('click', 'table#modal-table tbody tr', function(e)
         $that = $(this);
 
 
-        var box = bootbox.prompt('VocÃª tem certeza que deseja excluir o registro selecionado? Informe o motivo da exclusÃ£o.', function(motivo)
+        var box = bootbox.prompt('Você tem certeza que deseja excluir o registro selecionado? Informe o motivo da exclusão.', function(motivo)
         {
 
             if(motivo == null){
