@@ -1,11 +1,11 @@
 @extends('layouts.main')
-@section('title', 'Transportadoras')
+@section('title', 'Produtos')
 @section('content')
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1><i class="fa fa-square fa-fw"></i>Transportadoras <small>Listagem</small></h1>
+    <h1><i class="fa fa-square fa-fw"></i>Produtos <small>Listagem</small></h1>
     <ol class="breadcrumb">
-      <li><a href="{{action('ShippingCompanyController@index')}}"><i class="fa fa-square fa-fw"></i>Transportadoras</a></li>
+      <li><a href="{{action('ProductsController@index')}}"><i class="fa fa-square fa-fw"></i>Produtos</a></li>
       <li class="active">Listagem</li>
     </ol>
   </section>
@@ -15,9 +15,7 @@
       <!-- /.box-header -->
       <div class="box-body">
 
-        <a class="btn btn-info" href="{{URL::to('/shippingcompany/create')}}"> <i class="fa fa-plus-o fa-fw"></i> Nova Transportadora</a>
-
-        {{-- @include('includes.menu') --}}
+        <a class="btn btn-info" href="{{URL::to('/products/create')}}"> <i class="fa fa-plus-o fa-fw"></i> Novo Produto</a>
         <div class="ui-datatable ui-widget">
           @include('grid.comon')
         </div>
@@ -25,7 +23,7 @@
       <!-- /.box-body -->
     </div>
     <div id="info-text">
-	  <p>Nessa tela você controla as Transportadoras do sistema</p>
+	  <p>Nessa tela você controla as Produtos do sistema</p>
     </div>
   </section>
   <!-- /.content -->

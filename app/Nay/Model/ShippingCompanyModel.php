@@ -9,7 +9,7 @@ use App\Nay\Model\BaseModel;
 class ShippingCompanyModel extends BaseModel
 {
 
-	use SoftDeletes;
+	use \Illuminate\Database\Eloquent\SoftDeletes;
 
 	protected $table = 'shipping_company';
 
@@ -28,5 +28,6 @@ class ShippingCompanyModel extends BaseModel
 
 	public $timestamps = true;
 
+	protected $casts = ['tags' => 'array'];
 
 }

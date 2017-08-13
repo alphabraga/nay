@@ -1,22 +1,21 @@
 @extends('layouts.main')
-@section('title', 'Fornecedores')
+@section('title', 'Produtos')
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1><i class="fa fa-square fa-fw"></i>Fornecedores <small>Atualização</small></h1>
+  <h1><i class="fa fa-square fa-fw"></i>Produtos <small>Atualização</small></h1>
   <ol class="breadcrumb">
-    <li><a href="{{action('ShippingCompanyController@index')}}"><i class="fa fa-square fa-fw"></i> Fornecedores</a></li>
+    <li><a href="{{action('ProductsController@index')}}"><i class="fa fa-square fa-fw"></i> Produtos</a></li>
     <li class="active">Atualização</li>
   </ol>
 </section>
-
 <!-- Main content -->
 <section class="content">
   <div class="box">
     <!-- /.box-header -->
     <div class="box-body">
       @include('includes.painel')
-      <form id="update" name="update" method="post" action="{{action('ShippingCompanyController@update', [$object->id])}}" >
+      <form id="update" name="update" method="post" action="{{action('ProductsController@update', [$object->id])}}" >
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <input type="hidden" name="_method" value="PATCH" />
         <div class="row">
@@ -57,10 +56,31 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>quantity_limit</label> 
+                <input id="quantity_limit" type="text" name="quantity_limit" value="{{$object->quantity_limit}}" class="form-control input-sm quantity_limit">
+            </div>
+          </div>
+        </div>
+      <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>quantity</label> 
+                <input id="quantity" type="text" name="quantity" value="{{$object->quantity}}" class="form-control input-sm quantity">
+            </div>
+          </div>
+        </div>
 
-      
-
-
+      <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>price</label> 
+                <input id="price" type="text" name="price" value="{{$object->price}}" class="form-control input-sm price">
+            </div>
+          </div>
+        </div>
         @include('includes.formbutons')
       </form>
       
@@ -69,7 +89,7 @@
   </div>
   @include('includes.timestamp')
   <div id="info-text">
-    <p>O cadastro das Fornecedores no sistema tem como o objetivo o controle de todos os funcionarios das mesmas que serão cadatrados no sistema.</p>
+    <p>O cadastro das Produtos no sistema tem como o objetivo o controle de todos os funcionarios das mesmas que serão cadatrados no sistema.</p>
   </div>
 </section>
 <!-- /.content -->
