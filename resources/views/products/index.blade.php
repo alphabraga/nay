@@ -15,7 +15,7 @@
       <!-- /.box-header -->
       <div class="box-body">
 
-        <a class="btn btn-info" href="{{URL::to('/products/create')}}"> <i class="fa fa-plus-o fa-fw"></i> Novo Produto</a>
+        @include('includes.menu-basico')
         <div class="ui-datatable ui-widget">
           @include('grid.comon')
         </div>

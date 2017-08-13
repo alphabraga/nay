@@ -21,8 +21,7 @@
     
     var table = $('table#data').DataTable(
     {
-            "dom": 'Bfltip',
-            //"language": { "url": baseUrl+'/assets/js/datatables-pt-br.json' },
+            "language": { "url": '//cdn.datatables.net/plug-ins/1.10.15/i18n/Portuguese-Brasil.json' },
             "buttons": [ 
                             { extend: 'copyHtml5', className: 'btn btn-default', text: '<i class="fa fa-files-o"></i>', titleAttr: 'Copiar' }, 
                             { extend: 'excelHtml5', className: 'btn btn-default', text: '<i class="fa fa-file-excel-o"></i>', titleAttr: 'Excel' }, 

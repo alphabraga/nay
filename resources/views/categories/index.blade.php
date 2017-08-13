@@ -15,7 +15,7 @@
       <!-- /.box-header -->
       <div class="box-body">
 
-        <a class="btn btn-info" href="{{URL::to('/categories/create')}}"> <i class="fa fa-plus-o fa-fw"></i> Nova Categoria</a>
+        @include('includes.menu-basico')
 
         {{-- @include('includes.menu') --}}
         <div class="ui-datatable ui-widget">

@@ -13,8 +13,10 @@ class FrontController extends Controller
     $this->middleware(function ($request, $next)
     {
 
+      $routes = \Route::getCurrentRoute()->getName();
+
       view()->share('controller',  (new \ReflectionClass($this))->getShortName());
-      view()->share('currentRouteName',  (new \ReflectionClass($this))->getShortName());
+      view()->share('currentRouteName',  explode('.', $routes)[0]);
       view()->share('configuracao', \App\Nay\Model\ConfigurationsModel::get());
       view()->share('userDefiniedRoles', null);
       view()->share('photo',          null);
