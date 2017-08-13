@@ -71,16 +71,17 @@ class CategoriesController extends FrontController
     public function store(Request $request)
     {
 
-        $brand = new \App\Nay\Model\BrandsModel();
+        $c = new \App\Nay\Model\CategoriesModel();
 
-        $brand->name        = $request->input('name');
-        $brand->description = $request->input('description');
-        $brand->tags        = $request->input('tags');
-        $brand->slug        = str_slug($request->input('name'));
+        $c->name        = $request->input('name');
+        $c->description = $request->input('description');
+        $c->tags        = $request->input('tags');
+        $c->slug        = str_slug($request->input('name'));
+        $c->level       = $request->input('level', 1);
 
-        $brand->save();
+        $c->save();
 
-        return redirect('categories/' . $brand->id);
+        return redirect('categories/' . $c->id);
     }
 
     /**
@@ -92,7 +93,7 @@ class CategoriesController extends FrontController
     public function show($id)
     {
 
-         $object  = \App\Nay\Model\BrandsModel::find($id);
+         $object  = \App\Nay\Model\CategoriesModel::find($id);
 
         if($object === null)
         {
@@ -120,7 +121,7 @@ class CategoriesController extends FrontController
     {
         $object = \App\Nay\Model\BrandsModel::find($id);
 
-        return view('categories.update')->with(['object' => $object);
+        return view('categories.update')->with(['object' => $object]);
     }
 
     /**
@@ -132,7 +133,7 @@ class CategoriesController extends FrontController
      */
     public function update(Request $request, $id)
     {
-        $object = \App\Nay\Model\BrandsModel::find($id);
+        $object = \App\Nay\Model\CategoriesModel::find($id);
 
         $this->validate($request, [ 'name' => 'required|unique:brands,name,' . $object->id]);
 
@@ -140,6 +141,7 @@ class CategoriesController extends FrontController
         $object->description = $request->input('description');
         $object->tags        = $request->input('tags');
         $object->slug        = str_slug($request->input('name'));
+        $object->level       = $request->input('level', 1);
 
         $object->save();
 

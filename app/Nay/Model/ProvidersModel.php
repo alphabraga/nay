@@ -9,7 +9,7 @@ use App\Nay\Model\BaseModel;
 class ProvidersModel extends BaseModel
 {
 
-	use SoftDeletes;
+	use \Illuminate\Database\Eloquent\SoftDeletes;
 
 	protected $table = 'providers';
 
@@ -27,7 +27,7 @@ class ProvidersModel extends BaseModel
 							'phone',
 							'cellphone',
 							'email',
-							'site'
+							'site',
 							'deleted_by',
 							'deleted_at'
 						];
@@ -36,5 +36,5 @@ class ProvidersModel extends BaseModel
 
 	public $timestamps = true;
 
-
+	protected $casts = ['tags' => 'array'];
 }

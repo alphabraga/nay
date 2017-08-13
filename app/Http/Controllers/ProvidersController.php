@@ -4,8 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProvidersController extends Controller
+class ProvidersController extends FrontController
 {
+
+
+    public function __construct()
+    {
+       parent::__construct();
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -13,8 +21,38 @@ class ProvidersController extends Controller
      */
     public function index()
     {
-        //
+        $grid = [
+                    'header' => [
+                                 ['data' => 'id', 'title' => 'ID'],
+                                 ['data' => 'name', 'title' => 'NOME'],
+                                 ['data' => 'phone', 'title' => 'TELEFONE'],
+                                 ['data' => 'action', 'title' => 'Ação', 'orderable' => false, 'searchable' => false]  
+                                ]
+                ];        
+
+        return view('providers.index')->with('grid', $grid);
     }
+
+    public function search()
+    {
+
+        return \Datatables::of(\App\Nay\Model\ProvidersModel::select('id', 'name', 'phone'))
+        ->setRowId('id')
+        ->addColumn('action', function($object)
+        {
+            return '<div id="table-painel" class="btn-group">
+                <a href="' . \URL::to("providers/" . $object->id . "/edit") . '" title="" data-id="' . $object->id . '" class="btn btn-primary btn-xs tooltipBtn edit" data-original-title="Alterar"   title="Editar"  data-toggle="tooltip" data-placement="top">
+                    <i class="fa fa-pencil"></i>
+                </a>
+              <a href="' . \URL::to("providers/" . $object->id) . '" title="" data-id="' . $object->id . '" data-token="' . csrf_token() . '" class="btn btn-danger btn-xs tooltipBtn delete-link" data-original-title="Excluir"   title="Excluir"  data-toggle="tooltip" data-placement="top">
+                    <i class="fa fa-times "></i>
+                </a>
+            </div>';
+
+        })
+        ->make(true);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -23,7 +61,7 @@ class ProvidersController extends Controller
      */
     public function create()
     {
-        //
+        return view('providers.create');
     }
 
     /**
@@ -34,7 +72,25 @@ class ProvidersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $object = new \App\Nay\Model\ProvidersModel();
+
+        $object->name               = $request->input('name');
+        $object->description        = $request->input('description');
+        $object->tags               = $request->input('tags');
+        $object->slug               = str_slug($request->input('name'));
+        $object->personal_contact   = $request->input('personal_contact');
+        $object->postal_code        = $request->input('postal_code');
+        $object->address            = $request->input('address');
+        $object->address_number     = $request->input('address_number');
+        $object->address_complement = $request->input('address_complement');
+        $object->phone              = $request->input('phone');
+        $object->cellphone          = $request->input('cellphone');
+        $object->email              = $request->input('email');
+        $object->site               = $request->input('site');
+
+        $object->save();
+
+        return redirect('providers/' . $object->id);
     }
 
     /**
@@ -45,7 +101,14 @@ class ProvidersController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $data = [
+                    'object' => \App\Nay\Model\ProvidersModel::find($id),
+                    'showMode' => true
+
+                ];
+
+        return view('providers.update')->with($data);
     }
 
     /**
@@ -56,7 +119,13 @@ class ProvidersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+                    'object' => \App\Nay\Model\ProvidersModel::find($id),
+                    'showMode' => false
+
+                ];
+
+        return view('providers.update')->with($data);
     }
 
     /**
@@ -68,7 +137,27 @@ class ProvidersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $object = \App\Nay\Model\ProvidersModel::find($id);
+
+        $this->validate($request, [ 'name' => 'required|unique:brands,name,' . $object->id]);
+
+        $object->name               = $request->input('name');
+        $object->description        = $request->input('description');
+        $object->tags               = $request->input('tags');
+        $object->slug               = str_slug($request->input('name'));
+        $object->personal_contact   = $request->input('personal_contact');
+        $object->postal_code        = $request->input('postal_code');
+        $object->address            = $request->input('address');
+        $object->address_number     = $request->input('address_number');
+        $object->address_complement = $request->input('address_complement');
+        $object->phone              = $request->input('phone');
+        $object->cellphone          = $request->input('cellphone');
+        $object->email              = $request->input('email');
+        $object->site               = $request->input('site');
+
+        $object->save();
+
+        return redirect('providers/' . $object->id);
     }
 
     /**
