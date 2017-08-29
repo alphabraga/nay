@@ -59,7 +59,9 @@ class CategoriesController extends FrontController
      */
     public function create()
     {
-        return view('categories.create');
+        $categories = \App\Nay\Model\CategoriesModel::all();
+
+        return view('categories.create')->with('categories', $categories);
     }
 
     /**
@@ -78,6 +80,7 @@ class CategoriesController extends FrontController
         $c->tags        = $request->input('tags');
         $c->slug        = str_slug($request->input('name'));
         $c->level       = $request->input('level', 1);
+        $c->category_id = $request->input('category_id');
 
         $c->save();
 
@@ -102,8 +105,11 @@ class CategoriesController extends FrontController
             return $this->index();            
         }    
 
+        $categories = \App\Nay\Model\CategoriesModel::all();
+
         $data = [
                     'object'  => $object,
+                    'categories' => $categories,
                     'showMode'=> true
                 ];
 
@@ -119,9 +125,11 @@ class CategoriesController extends FrontController
      */
     public function edit($id)
     {
-        $object = \App\Nay\Model\BrandsModel::find($id);
+        $object = \App\Nay\Model\CategoriesModel::find($id);
 
-        return view('categories.update')->with(['object' => $object]);
+        $categories = \App\Nay\Model\CategoriesModel::all();
+
+        return view('categories.update')->with(['object' => $object, 'categories' => $categories]);
     }
 
     /**
@@ -142,6 +150,7 @@ class CategoriesController extends FrontController
         $object->tags        = $request->input('tags');
         $object->slug        = str_slug($request->input('name'));
         $object->level       = $request->input('level', 1);
+        $object->category_id = $request->input('category_id');
 
         $object->save();
 

@@ -59,7 +59,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>quantity_limit</label> 
+              <label>Quantidade Limite</label> 
                 <input id="quantity_limit" type="text" name="quantity_limit" value="{{$object->quantity_limit}}" class="form-control input-sm quantity_limit">
             </div>
           </div>
@@ -67,7 +67,7 @@
       <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>quantity</label> 
+              <label>Quantidade</label> 
                 <input id="quantity" type="text" name="quantity" value="{{$object->quantity}}" class="form-control input-sm quantity">
             </div>
           </div>
@@ -76,7 +76,7 @@
       <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>price</label> 
+              <label>Preço</label> 
                 <input id="price" type="text" name="price" value="{{$object->price}}" class="form-control input-sm price">
             </div>
           </div>
@@ -89,7 +89,7 @@
   </div>
   @include('includes.timestamp')
   <div id="info-text">
-    <p>O cadastro das Produtos no sistema tem como o objetivo o controle de todos os funcionarios das mesmas que serão cadatrados no sistema.</p>
+    <p>O cadastro dos Produtos no sistema tem como o objetivo o controle dos mesmos que serão cadatrados no sistema.</p>
   </div>
 </section>
 <!-- /.content -->

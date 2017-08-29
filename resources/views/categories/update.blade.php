@@ -15,7 +15,7 @@
     <!-- /.box-header -->
     <div class="box-body">
       @include('includes.painel')
-      <form id="update" name="update" method="post" action="{{action('BrandsController@update', [$object->id])}}" >
+      <form id="update" name="update" method="post" action="{{action('CategoriesController@update', [$object->id])}}" >
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <input type="hidden" name="_method" value="PATCH" />
         <div class="row">
@@ -55,6 +55,20 @@
                 <option value="{{$t}}" selected="selected">{{$t}}</option>
               @endforeach  
               </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Categpria Mãe</label> <br>
+                <select id="category_id" name="category_id" class="form-control input-sm select2" required="required">
+                  <option value="">EScolha uma Categoria...</option>
+                  @foreach($categories as $c)
+                    <option value="{{$c->id}}" @if($object->category_id == $c->id) selected="selected" @endif>{{$c->name}}</option>
+                  @endforeach
+                </select>
             </div>
           </div>
         </div>

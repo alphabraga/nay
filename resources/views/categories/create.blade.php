@@ -65,6 +65,19 @@
           </div>
         </div>
 
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Categpria Mãe</label> <br>
+                <select id="category_id" name="category_id" class="form-control input-sm select2" required="required">
+                  @foreach($categories as $c)
+                    <option value="{{$c->id}}">{{$c->name}}</option>
+                  @endforeach
+                </select>
+            </div>
+          </div>
+        </div>
+
         @include('includes.formbutons')
       </form>
       

@@ -18,7 +18,8 @@ class CategoriesModel extends BaseModel
 							'id', 
 							'name', 
 							'description', 
-							'level', 
+							'level',
+							'category_id', 
 							'created_by', 
 							'updated_by',
 							'deleted_by',
@@ -30,5 +31,17 @@ class CategoriesModel extends BaseModel
 	public $timestamps = true;
 
 	protected $casts = ['tags' => 'array'];
+
+    public function categoryParent()
+    {
+		return $this->belongsTo('App\Nay\Model\CategoriesModel', 'category_id');
+    }
+
+
+
+    public function categoryChilds()
+    {
+        return $this->hasMany('App\Nay\Model\CategoriesModel', 'category_id', 'id');
+    }
 
 }
