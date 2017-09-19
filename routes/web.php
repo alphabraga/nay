@@ -47,7 +47,7 @@ Route::resource('orders', 'OrdersController');
 Route::get('ordersSearch', 'OrdersController@search');
 
 Route::resource('users', 'UsersController');
-Route::get('usersSearch', 'UsersController@seacrh');
+Route::get('usersSearch', 'UsersController@search');
 
 Route::get('/system', 'ConfigurationController@system');
 

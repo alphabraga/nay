@@ -34,14 +34,14 @@ class UsersController extends FrontController
         $data = ['grid' => $grid];
 
 
-        return view('usuario.index')->with($data);
+        return view('users.index')->with($data);
 
 
     }
 
     public function profile()
     {
-      return view('users.profile')->with(['object' => \Auth::user());
+      return view('users.profile')->with(['object' => \Auth::user()]);
     }
 
     public function search()
@@ -60,7 +60,7 @@ class UsersController extends FrontController
     {
         $entidades = \App\EntidadeodontologicaModel::all();
 
-        return view('usuario.create')->with('entidades', $entidades);
+        return view('users.create')->with('entidades', $entidades);
     }
 
     /**
@@ -120,7 +120,7 @@ class UsersController extends FrontController
                     'entidades'=> \App\EntidadeodontologicaModel::all()
                 ];
 
-        return view('usuario.show')->with($data);
+        return view('users.show')->with($data);
     }
 
     /**
