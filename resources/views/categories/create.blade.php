@@ -69,7 +69,8 @@
           <div class="col-md-4">
             <div class="form-group">
               <label>Categpria Mãe</label> <br>
-                <select id="category_id" name="category_id" class="form-control input-sm select2" required="required">
+                <select id="category_id" name="category_id" class="form-control input-sm select2">
+                  <option value="">Escolha uma Categoria...</option>
                   @foreach($categories as $c)
                     <option value="{{$c->id}}">{{$c->name}}</option>
                   @endforeach
