@@ -104,23 +104,23 @@ class UsersController extends FrontController
 
         $object = \App\User::findOrfail($id);
 
-        $allRoles = \App\Role::all();
+        //$allRoles = \App\Role::all();
 
-        $roles = \DB::select('SELECT roles.id 
+        /*$roles = \DB::select('SELECT roles.id 
                               FROM role_user
                               LEFT JOIN roles ON roles.ID = role_user.role_id
                               WHERE role_user.user_id = ?', [$id]);
+        */
 
-        $rolesId = collect($roles)->pluck('id');
+        //$rolesId = collect($roles)->pluck('id');
 
         $data = [
-                    'object'   => $object,
-                    'allRoles' => $allRoles,
-                    'roles'    => $rolesId->all(),
-                    'entidades'=> \App\EntidadeodontologicaModel::all()
+                  'object'   => $object,
+                  'allRoles' => null,//$allRoles,
+                  'roles'    => null,//$rolesId->all()
                 ];
 
-        return view('users.show')->with($data);
+        return view('users.update')->with($data);
     }
 
     /**
