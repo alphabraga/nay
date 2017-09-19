@@ -119,4 +119,22 @@ class ConfigurationController extends FrontController
     {
         //
     }
+
+
+    public function about()
+    {
+
+        $config = new \App\Nay\Model\ConfigurationsModel();
+
+        $data = [
+                    'php'      => phpversion(),
+                    'database' => $config->getDatabaseInfo(),
+                    'hostname' => gethostname(),
+                    'linux'    => php_uname(),
+                    'data'     => date('d/m/Y H:i:s'),
+                    'timezone' => date_default_timezone_get(),
+                ];
+
+        return view('configuration.about')->with($data);
+    }
 }

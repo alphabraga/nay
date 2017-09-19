@@ -86,4 +86,11 @@ class ConfigurationsModel extends Model
 	{
 		return self::first();
 	}
+
+	public function getDatabaseInfo()
+	{
+		$results = \DB::select( \DB::raw("select version()") );
+
+		return $results[0]->{'version()'};
+	}
 }

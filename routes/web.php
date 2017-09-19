@@ -51,6 +51,6 @@ Route::get('usersSearch', 'UsersController@seacrh');
 
 Route::get('/system', 'ConfigurationController@system');
 
-
-
 Route::get('perfil', 'UsersController@profile');
+
+Route::get('/sobre', 'ConfigurationController@about');
