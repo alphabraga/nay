@@ -28,13 +28,13 @@
         <li class="header">MENU PRICIPAL</li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Painel</span>
+            <i class="fa fa-dashboard"></i> <span>Operações</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Vendas</a></li>
+            <li><a href="{{URL::to('/carrinho')}}"><i class="fa fa-circle-o"></i> Atendimento ao Cliente</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Pedidos</a></li>
           </ul>
         </li>

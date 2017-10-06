@@ -28,6 +28,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('configuration', 'ConfigurationController');
 
+Route::resource('carrinho', 'CartController');
+Route::get('carrinhoTotal', 'CartController@total');
+Route::get('carrinhoSubTotal', 'CartController@subtotal');
+Route::get('carrinhoClear', 'CartController@clear');
+Route::get('carrinhoQuantity', 'CartController@totalquantity');
+Route::get('carrinhoIsEmpty', 'CartController@isempty');
+
+
 Route::resource('products', 'ProductsController');
 Route::get('productsSearch', 'ProductsController@search');
 

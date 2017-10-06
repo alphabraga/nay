@@ -26,6 +26,10 @@
 <script type="text/javascript" src="{{URL::to('packages/node_modules/admin-lte/plugins/datatables/dataTables.bootstrap.min.js')}}" ></script>
 
 <script type="text/javascript" src="{{URL::to('packages/node_modules/admin-lte/plugins/select2/select2.js')}}" ></script>
+
+{{-- <script type="text/javascript" src="{{URL::to('packages/node_modules/angular/angular.min.js')}}" ></script> --}}
+
+
 <!-- AdminLTE for demo purposes -->
 <script src="{{URL::to('packages/node_modules/admin-lte/dist/js/demo.js')}}"></script>
 
