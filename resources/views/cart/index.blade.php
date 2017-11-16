@@ -16,19 +16,81 @@
       <div class="box-body">
 
 
+        <form class="form">
+          <select class="select2-ajax form-control"></select>
+        </form>
+
+         <hr>
+
         <table id="carrinho" class="table table-bordered table-striped">
           <thead>
-            <tr><th>#</th><th>Nome</th><th>Preço</th><th>Quant</th><th>Operação</th>
+            <tr><th>#</th><th>Nome</th><th>Quant</th><th>Preço</th><th>Operação</th>
           </thead>
           <tbody>
             
           </tbody>
         </table>
 
-        <div id="carrinho-vazio"></div>
-        <div id="carrinho-quantidade"></div>
-        <div id="carrinho-total"></div>
-        <div id="carrinho-subtotal"></div>
+   <hr>     
+
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Carrinho Vazio</span>
+              <span id="carrinho-vazio" class="info-box-number"></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Total itens</span>
+              <span id="carrinho-quantidade" class="info-box-number"></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
+        <div class="clearfix visible-sm-block"></div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Valor Total</span>
+              <span id="carrinho-total" class="info-box-number"></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Subtotal</span>
+              <span id="carrinho-subtotal" class="info-box-number"></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+      </div>
 
       </div>
       <!-- /.box-body -->
@@ -43,6 +105,7 @@
     
     $(document).ready(function()
     {
+
 
 
 
@@ -100,64 +163,47 @@
                                   success: function(data){ callBackFunction(data); }
                                 });
                         },
-                        isEmpty : function()
+                        isEmpty : function(callBackFunction)
                         {
                                 $.ajax({
                                   type: "GET",
                                   headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                                   url: "/carrinhoIsEmpty",
-                                  success: function(data){ console.log(data); }
+                                  success: function(data){ callBackFunction(data); }
                                 });
                         },
-                        total : function()
+                        total : function(callBackFunction)
                         {
                                 $.ajax({
                                   type: "GET",
                                   headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                                   url: "/carrinhoTotal",
-                                  success: function(data){ console.log(data); }
+                                  success: function(data){ callBackFunction(data); }
                                 });
                         },
-                        subTotal : function()
+                        subTotal : function(callBackFunction)
                         {
                                 $.ajax({
                                   type: "GET",
                                   headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                                   url: "/carrinhoSubTotal",
-                                  success: function(data){ console.log(data); }
+                                  success: function(data){ callBackFunction(data); }
                                 });
                         },
-                        totalQuantity : function()
+                        totalQuantity : function(callBackFunction)
                         {
                               $.ajax({
                                 type: "GET",
                                 headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                                 url: "/carrinhoQuantity",
-                                success: function(data){ console.log(data); }
+                                success: function(data){ callBackFunction(data); }
                               });                          
                         }                                                     
                      };
 
-                     var atualizarCarrinho = function()
-                     {
+                    atualizarCarrinho(); 
 
-                      $('table#carrinho tbody').empty();
-
-                       carrinho.show(function(data)
-                       {
-                          $.each(data, function(id,item)
-                          {
-                            $('table#carrinho tbody').append('<tr><td>'+item.id+'</td><td>'+item.name+'</td><td>'+item.price+'</td><td>'+item.quantity+'</td><td><a href="#" data-id="'+item.id+'" class="btn btn-xs btn-danger remove-item"><i class="fa fa-ban"><i/> Remover</a></td><tr>');
-                          });
-                       });
-
-                     }
-
-                      atualizarCarrinho();
-
-
-
-                     $(document).on("click","a.remove-item", function(e)
+                    $(document).on("click","a.remove-item", function(e)
                      {
                         e.preventDefault();
 
@@ -177,7 +223,7 @@
 
                         
 
-                    }); 
+                    });
 
 
       });

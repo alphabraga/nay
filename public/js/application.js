@@ -1,7 +1,43 @@
 $(document).ready(function()
 {
+    var formato = { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' }
+
+     atualizarCarrinho = function()
+     {
+
+      $('table#carrinho tbody').empty();
+
+       carrinho.show(function(data)
+       {
+          $.each(data, function(id,item)
+          {
+            $('table#carrinho tbody').append('<tr><td>'+item.id+'</td><td>'+item.name+'</td><td>'+item.quantity+'</td><td>'+item.price+'</td><td><a href="#" data-id="'+item.id+'" class="btn btn-xs btn-danger remove-item"><i class="fa fa-ban"><i/> Remover</a></td><tr>');
+          });
+       });
 
 
+        carrinho.isEmpty(function(data)
+        {
+          $('span#carrinho-vazio').text(data.toLocaleString('pt-BR'));          
+        });
+
+        carrinho.totalQuantity(function(data)
+        {
+          $('span#carrinho-quantidade').text(data.toLocaleString('pt-BR'));          
+        });
+
+        carrinho.total(function(data)
+        {
+          $('span#carrinho-total').text(data.toLocaleString('pt-BR'));          
+        });
+
+        carrinho.subTotal(function(data)
+        {
+          $('span#carrinho-subtotal').text(data.toLocaleString('pt-BR'));          
+        });
+       
+
+     }
 
 
 	$('button.input-info').on('click', function(e)
@@ -41,6 +77,83 @@ $(document).ready(function()
 		tags: true,
   		tokenSeparators: [',', ' ','    ']
 	});
+
+
+    $('.select2-ajax').select2({
+        ajax:
+        {
+            url: '/productsSearchCart',
+            dataType: 'json',
+           
+        },
+        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+        minimumInputLength: 1,
+        templateResult: formatRepo,
+        allowClear: true,
+        multiple: true,
+        maximumSelectionSize: 1,
+        placeholder: "Clique aqui e comece a buscar"
+    });
+
+    $('.select2-ajax').on('select2:select', function (e)
+    {
+        var data = e.params.data;
+        //{"id" : 17, "price" : 644.61 "text": "Mrs. Krystal Conn II"}
+        var newProduct = { "product" : {id: data.id, name: data.text, price: data.price, quantity: 1, atributes:[] }};
+
+        carrinho.add(newProduct);
+
+        atualizarCarrinho();
+
+        $('.select2-ajax').val('').trigger("change"); // limpa o campo de busca
+
+        carrinho.isEmpty(function(data)
+        {
+          $('span#carrinho-vazio').text(data.toLocaleString('pt-BR'));          
+        });
+
+        carrinho.totalQuantity(function(data)
+        {
+          $('span#carrinho-quantidade').text(data.toLocaleString('pt-BR'));          
+        });
+
+        carrinho.total(function(data)
+        {
+          $('span#carrinho-total').text(data.toLocaleString('pt-BR'));          
+        });
+
+        carrinho.subTotal(function(data)
+        {
+          $('span#carrinho-subtotal').text(data.toLocaleString('pt-BR'));          
+        });
+
+
+
+    });
+
+
+        function formatRepo (repo) {
+
+            if (repo.loading) {
+                return repo.text;
+            }
+
+            var markup = "<div class='select2-result-repository clearfix'>" +
+            "<div class='select2-result-repository__meta'>" +
+            "<div class='select2-result-repository__title'>" + repo.text + "</div>";
+
+            if (repo.description) {
+            markup += "<div class='select2-result-repository__description'>" + repo.text + "</div>";
+            }
+
+            markup += "<div class='select2-result-repository__statistics'>" +
+            "<div class='select2-result-repository__forks'><i class='fa fa-money'></i> " + repo.price + "</div>" +
+            "</div>" +
+            "</div></div>";
+
+            return markup;
+        }
+
 });
 
 

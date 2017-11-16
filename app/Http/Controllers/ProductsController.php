@@ -158,4 +158,29 @@ class ProductsController extends FrontController
     {
         //
     }
+
+
+    public function searchCart(Request $request)
+    {
+
+
+        $term = $request->input('term');
+
+        $products = \App\Nay\Model\ProductsModel::select('id', 'name', 'price')
+                                                  ->where('name', 'like', "%$term%")
+                                                  ->take(100)
+                                                  ->get();
+
+        $data = [
+                    'results' => [],
+                    'pagination' =>['more' => true]
+                ];
+
+        foreach ($products as $p)
+        {
+            $data['results'][] = ['id' => $p->id, 'text' => $p->name, 'price' => $p->price];
+        }
+
+        return response()->json($data);
+    }
 }

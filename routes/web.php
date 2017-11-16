@@ -38,6 +38,7 @@ Route::get('carrinhoIsEmpty', 'CartController@isempty');
 
 Route::resource('products', 'ProductsController');
 Route::get('productsSearch', 'ProductsController@search');
+Route::get('productsSearchCart', 'ProductsController@searchCart');
 
 Route::resource('brands', 'BrandsController');
 Route::get('brandsSearch', 'BrandsController@search');
