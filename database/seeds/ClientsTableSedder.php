@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ClientsTableSeeder extends Seeder
+class ClientsTableSedder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +13,6 @@ class ClientsTableSeeder extends Seeder
     {
 
 		$faker = \Faker\Factory::create();
-
 
         $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
         $faker->addProvider(new Faker\Provider\pt_BR\Address($faker));

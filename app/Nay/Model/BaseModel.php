@@ -63,7 +63,7 @@ class BaseModel extends Model
 
     public function saveFakeImage(\Faker\Generator $faker)
     {
-        $imageFileName = $this->getIMageFileName(true, true, true);
+        $imageFileName = $this->getImageFileName(true, true, true);
 
         file_put_contents($imageFileName, file_get_contents($faker->imageUrl(255, 255)));
     }

@@ -14,8 +14,13 @@ class ProvidersTableSeeder extends Seeder
 
 		$faker = \Faker\Factory::create();
 
-    	for ($i=0; $i <= 10; $i++)
-    	{ 
+        $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
+        $faker->addProvider(new Faker\Provider\pt_BR\Address($faker));
+        $faker->addProvider(new Faker\Provider\pt_BR\PhoneNumber($faker));
+
+
+        foreach (range(1,100) as $index)
+        {
     		
     		$provider = new \App\Nay\Model\ProvidersModel();
 
@@ -32,7 +37,7 @@ class ProvidersTableSeeder extends Seeder
 
 			$provider->slug              = $slug;
 			$provider->name              = $name;
-			$provider->description       = $faker->paragraphs(1, true);
+			$provider->description       = substr($faker->paragraphs(1, true), 0, 100);
 			$provider->tags              = $tags;
             $provider->cellphone         = $faker->postcode;
             $provider->phone             = $faker->postcode;

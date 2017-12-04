@@ -12,6 +12,11 @@ class UserTableSeeder extends Seeder
     public function run()
     {
 
-    	\App\User::create(['name' => 'alphabraga', 'email' => 'alfredorodruguesbraga@gmail.com', 'password' => \Hash::make('123456')]);
+    	\App\User::create([
+
+    						'name' => 'alphabraga', 
+    						'email' => 'alfredorodruguesbraga@gmail.com', 
+    						'password' => \Hash::make('123456')
+    					]);
     }
 }

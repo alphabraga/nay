@@ -14,8 +14,12 @@ class BrandsTableSeeder extends Seeder
 
 		$faker = \Faker\Factory::create();
 
-    	for ($i=0; $i <= 10; $i++)
-    	{ 
+        $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
+        $faker->addProvider(new Faker\Provider\pt_BR\Address($faker));
+        $faker->addProvider(new Faker\Provider\pt_BR\PhoneNumber($faker));
+
+        foreach (range(1,100) as $index)
+        {
     		
     		$brand = new \App\Nay\Model\BrandsModel();
 
@@ -32,7 +36,7 @@ class BrandsTableSeeder extends Seeder
 
 			$brand->slug             = $slug;
 			$brand->name             = $name;
-			$brand->description      = $faker->paragraphs(3, true);
+			$brand->description      = substr($faker->paragraphs(1, true), 0, 100);
 			$brand->tags             = $tags;
 			$brand->created_by       = 1;
 			$brand->updated_by       = 1;

@@ -14,8 +14,12 @@ class ProductsTableSeeder extends Seeder
 
 		$faker = \Faker\Factory::create();
 
-    	for ($i=0; $i <= 100; $i++)
-    	{ 
+        $faker->addProvider(new Faker\Provider\pt_BR\Person($faker));
+        $faker->addProvider(new Faker\Provider\pt_BR\Address($faker));
+        $faker->addProvider(new Faker\Provider\pt_BR\PhoneNumber($faker));
+
+        foreach (range(1,100) as $index)
+        {
     		
     		$product = new \App\Nay\Model\ProductsModel();
 
@@ -32,7 +36,7 @@ class ProductsTableSeeder extends Seeder
 
 			$product->slug             = $slug;
 			$product->name             = $name;
-			$product->description      = $faker->paragraphs(3, true) ;
+			$product->description      = substr($faker->paragraphs(1, true), 0, 100);
 			$product->tags             = $tags;
 			$product->quantity_limit   = $faker->randomDigit;
 			$product->quantity         = $faker->randomDigit;
