@@ -11,7 +11,7 @@ $(document).ready(function()
        {
           $.each(data, function(id,item)
           {
-            $('table#carrinho tbody').append('<tr><td>'+item.id+'</td><td>'+item.name+'</td><td>'+item.quantity+'</td><td>'+item.price+'</td><td><a href="#" data-id="'+item.id+'" class="btn btn-xs btn-danger remove-item"><i class="fa fa-ban"><i/> Remover</a></td><tr>');
+            $('table#carrinho tbody').append('<tr><td>'+item.id+'</td><td>'+item.name+'</td><td>'+item.quantity.toLocaleString('pt-BR')+'</td><td><div class="float-right">'+item.price.toLocaleString('pt-BR')+'</div></td><td><a href="#" data-id="'+item.id+'" class="btn btn-xs btn-danger remove-item"><i class="fa fa-ban"><i/> Remover</a></td><tr>');
           });
        });
 
@@ -38,6 +38,27 @@ $(document).ready(function()
        
 
      }
+
+     $('button#limpar').on('click', function()
+    {
+        bootbox.confirm("Você realmente deseja limpar o carrinho?", function(response)
+        {
+            if(response == true){
+
+                console.log(response);
+
+                carrinho.clear(function()
+                {
+                    bootbox.alert("Seu carrinho foi limpo com sucesso");
+
+                    atualizarCarrinho();
+
+                });
+            }
+        });
+    });
+
+
 
 
 	$('button.input-info').on('click', function(e)

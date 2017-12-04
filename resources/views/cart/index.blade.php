@@ -34,22 +34,10 @@
    <hr>     
 
     <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Carrinho Vazio</span>
-              <span id="carrinho-vazio" class="info-box-number"></span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+            <span class="info-box-icon bg-blue"><i class="fa fa-bars"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Total itens</span>
@@ -66,7 +54,7 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+            <span class="info-box-icon bg-yellow"><i class="fa fa-money"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Valor Total</span>
@@ -79,7 +67,20 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+            <span class="info-box-icon bg-red"><i class="fa fa-minus"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Descontos</span>
+              <span id="carrinho-desconto" class="info-box-number"></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-green"><i class="fa fa-money"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Subtotal</span>
@@ -92,6 +93,25 @@
         <!-- /.col -->
       </div>
 
+      <div class="row">
+       
+        <div class="col-md-12">
+
+          <div class="well">
+          
+            <div class="btn-group" role="group" >
+              <button id="limpar" type="button" class="btn btn-warning btn-lg"><i class="fa fa-eraser fa-lg"></i> Limpar</button>
+              <button id="registrar" type="submit" class="btn btn-success btn-lg" data-toggle="modal" data-target="#finalizar-compra" ><i class="fa fa-save fa-lg"></i> Registrar</button>
+            </div>             
+
+          </div>
+
+
+        </div> 
+
+
+      </div>
+
       </div>
       <!-- /.box-body -->
     </div>
@@ -99,6 +119,49 @@
 	  <p>Nessa tela vamos fazer o atendimento ao cliente</p>
     </div>
   </section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="finalizar-compra" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Registrar Atendimento</h4>
+      </div>
+      <div class="modal-body">
+
+
+        <form action="#" method="post">
+          
+          <ul>
+            <li>Cliente (Deixar preselecionado o cliente padrão)</li>
+            <li>Vendedor (preselecionado o que esta logado na maquina)</li>
+            <li>
+              Forma de Pagamento
+                <ul>
+                  <li>Avista</li>
+                  <li>Cartao Credito Debito</li>
+                  <li>Cartao Credito Credito (Escolher numero de parcelas)</li>
+                  <li>Fléxivel</li>  
+                </ul>
+            </li>
+
+          </ul>
+
+
+        </form>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-success"><i class="fa fa-save fa-fw"></i>Registrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   @section('javascript')
 
 <script type="text/javascript">
@@ -143,13 +206,13 @@
 
 
                         },
-                        clear : function()
+                        clear : function(callBackFunction)
                         {
                                 $.ajax({
                                   type: "GET",
                                   headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                                   url: "/carrinhoClear",
-                                  success: function(data){ console.log(data); }
+                                  success: function(data){ callBackFunction(data); }
                                 });
 
 
