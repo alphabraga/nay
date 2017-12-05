@@ -18,7 +18,7 @@ class ProductsTableSeeder extends Seeder
         $faker->addProvider(new Faker\Provider\pt_BR\Address($faker));
         $faker->addProvider(new Faker\Provider\pt_BR\PhoneNumber($faker));
 
-        foreach (range(1,100) as $index)
+        foreach (range(1,50) as $index)
         {
     		
     		$product = new \App\Nay\Model\ProductsModel();
@@ -49,7 +49,7 @@ class ProductsTableSeeder extends Seeder
 
     		$product->saveFakeImage($faker);
     		$product->saveFakeImage($faker);
-		    $product->saveFakeImage($faker);
+		$product->saveFakeImage($faker);
     	}
     }
 }

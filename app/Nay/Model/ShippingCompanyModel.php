@@ -17,7 +17,8 @@ class ShippingCompanyModel extends BaseModel
 
 	protected $fillable = [
 							'id', 
-							'name', 
+							'name',
+							'slug', 
 							'description', 
 							'tags', 
 							'created_by', 
