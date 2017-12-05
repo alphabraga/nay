@@ -182,6 +182,8 @@
 
 <script type="text/javascript">
 
+  var errors = {{json_encode($errors)}};
+
   /*
   Url Base da aplicação. Preciso disso pois o JS não consegue me dizer se o app usa
   uma pasta na raiz do projeto.

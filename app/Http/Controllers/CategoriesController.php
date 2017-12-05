@@ -73,6 +73,12 @@ class CategoriesController extends FrontController
     public function store(Request $request)
     {
 
+         $this->validate($request, [
+                                        'name'       => 'required|unique:categories',
+                                        'description'=> 'required',
+                                        'tags'       => 'required',
+                        ]);
+
         $c = new \App\Nay\Model\CategoriesModel();
 
         $c->name        = $request->input('name');
