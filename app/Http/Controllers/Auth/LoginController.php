@@ -34,6 +34,8 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        view()->share('configuracao', \App\Nay\Model\ConfigurationsModel::get());
+
         $this->middleware('guest')->except('logout');
     }
 }
