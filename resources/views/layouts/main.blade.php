@@ -33,7 +33,6 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
-
   <header class="main-header">
     <!-- Logo -->
     <a href="/" class="logo">
@@ -157,6 +156,16 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif 
    @yield('content')
     <!-- /.content -->
   </div>
@@ -182,7 +191,6 @@
 
 <script type="text/javascript">
 
-  var errors = {{json_encode($errors)}};
 
   /*
   Url Base da aplicação. Preciso disso pois o JS não consegue me dizer se o app usa

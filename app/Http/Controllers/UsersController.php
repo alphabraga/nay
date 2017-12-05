@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\FrontController;
+use Yajra\DataTables\DataTables;
 
 class UsersController extends FrontController
 {
@@ -46,7 +47,8 @@ class UsersController extends FrontController
 
     public function search()
     {
-      return \Datatables::of(\App\User::all())
+
+       return DataTables::of(\App\User::all())
               ->setRowId('id')
               ->make(true);
     }

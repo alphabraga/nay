@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class ShippingCompanyController extends FrontController
 {
@@ -36,7 +37,7 @@ class ShippingCompanyController extends FrontController
     public function search()
     {
 
-        return \Datatables::of(\App\Nay\Model\ShippingCompanyModel::select('id', 'name'))
+        return DataTables::of(\App\Nay\Model\ShippingCompanyModel::select('id', 'name'))
         ->setRowId('id')
         ->addColumn('action', function($object)
         {

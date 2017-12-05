@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class CategoriesController extends FrontController
 {
@@ -35,7 +36,7 @@ class CategoriesController extends FrontController
     public function search()
     {
 
-        return \Datatables::of(\App\Nay\Model\CategoriesModel::select('id', 'name'))
+        return DataTables::of(\App\Nay\Model\CategoriesModel::select('id', 'name'))
         ->setRowId('id')
         ->addColumn('action', function($object)
         {
@@ -73,11 +74,11 @@ class CategoriesController extends FrontController
     public function store(Request $request)
     {
 
-         $this->validate($request, [
-                                        'name'       => 'required|unique:categories',
-                                        'description'=> 'required',
-                                        'tags'       => 'required',
-                        ]);
+        $request->validate([
+                                'name'              => 'required|unique:categories',
+                                'tags'        => 'required',
+                                'description' => 'required'
+                            ]);
 
         $c = new \App\Nay\Model\CategoriesModel();
 
@@ -149,7 +150,12 @@ class CategoriesController extends FrontController
     {
         $object = \App\Nay\Model\CategoriesModel::find($id);
 
-        $this->validate($request, [ 'name' => 'required|unique:brands,name,' . $object->id]);
+
+        $request->validate([
+                                'name'        => 'required|unique:categories',
+                                'tags'        => 'required',
+                                'description' => 'required'
+                            ]);
 
         $object->name        = $request->input('name');
         $object->description = $request->input('description');
