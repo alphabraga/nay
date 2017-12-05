@@ -35,6 +35,9 @@ Route::get('carrinhoClear', 'CartController@clear');
 Route::get('carrinhoQuantity', 'CartController@totalquantity');
 Route::get('carrinhoIsEmpty', 'CartController@isempty');
 
+Route::resource('clients', 'ClientsController');
+Route::get('clientsSearch', 'ClientsController@search');
+
 
 Route::resource('products', 'ProductsController');
 Route::get('productsSearch', 'ProductsController@search');
