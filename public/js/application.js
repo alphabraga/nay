@@ -2,6 +2,32 @@ $(document).ready(function()
 {
     var formato = { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' }
 
+
+    $('a.logout').on('click', function(e)
+    {
+        e.preventDefault();
+
+        $that = $(this);
+
+        $.ajax(
+        {
+            url: $that.attr('href'),
+            type: 'POST',
+            data:{'_token':  $("meta[name=csrf-token]").attr('content')}, 
+            success: function(result)
+            {
+                location.reload();
+            },
+            error: function(data){
+
+                location.reload();
+                //bootbox.alert( JSON.stringify(data));
+            }
+        });
+
+
+    });
+
      atualizarCarrinho = function()
      {
 

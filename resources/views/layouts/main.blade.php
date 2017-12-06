@@ -134,7 +134,7 @@
                   <a href="{{URL::to('/perfil')}}" class="btn btn-primary btn-flat"> <i class="fa fa-user fa-fw"></i> Meu Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="{{URL::to('logout')}}" class="btn btn-danger btn-flat"> <i class="fa fa-sign-out fa-fw"></i>  Sair</a>
+                  <a href="{{URL::to('logout')}}" class="btn btn-danger btn-flat logout"> <i class="fa fa-sign-out fa-fw"></i>  Sair</a>
                 </div>
               </li>
             </ul>
