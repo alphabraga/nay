@@ -1,11 +1,11 @@
 @extends('layouts.main')
-@section('title', 'Categorias')
+@section('title', 'Clientes')
 @section('content')
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1><i class="fa fa-square fa-fw"></i>Categorias <small>Listagem</small></h1>
+    <h1><i class="fa fa-square fa-fw"></i>Clientes <small>Listagem</small></h1>
     <ol class="breadcrumb">
-      <li><a href="{{action('CategoriesController@index')}}"><i class="fa fa-square fa-fw"></i>Categorias</a></li>
+      <li><a href="{{action('ClientsController@index')}}"><i class="fa fa-square fa-fw"></i>Clientes</a></li>
       <li class="active">Listagem</li>
     </ol>
   </section>
@@ -25,7 +25,7 @@
       <!-- /.box-body -->
     </div>
     <div id="info-text">
-	  <p>Nessa tela você controla as categorias do sistema</p>
+	  <p>Nessa tela você controla os clientes do sistema</p>
     </div>
   </section>
   <!-- /.content -->

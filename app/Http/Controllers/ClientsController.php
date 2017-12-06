@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class ClientsController extends FrontController
 {
@@ -26,6 +27,7 @@ class ClientsController extends FrontController
                     'header' => [
                                  ['data' => 'id', 'title' => 'ID'],
                                  ['data' => 'name', 'title' => 'NOME'],
+                                 ['data' => 'phone', 'title' => 'Telefone'],
                                  ['data' => 'action', 'title' => 'Ação', 'orderable' => false, 'searchable' => false]  
                                 ]
                 ];        
@@ -36,7 +38,7 @@ class ClientsController extends FrontController
     public function search()
     {
 
-        return DataTables::of(\App\Nay\Model\ClientsModel::select('id', 'name'))
+        return DataTables::of(\App\Nay\Model\ClientsModel::select('id', 'name', 'phone'))
         ->setRowId('id')
         ->addColumn('action', function($object)
         {
@@ -75,26 +77,26 @@ class ClientsController extends FrontController
 
         $c = new \App\Nay\Model\ClientsModel();
 
-        $c->name                  = $request->input('name');,        
-        $c->phone                 = $request->input('phone');,       
-        $c->cellphone             = $request->input('cellphone');,   
-        $c->cpf                   = $request->input('cpf');,
-        $c->shipping_address      = $request->input('shipping_address');,
-        $c->shipping_number       = $request->input('shipping_number');,
-        $c->shipping_neighborhood = $request->input('shipping_neighborhood');,
-        $c->shipping_postalcode   = $request->input('shipping_postalcode');,
-        $c->shipping_city         = $request->input('shipping_city');,
-        $c->shipping_state        = $request->input('shipping_state');,
-        $c->shipping_country      = $request->input('shipping_country');,
-        $c->shipping_complement   = $request->input('shipping_complement');,
-        $c->billing_address       = $request->input('billing_address');,
-        $c->billing_number        = $request->input('billing_number');,
-        $c->billing_neighborhood  = $request->input('billing_neighborhood');,
-        $c->billing_postalcode    = $request->input('billing_postalcode');,
-        $c->billing_city          = $request->input('billing_city');,
-        $c->billing_state         = $request->input('billing_state');,
-        $c->billing_country       = $request->input('billing_country');,
-        $c->billing_complement    = $request->input('billing_complement');,
+        $c->name                  = $request->input('name');        
+        $c->phone                 = $request->input('phone');       
+        $c->cellphone             = $request->input('cellphone');   
+        $c->cpf                   = $request->input('cpf');
+        $c->shipping_address      = $request->input('shipping_address');
+        $c->shipping_number       = $request->input('shipping_number');
+        $c->shipping_neighborhood = $request->input('shipping_neighborhood');
+        $c->shipping_postalcode   = $request->input('shipping_postalcode');
+        $c->shipping_city         = $request->input('shipping_city');
+        $c->shipping_state        = $request->input('shipping_state');
+        $c->shipping_country      = $request->input('shipping_country');
+        $c->shipping_complement   = $request->input('shipping_complement');
+        $c->billing_address       = $request->input('billing_address');
+        $c->billing_number        = $request->input('billing_number');
+        $c->billing_neighborhood  = $request->input('billing_neighborhood');
+        $c->billing_postalcode    = $request->input('billing_postalcode');
+        $c->billing_city          = $request->input('billing_city');
+        $c->billing_state         = $request->input('billing_state');
+        $c->billing_country       = $request->input('billing_country');
+        $c->billing_complement    = $request->input('billing_complement');
 
         $c->save();
 
@@ -147,26 +149,26 @@ class ClientsController extends FrontController
     {
         $c = \App\Nay\Model\ClientsModel::find($id);
 
-        $c->name                  = $request->input('name');,        
-        $c->phone                 = $request->input('phone');,       
-        $c->cellphone             = $request->input('cellphone');,   
-        $c->cpf                   = $request->input('cpf');,
-        $c->shipping_address      = $request->input('shipping_address');,
-        $c->shipping_number       = $request->input('shipping_number');,
-        $c->shipping_neighborhood = $request->input('shipping_neighborhood');,
-        $c->shipping_postalcode   = $request->input('shipping_postalcode');,
-        $c->shipping_city         = $request->input('shipping_city');,
-        $c->shipping_state        = $request->input('shipping_state');,
-        $c->shipping_country      = $request->input('shipping_country');,
-        $c->shipping_complement   = $request->input('shipping_complement');,
-        $c->billing_address       = $request->input('billing_address');,
-        $c->billing_number        = $request->input('billing_number');,
-        $c->billing_neighborhood  = $request->input('billing_neighborhood');,
-        $c->billing_postalcode    = $request->input('billing_postalcode');,
-        $c->billing_city          = $request->input('billing_city');,
-        $c->billing_state         = $request->input('billing_state');,
-        $c->billing_country       = $request->input('billing_country');,
-        $c->billing_complement    = $request->input('billing_complement');,
+        $c->name                  = $request->input('name');        
+        $c->phone                 = $request->input('phone');       
+        $c->cellphone             = $request->input('cellphone');   
+        $c->cpf                   = $request->input('cpf');
+        $c->shipping_address      = $request->input('shipping_address');
+        $c->shipping_number       = $request->input('shipping_number');
+        $c->shipping_neighborhood = $request->input('shipping_neighborhood');
+        $c->shipping_postalcode   = $request->input('shipping_postalcode');
+        $c->shipping_city         = $request->input('shipping_city');
+        $c->shipping_state        = $request->input('shipping_state');
+        $c->shipping_country      = $request->input('shipping_country');
+        $c->shipping_complement   = $request->input('shipping_complement');
+        $c->billing_address       = $request->input('billing_address');
+        $c->billing_number        = $request->input('billing_number');
+        $c->billing_neighborhood  = $request->input('billing_neighborhood');
+        $c->billing_postalcode    = $request->input('billing_postalcode');
+        $c->billing_city          = $request->input('billing_city');
+        $c->billing_state         = $request->input('billing_state');
+        $c->billing_country       = $request->input('billing_country');
+        $c->billing_complement    = $request->input('billing_complement');
 
         $c->save();
 

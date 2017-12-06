@@ -18,6 +18,7 @@
       <form id="update" name="update" method="post" action="{{action('CategoriesController@update', [$object->id])}}" >
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <input type="hidden" name="_method" value="PATCH" />
+        
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
@@ -29,50 +30,145 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Slug</label><input id="slug" type="text" name="slug" value="{{$object->slug}}" disabled="disabled" class="form-control input-sm name">
+              <label>Telefone</label><input id="phone" type="text" name="phone" value="{{$object->name}}" class="form-control input-sm phone">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Celular</label><input id="cellphone" type="text" name="cellphone" value="{{$object->name}}" class="form-control input-sm cellphone">
             </div>
           </div>
         </div>
         
-
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Descrição</label> 
-              <textarea class="form-control input-sm name" name="description" id="description" >
-                {{$object->description}}  
-              </textarea> 
+              <label>CPF</label><input id="cpf" type="text" name="cpf" value="{{$object->name}}" class="form-control input-sm cpf">
             </div>
           </div>
         </div>
-
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Tags</label> 
-              <select name="tags[]" class="form-control select2-tags" multiple >
-              @foreach($object->tags as $t)
-                <option value="{{$t}}" selected="selected">{{$t}}</option>
-              @endforeach  
-              </select>
+              <label>Endereço de Entrega</label><input id="shipping_address" type="text" name="shipping_address" value="{{$object->name}}" class="form-control input-sm shipping_address">
             </div>
           </div>
         </div>
-
+        
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Categpria Mãe</label> <br>
-                <select id="category_id" name="category_id" class="form-control input-sm select2">
-                  <option value="">Escolha uma Categoria...</option>
-                  @foreach($categories as $c)
-                    <option value="{{$c->id}}" @if($object->category_id == $c->id) selected="selected" @endif>{{$c->name}}</option>
-                  @endforeach
-                </select>
+              <label>Número de Entrega</label><input id="shipping_number" type="text" name="shipping_number" value="{{$object->name}}" class="form-control input-sm shipping_number">
             </div>
           </div>
         </div>
-
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Bairro de Entrega</label><input id="shipping_neighborhood" type="text" name="shipping_neighborhood" value="{{$object->name}}" class="form-control input-sm shipping_neighborhood">
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>CEP de Entrega</label><input id="shipping_postalcode" type="text" name="shipping_postalcode" value="{{$object->name}}" class="form-control input-sm shipping_postalcode">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Cidade de Entrega</label><input id="shipping_city" type="text" name="shipping_city" value="{{$object->name}}" class="form-control input-sm shipping_city">
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Estado de Entrega</label><input id="shipping_state" type="text" name="shipping_state" value="{{$object->name}}" class="form-control input-sm shipping_state">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Estado de Entrega</label><input id="shipping_country" type="text" name="shipping_country" value="{{$object->name}}" class="form-control input-sm shipping_country">
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Complemento de Entrega</label><input id="shipping_complement" type="text" name="shipping_complement" value="{{$object->name}}" class="form-control input-sm shipping_complement">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Endereço de Cobrança</label><input id="billing_address" type="text" name="billing_address" value="{{$object->name}}" class="form-control input-sm billing_address">
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>billing_number</label><input id="billing_number" type="text" name="billing_number" value="{{$object->name}}" class="form-control input-sm billing_number">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>billing_neighborhood</label><input id="billing_neighborhood" type="text" name="billing_neighborhood" value="{{$object->name}}" class="form-control input-sm billing_neighborhood">
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>billing_postalcode</label><input id="billing_postalcode" type="text" name="billing_postalcode" value="{{$object->name}}" class="form-control input-sm billing_postalcode">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>billing_city</label><input id="billing_city" type="text" name="billing_city" value="{{$object->name}}" class="form-control input-sm billing_city">
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>billing_state</label><input id="billing_state" type="text" name="billing_state" value="{{$object->name}}" class="form-control input-sm billing_state">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>billing_country</label><input id="billing_country" type="text" name="billing_country" value="{{$object->name}}" class="form-control input-sm billing_country">
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>billing_complement</label><input id="billing_complement" type="text" name="billing_complement" value="{{$object->name}}" class="form-control input-sm billing_complement">
+            </div>
+          </div>
+        </div>
         @include('includes.formbutons')
       </form>
       
@@ -87,37 +183,6 @@
 <!-- /.content -->
 @endsection
 @section('javascript')
-<script type="text/javascript">
-$(document).ready(function()
-{
-$('div#select-estado').on('change', function(e)
-{
-var id_estado = $('select#estado').val();
-$('select#municipio option').remove();
-$.getJSON('{{URL::to('/pegarCidades')}}/'+id_estado, function(data)
-{
-$.each(data, function(i, item)
-{
-var cidade = {{(strlen($object->fk_cidade_id))? $object->fk_cidade_id:'undefined'}};
-if(item.id == cidade )
-{
-$('select#municipio').append($('<option selected="selected" value="'+item.id+'">'+item.nome+'</option>'));
-}
-else
-{
-$('select#municipio').append($('<option>', { value: item.id, text : item.nome }));
-  }
-  });
-  });
-  });
-  $('select#estado').trigger('change');
-  });
-  </script>
-  @if(isset($showMode) && $showMode == true)
-  @section('javascript')
-  <script type="text/javascript">
-  disableForm('update');
-  </script>
-  @endsection
-  @endif
-  @endsection
+@endsection
+@endif
+@endsection

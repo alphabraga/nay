@@ -18,6 +18,33 @@
       <form id="update" name="update" method="post" action="{{action('ClientsController@store')}}" >
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <input type="hidden" name="_method" value="POST" />
+
+
+        <!-- 
+
+              'name',        
+              'phone',       
+              'cellphone',   
+              'cpf',
+              'shipping_address',
+              'shipping_number',
+              'shipping_neighborhood',
+              'shipping_postalcode',
+              'shipping_city',
+              'shipping_state',
+              'shipping_country',
+              'shipping_complement',
+              'billing_address',
+              'billing_number',
+              'billing_neighborhood',
+              'billing_postalcode',
+              'billing_city',
+              'billing_state',
+              'billing_country',
+              'billing_complement',
+
+        -->
+        
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
@@ -25,22 +52,12 @@
             </div>
           </div>
         </div>
-        
-        <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <label>Slug</label><input id="slug" type="text" name="slug" value="" disabled="disabled" class="form-control input-sm name">
-            </div>
-          </div>
-        </div>
-        
+      
 
-        <div class="row">
+              <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Descrição</label> 
-              <textarea class="form-control input-sm name" name="description" id="description" >
-              </textarea> 
+              <label>Telefone</label><input id="phone" type="text" name="phone" value="" class="form-control input-sm phone">
             </div>
           </div>
         </div>
@@ -48,10 +65,16 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Tags</label> 
-              <select name="tags[]" class="form-control select2-tags" multiple >
+              <label>cellphone</label><input id="cellphone" type="text" name="cellphone" value="" class="form-control input-sm cellphone">
+            </div>
+          </div>
+        </div>
+      
 
-              </select>
+              <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>cpf</label><input id="cpf" type="text" name="cpf" value="" class="form-control input-sm cpf">
             </div>
           </div>
         </div>
@@ -59,8 +82,67 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Nível</label> 
-                <input id="level" type="text" name="level" value="" class="form-control input-sm level">
+              <label>shipping_address</label><input id="shipping_address" type="text" name="shipping_address" value="" class="form-control input-sm shipping_address">
+            </div>
+          </div>
+        </div>
+      
+
+              <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>shipping_number</label><input id="shipping_number" type="text" name="shipping_number" value="" class="form-control input-sm shipping_number">
+            </div>
+          </div>
+        </div>
+
+                <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>shipping_neighborhood</label><input id="shipping_neighborhood" type="text" name="shipping_neighborhood" value="" class="form-control input-sm shipping_neighborhood">
+            </div>
+          </div>
+        </div>
+      
+
+              <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>shipping_postalcode</label><input id="shipping_postalcode" type="text" name="shipping_postalcode" value="" class="form-control input-sm shipping_postalcode">
+            </div>
+          </div>
+        </div>
+
+                <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>shipping_city</label><input id="shipping_city" type="text" name="shipping_city" value="" class="form-control input-sm shipping_city">
+            </div>
+          </div>
+        </div>
+      
+
+              <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>shipping_state</label><input id="shipping_state" type="text" name="shipping_state" value="" class="form-control input-sm shipping_state">
+            </div>
+          </div>
+        </div>
+
+                <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>shipping_country</label><input id="shipping_country" type="text" name="shipping_country" value="" class="form-control input-sm shipping_country">
+            </div>
+          </div>
+        </div>
+      
+
+              <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>shipping_complement</label><input id="shipping_complement" type="text" name="shipping_complement" value="" class="form-control input-sm shipping_complement">
             </div>
           </div>
         </div>
@@ -68,16 +150,71 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Categpria Mãe</label> <br>
-                <select id="category_id" name="category_id" class="form-control input-sm select2">
-                  <option value="">Escolha uma Categoria...</option>
-                  @foreach($categories as $c)
-                    <option value="{{$c->id}}">{{$c->name}}</option>
-                  @endforeach
-                </select>
+              <label>billing_address</label><input id="billing_address" type="text" name="billing_address" value="" class="form-control input-sm billing_address">
             </div>
           </div>
         </div>
+      
+
+              <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>billing_number</label><input id="billing_number" type="text" name="billing_number" value="" class="form-control input-sm billing_number">
+            </div>
+          </div>
+        </div>
+
+                <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>billing_neighborhood</label><input id="billing_neighborhood" type="text" name="billing_neighborhood" value="" class="form-control input-sm billing_neighborhood">
+            </div>
+          </div>
+        </div>
+      
+
+              <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>billing_postalcode</label><input id="billing_postalcode" type="text" name="billing_postalcode" value="" class="form-control input-sm billing_postalcode">
+            </div>
+          </div>
+        </div>
+
+                <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>billing_city</label><input id="billing_city" type="text" name="billing_city" value="" class="form-control input-sm billing_city">
+            </div>
+          </div>
+        </div>
+      
+
+              <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>billing_state</label><input id="billing_state" type="text" name="billing_state" value="" class="form-control input-sm billing_state">
+            </div>
+          </div>
+        </div>
+
+                <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>billing_country</label><input id="billing_country" type="text" name="billing_country" value="" class="form-control input-sm billing_country">
+            </div>
+          </div>
+        </div>
+      
+
+              <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>billing_complement</label><input id="billing_complement" type="text" name="billing_complement" value="" class="form-control input-sm billing_complement">
+            </div>
+          </div>
+        </div>
+
 
         @include('includes.formbutons')
       </form>
