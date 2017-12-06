@@ -23,12 +23,27 @@ class ClientsTableSedder extends Seeder
         {
             $client = new \App\Nay\Model\ClientsModel();
 
-            $client->name        = $faker->name;
-            $client->phone       = $faker->phoneNumber;
-            $client->cellphone   = $faker->cellphone;
-            $client->address     = $faker->address;
-            $client->postalcode  = $faker->postcode;
-            $client->adressnumber= $faker->buildingNumber;
+            $client->name                  = $faker->name;
+            $client->phone                 =  $faker->phoneNumber;
+            $client->cellphone             = $faker->cellphone;
+            $client->cpf                   = $faker->cpf(false);
+            $client->shipping_address      = $faker->address;
+            $client->shipping_number       = $faker->buildingNumber;
+            $client->shipping_neighborhood = $faker->word;
+            $client->shipping_postalcode   = $faker->postcode;
+            $client->shipping_city         = $faker->city;
+            $client->shipping_state        = $faker->stateAbbr;
+            $client->shipping_country      = 'BR';
+            $client->shipping_complement   = $faker->secondaryAddress;
+            $client->billing_address       = $faker->address;
+            $client->billing_number        = $faker->buildingNumber;
+            $client->billing_neighborhood  = $faker->word;
+            $client->billing_postalcode    = $faker->postcode;
+            $client->billing_city          = $faker->city;
+            $client->billing_state         = $faker->stateAbbr;
+            $client->billing_country       = 'BR';
+            $client->billing_complement    = $faker->secondaryAddress;
+
             $client->created_by  = 1;
             $client->updated_by  = 1;
             $client->deleted_by  = 1;
