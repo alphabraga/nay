@@ -18,32 +18,6 @@
       <form id="update" name="update" method="post" action="{{action('ClientsController@store')}}" >
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <input type="hidden" name="_method" value="POST" />
-
-
-        <!-- 
-
-              'name',        
-              'phone',       
-              'cellphone',   
-              'cpf',
-              'shipping_address',
-              'shipping_number',
-              'shipping_neighborhood',
-              'shipping_postalcode',
-              'shipping_city',
-              'shipping_state',
-              'shipping_country',
-              'shipping_complement',
-              'billing_address',
-              'billing_number',
-              'billing_neighborhood',
-              'billing_postalcode',
-              'billing_city',
-              'billing_state',
-              'billing_country',
-              'billing_complement',
-
-        -->
         
         <div class="row">
           <div class="col-md-4">
@@ -65,7 +39,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>cellphone</label><input id="cellphone" type="text" name="cellphone" value="" class="form-control input-sm cellphone">
+              <label>Celular</label><input id="cellphone" type="text" name="cellphone" value="" class="form-control input-sm cellphone">
             </div>
           </div>
         </div>
@@ -74,7 +48,7 @@
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>cpf</label><input id="cpf" type="text" name="cpf" value="" class="form-control input-sm cpf">
+              <label>CPF</label><input id="cpf" type="text" name="cpf" value="" class="form-control input-sm cpf">
             </div>
           </div>
         </div>
@@ -82,7 +56,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>shipping_address</label><input id="shipping_address" type="text" name="shipping_address" value="" class="form-control input-sm shipping_address">
+              <label>Endereço de Entrega</label><input id="shipping_address" type="text" name="shipping_address" value="" class="form-control input-sm shipping_address">
             </div>
           </div>
         </div>
@@ -91,7 +65,7 @@
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>shipping_number</label><input id="shipping_number" type="text" name="shipping_number" value="" class="form-control input-sm shipping_number">
+              <label>Número de Entrega</label><input id="shipping_number" type="text" name="shipping_number" value="" class="form-control input-sm shipping_number">
             </div>
           </div>
         </div>
@@ -99,7 +73,7 @@
                 <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>shipping_neighborhood</label><input id="shipping_neighborhood" type="text" name="shipping_neighborhood" value="" class="form-control input-sm shipping_neighborhood">
+              <label>Bairro de Entrega</label><input id="shipping_neighborhood" type="text" name="shipping_neighborhood" value="" class="form-control input-sm shipping_neighborhood">
             </div>
           </div>
         </div>
@@ -108,7 +82,7 @@
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>shipping_postalcode</label><input id="shipping_postalcode" type="text" name="shipping_postalcode" value="" class="form-control input-sm shipping_postalcode">
+              <label>CEP de Entrega</label><input id="shipping_postalcode" type="text" name="shipping_postalcode" value="" class="form-control input-sm shipping_postalcode">
             </div>
           </div>
         </div>
@@ -116,7 +90,7 @@
                 <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>shipping_city</label><input id="shipping_city" type="text" name="shipping_city" value="" class="form-control input-sm shipping_city">
+              <label>Cidade de Entrega</label><input id="shipping_city" type="text" name="shipping_city" value="" class="form-control input-sm shipping_city">
             </div>
           </div>
         </div>
@@ -125,7 +99,7 @@
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>shipping_state</label><input id="shipping_state" type="text" name="shipping_state" value="" class="form-control input-sm shipping_state">
+              <label>Estado de Entrega</label><input id="shipping_state" type="text" name="shipping_state" value="" class="form-control input-sm shipping_state">
             </div>
           </div>
         </div>
@@ -133,7 +107,7 @@
                 <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>shipping_country</label><input id="shipping_country" type="text" name="shipping_country" value="" class="form-control input-sm shipping_country">
+              <label>País de Entrega</label><input id="shipping_country" type="text" name="shipping_country" value="" class="form-control input-sm shipping_country">
             </div>
           </div>
         </div>
@@ -142,7 +116,7 @@
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>shipping_complement</label><input id="shipping_complement" type="text" name="shipping_complement" value="" class="form-control input-sm shipping_complement">
+              <label>Complemento de Entrega</label><input id="shipping_complement" type="text" name="shipping_complement" value="" class="form-control input-sm shipping_complement">
             </div>
           </div>
         </div>
@@ -150,7 +124,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>billing_address</label><input id="billing_address" type="text" name="billing_address" value="" class="form-control input-sm billing_address">
+              <label>Endereço de Cobrança</label><input id="billing_address" type="text" name="billing_address" value="" class="form-control input-sm billing_address">
             </div>
           </div>
         </div>
@@ -159,7 +133,7 @@
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>billing_number</label><input id="billing_number" type="text" name="billing_number" value="" class="form-control input-sm billing_number">
+              <label>Número de Cobrança</label><input id="billing_number" type="text" name="billing_number" value="" class="form-control input-sm billing_number">
             </div>
           </div>
         </div>
@@ -167,7 +141,7 @@
                 <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>billing_neighborhood</label><input id="billing_neighborhood" type="text" name="billing_neighborhood" value="" class="form-control input-sm billing_neighborhood">
+              <label>Bairro de Cobrança</label><input id="billing_neighborhood" type="text" name="billing_neighborhood" value="" class="form-control input-sm billing_neighborhood">
             </div>
           </div>
         </div>
@@ -176,7 +150,7 @@
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>billing_postalcode</label><input id="billing_postalcode" type="text" name="billing_postalcode" value="" class="form-control input-sm billing_postalcode">
+              <label>CEP de Cobrança</label><input id="billing_postalcode" type="text" name="billing_postalcode" value="" class="form-control input-sm billing_postalcode">
             </div>
           </div>
         </div>
@@ -184,7 +158,7 @@
                 <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>billing_city</label><input id="billing_city" type="text" name="billing_city" value="" class="form-control input-sm billing_city">
+              <label>Cidade de Cobrança</label><input id="billing_city" type="text" name="billing_city" value="" class="form-control input-sm billing_city">
             </div>
           </div>
         </div>
@@ -193,7 +167,7 @@
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>billing_state</label><input id="billing_state" type="text" name="billing_state" value="" class="form-control input-sm billing_state">
+              <label>Estado de Cobrança</label><input id="billing_state" type="text" name="billing_state" value="" class="form-control input-sm billing_state">
             </div>
           </div>
         </div>
@@ -201,7 +175,7 @@
                 <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>billing_country</label><input id="billing_country" type="text" name="billing_country" value="" class="form-control input-sm billing_country">
+              <label>Paìs de Cobrança</label><input id="billing_country" type="text" name="billing_country" value="" class="form-control input-sm billing_country">
             </div>
           </div>
         </div>
@@ -210,7 +184,7 @@
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>billing_complement</label><input id="billing_complement" type="text" name="billing_complement" value="" class="form-control input-sm billing_complement">
+              <label>Complemtno de Cobrança</label><input id="billing_complement" type="text" name="billing_complement" value="" class="form-control input-sm billing_complement">
             </div>
           </div>
         </div>

@@ -47,7 +47,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{action('ClientsController@index')}}"><i class="fa fa-groups"></i>Clientes</a></li>
+            <li><a href="{{action('ClientsController@index')}}"><i class="fa fa-circle-o"></i>Clientes</a></li>
             <li><a href="{{action('BrandsController@index')}}"><i class="fa fa-circle-o"></i>Marcas</a></li>
             <li><a href="{{action('CategoriesController@index')}}"><i class="fa fa-circle-o"></i>Categorias</a></li>
             <li><a href="{{action('ProvidersController@index')}}"><i class="fa fa-circle-o"></i>Fornecedores</a></li>

@@ -121,7 +121,7 @@ class ClientsController extends FrontController
             return $this->index();            
         }    
 
-        return view('clients.update')->with($data);
+        return view('clients.update')->with(['object' => $object , 'showMode' => true]);
 
     }
 
