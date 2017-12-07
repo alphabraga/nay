@@ -46,6 +46,8 @@ class AddDataToDefaultClientConfig extends Migration
                                     'created_at'                       => \Carbon\Carbon::now() 
                                 ]);
 
+        
+
 
     }
 
