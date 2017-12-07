@@ -162,6 +162,18 @@
           </div>
         </div>
 
+
+         <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Cliente Fixo</label>
+              <input class="form-control input-sm up" type="textarea" name="default_client_id" disabled="disabled" value="{{$defaultClient->id}}">
+              <input id="default_client" type="text" name="default_client" value="{{$defaultClient->name}}" disabled="disabled" class="form-control input-sm up">
+            </div>
+          </div>
+        </div>
+
+
         <div class="botoes">
           <input id="btnSave" type="submit" name="btnSave" value="Salvar" class="btn btn-primary margin-right">
         </div>

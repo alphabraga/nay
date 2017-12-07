@@ -38,6 +38,7 @@ class ConfigurationsModel extends Model
 							'pagseguro_charset',
 							'cnpj',
 							'administrator_system_email',
+							'default_client_id',
 						    'created_by',
 						    'updated_by'
 						];

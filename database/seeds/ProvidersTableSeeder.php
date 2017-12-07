@@ -56,5 +56,25 @@ class ProvidersTableSeeder extends Seeder
 
     		$provider->saveFakeImage($faker);
     	}
+
+
+
+        $providers = [
+                            'name'               => 'São Luis Distribuidora de Livros Ltda',
+                            'slug'               => 'sao-luis-distribuidora-de-livros',
+                            'description'        => 'fornecedor vende livros da FTD e de outras editoras',
+                            'tags'               => ['amin', 'ftd'],
+                            'cellphone'          => '',
+                            'phone'              => '(98) 3301-2611',
+                            'postal_code'        => '65030-000',
+                            'address'            => 'Av. Getúlio Vargas, 36 - Monte Castelo, São Luís - MA',
+                            'address_number'     => '36',
+                            'address_complement' => '',
+                            'email'              => ''
+
+
+                     ];
+
+
     }
 }
