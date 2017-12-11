@@ -152,6 +152,71 @@
           </div>
         </div>
      
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Nome de Campo 1 Tabela de produtos</label>
+              <input id="custom_field1_label" type="text" name="custom_field1_label" value="{{$object->custom_field1_label}}" class="form-control input-sm up">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Nome de Campo 2 Tabela de produtos</label>
+              <input id="custom_field2_label" type="text" name="custom_field2_label" value="{{$object->custom_field2_label}}" class="form-control input-sm up">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Nome de Campo 3 Tabela de produtos</label>
+              <input id="custom_field3_label" type="text" name="custom_field3_label" value="{{$object->custom_field3_label}}" class="form-control input-sm up">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Nome de Campo 4 Tabela de produtos</label>
+              <input id="custom_field4_label" type="text" name="custom_field4_label" value="{{$object->custom_field4_label}}" class="form-control input-sm up">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Nome de Campo 5 Tabela de produtos</label>
+              <input id="custom_field5_label" type="text" name="custom_field5_label" value="{{$object->custom_field5_label}}" class="form-control input-sm up">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Nome de Campo 6 Tabela de produtos</label>
+              <input id="custom_field6_label" type="text" name="custom_field6_label" value="{{$object->custom_field6_label}}" class="form-control input-sm up">
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">

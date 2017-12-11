@@ -40,7 +40,13 @@ class ConfigurationsModel extends Model
 							'administrator_system_email',
 							'default_client_id',
 						    'created_by',
-						    'updated_by'
+						    'updated_by',
+							'custom_field1_label',
+				            'custom_field2_label',
+				            'custom_field3_label',
+				            'custom_field4_label',
+				            'custom_field5_label',
+				            'custom_field6_label'
 						];
 
 

@@ -110,6 +110,12 @@ class ConfigurationController extends FrontController
         $config->country_code  = $request->input('country_code');
         $config->state_code    = $request->input('state_code');
         $config->pagseguro_api_key = $request->input('pagseguro_api_key');
+        $config->custom_field1_label = $request->input('custom_field1_label');
+        $config->custom_field2_label = $request->input('custom_field2_label');
+        $config->custom_field3_label = $request->input('custom_field3_label');
+        $config->custom_field4_label = $request->input('custom_field4_label');
+        $config->custom_field5_label = $request->input('custom_field5_label');
+        $config->custom_field6_label = $request->input('custom_field6_label');
 
     	$config->save();
 
