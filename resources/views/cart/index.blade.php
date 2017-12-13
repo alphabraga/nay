@@ -132,8 +132,69 @@
       <div class="modal-body">
 
 
-        <form action="#" method="post">
+        <form action="{{@action('CartController@checkout')}}" method="post">
           
+
+          <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+        <input type="hidden" name="_method" value="POST" />
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Tipo de Transação</label> <br>
+                <select style="width : 100%;" id="transaction_type" name="transaction_type" class="form-control input-sm select2">
+                  @foreach($clients as $c)
+                      <option value="{{$c->id}}">{{$c->name}}</option>
+                  @endforeach
+                </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Comprador</label> <br>
+                <select style="width : 100%;" id="category_id" name="category_id" class="form-control input-sm select2">
+                  @foreach($clients as $c)
+                    @if($c->id == $configuracao->default_client_id) 
+                      <option value="{{$c->id}}" selected="selected">{{$c->name}}</option>
+                    @else
+                      <option value="{{$c->id}}">{{$c->name}}</option>
+                    @endif
+                  @endforeach
+                </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Forma de Pagamento</label> <br>
+                <select style="width : 100%;" id="category_id" name="category_id" class="form-control input-sm select2">
+                  @foreach($clients as $c)
+                    @if($c->id == $configuracao->default_client_id) 
+                      <option value="{{$c->id}}" selected="selected">{{$c->name}}</option>
+                    @else
+                      <option value="{{$c->id}}">{{$c->name}}</option>
+                    @endif
+                  @endforeach
+                </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Nome</label><input id="name" type="text" name="name" value="" class="form-control input-sm name">
+            </div>
+          </div>
+        </div>
+
+
+
           <ul>
             <li>Cliente (Deixar preselecionado o cliente padrão)</li>
             <li>Vendedor (preselecionado o que esta logado na maquina)</li>

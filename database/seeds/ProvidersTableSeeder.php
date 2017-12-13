@@ -54,7 +54,7 @@ class ProvidersTableSeeder extends Seeder
 
     		$provider->save();
 
-    		$provider->saveFakeImage($faker);
+    		//$provider->saveFakeImage($faker);
     	}
 
 

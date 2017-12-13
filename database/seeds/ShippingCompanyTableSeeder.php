@@ -37,7 +37,7 @@ class ShippingCompanyTableSeeder extends Seeder
 
             $shippingCompany->save();
 
-            $shippingCompany->saveFakeImage($faker);
+            //$shippingCompany->saveFakeImage($faker);
         }
 
     }

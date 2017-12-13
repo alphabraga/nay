@@ -27,7 +27,8 @@ Route::middleware('auth')->group(function ()
 	Route::resource('configuration', 'ConfigurationController');
 
 	Route::resource('carrinho', 'CartController');
-	
+
+	Route::post('checkout', 'CartController@checkout');	
 	Route::get('carrinhoTotal', 'CartController@total');
 	Route::get('carrinhoSubTotal', 'CartController@subtotal');
 	Route::get('carrinhoClear', 'CartController@clear');

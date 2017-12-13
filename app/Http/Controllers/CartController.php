@@ -21,10 +21,13 @@ class CartController extends FrontController
      */
     public function index()
     {
-        //$shoppingItens =  \Cart::getContent();
-        //return response()->json($shoppingItens);
+        $clients = \App\Nay\Model\ClientsModel::all();
 
-        return view('cart.index');
+        $data = [
+                    'clients'       => $clients
+                ];
+
+        return view('cart.index')->with($data);
     }
 
 
@@ -166,5 +169,10 @@ class CartController extends FrontController
        \Cart::clear();
     }
 
+    public function checkout()
+    {
 
+
+
+    }
 }

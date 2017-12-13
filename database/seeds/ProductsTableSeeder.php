@@ -34,22 +34,31 @@ class ProductsTableSeeder extends Seeder
     			$tags[] = $faker->name;
     		}
 
+            $sale_price     = $faker->randomFloat(2, 50, 400);
+            $purchase_price = $faker->randomFloat(2, 50, 400);
+
+            while ($purchase_price > $sale_price)
+            {
+                $purchase_price = $faker->randomFloat(2, 50, 400);                
+            }
+
 			$product->slug             = $slug;
 			$product->name             = $name;
 			$product->description      = substr($faker->paragraphs(1, true), 0, 100);
 			$product->tags             = $tags;
 			$product->quantity_limit   = $faker->randomDigit;
 			$product->quantity         = $faker->randomDigit;
-			$product->price            = $faker->randomFloat(2);
+			$product->sale_price       = $sale_price;
+            $product->purchase_price   = $purchase_price;
 			$product->created_by       = 1;
 			$product->updated_by       = 1;
 			$product->created_at       = date('Y-m-d H:i:s');
 
     		$product->save();
 
-    		$product->saveFakeImage($faker);
-    		$product->saveFakeImage($faker);
-    		$product->saveFakeImage($faker);
+    		//$product->saveFakeImage($faker);
+    		//$product->saveFakeImage($faker);
+    		//$product->saveFakeImage($faker);
     	}
     }
 }

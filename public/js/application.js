@@ -37,6 +37,7 @@ $(document).ready(function()
        {
           $.each(data, function(id,item)
           {
+
             $('table#carrinho tbody').append('<tr><td>'+item.id+'</td><td>'+item.name+'</td><td>'+item.quantity.toLocaleString('pt-BR')+'</td><td><div class="float-right">'+item.price.toLocaleString('pt-BR')+'</div></td><td><a href="#" data-id="'+item.id+'" class="btn btn-xs btn-danger remove-item"><i class="fa fa-ban"><i/> Remover</a></td><tr>');
           });
        });
@@ -146,7 +147,7 @@ $(document).ready(function()
     {
         var data = e.params.data;
         //{"id" : 17, "price" : 644.61 "text": "Mrs. Krystal Conn II"}
-        var newProduct = { "product" : {id: data.id, name: data.text, price: data.price, quantity: 1, atributes:[] }};
+        var newProduct = { "product" : {id: data.id, name: data.text, price: data.sale_price, quantity: 1, atributes:[] }};
 
         carrinho.add(newProduct);
 
@@ -194,7 +195,7 @@ $(document).ready(function()
             }
 
             markup += "<div class='select2-result-repository__statistics'>" +
-            "<div class='select2-result-repository__forks'><i class='fa fa-money'></i> " + repo.price + "</div>" +
+            "<div class='select2-result-repository__forks'><i class='fa fa-money'></i> " + repo.sale_price + "</div>" +
             "</div>" +
             "</div></div>";
 

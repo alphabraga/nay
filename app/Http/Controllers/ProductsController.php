@@ -27,7 +27,7 @@ class ProductsController extends FrontController
                                  ['data' => 'id', 'title' => 'ID'],
                                  ['data' => 'name', 'title' => 'NOME'],
                                  ['data' => 'quantity', 'title' => 'QUANTIDADE'],
-                                 ['data' => 'price', 'title' => 'PREÇO'],
+                                 ['data' => 'sale_price', 'title' => 'PREÇO'],
                                  ['data' => 'action', 'title' => 'Ação', 'orderable' => false, 'searchable' => false]  
                                 ]
                 ];        
@@ -38,7 +38,7 @@ class ProductsController extends FrontController
     public function search()
     {
 
-        return DataTables::of(\App\Nay\Model\ProductsModel::select('id', 'name', 'price', 'quantity'))
+        return DataTables::of(\App\Nay\Model\ProductsModel::select('id', 'name', 'sale_price', 'quantity'))
         ->setRowId('id')
         ->addColumn('action', function($object)
         {
@@ -167,7 +167,7 @@ class ProductsController extends FrontController
 
         $term = $request->input('term');
 
-        $products = \App\Nay\Model\ProductsModel::select('id', 'name', 'price')
+        $products = \App\Nay\Model\ProductsModel::select('id', 'name', 'sale_price')
                                                   ->where('name', 'like', "%$term%")
                                                   ->take(100)
                                                   ->get();
@@ -179,7 +179,7 @@ class ProductsController extends FrontController
 
         foreach ($products as $p)
         {
-            $data['results'][] = ['id' => $p->id, 'text' => $p->name, 'price' => $p->price];
+            $data['results'][] = ['id' => $p->id, 'text' => $p->name, 'sale_price' => $p->sale_price];
         }
 
         return response()->json($data);
