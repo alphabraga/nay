@@ -9,7 +9,7 @@
         </div>
         <div class="pull-left info">
           <p>{{$usuario->name}}</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a href="#">[Perfil do Sistema]</a>
         </div>
       </div>
       <!-- search form -->
@@ -28,49 +28,36 @@
         <li class="header">MENU PRICIPAL</li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Operações</span>
+            <i class="fa fa-laptop fa-fw"></i> <span>Operações</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{URL::to('/carrinho')}}"><i class="fa fa-circle-o"></i> Atendimento ao Cliente</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Pedidos</a></li>
+            <li><a href="{{URL::to('/carrinho')}}"><i class="fa fa-cart-o fa-shopping-cart"></i> Atendimento ao Cliente</a></li>
+            <li><a href="#"><i class="fa fa-archive"></i> Pedidos</a></li>
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-pie-chart"></i>
+            <i class="fa fa-book fa-fw"></i>
             <span>Cadastro</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{action('ClientsController@index')}}"><i class="fa fa-circle-o"></i>Clientes</a></li>
-            <li><a href="{{action('BrandsController@index')}}"><i class="fa fa-circle-o"></i>Marcas</a></li>
-            <li><a href="{{action('CategoriesController@index')}}"><i class="fa fa-circle-o"></i>Categorias</a></li>
-            <li><a href="{{action('ProvidersController@index')}}"><i class="fa fa-circle-o"></i>Fornecedores</a></li>
-            <li><a href="{{action('ShippingCompanyController@index')}}"><i class="fa fa-circle-o"></i>Transportadoras</a></li>
-            <li><a href="{{action('ProductsController@index')}}"><i class="fa fa-circle-o"></i>Produtos</a></li>
+            <li><a href="{{action('ClientsController@index')}}"><i class="fa fa-group fa-fw"></i>Clientes</a></li>
+            <li><a href="{{action('BrandsController@index')}}"><i class="fa fa-tags"></i>Marcas</a></li>
+            <li><a href="{{action('CategoriesController@index')}}"><i class="fa fa-cubes"></i>Categorias</a></li>
+            <li><a href="{{action('ProvidersController@index')}}"><i class="fa fa-industry fa-fw"></i>Fornecedores</a></li>
+            <li><a href="{{action('ShippingCompanyController@index')}}"><i class="fa fa-truck fa-fw"></i>Transportadoras</a></li>
+            <li><a href="{{action('ProductsController@index')}}"><i class="fa fa-money"></i>Produtos</a></li>
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>Operações</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Venda</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Pedido</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Administrativo</span>
+            <i class="fa fa-cog fa-fw"></i> <span>Administrativo</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
