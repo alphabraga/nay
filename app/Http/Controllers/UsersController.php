@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\FrontController;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\File;
 
 class UsersController extends FrontController
 {
@@ -60,9 +61,7 @@ class UsersController extends FrontController
      */
     public function create()
     {
-        $entidades = \App\EntidadeodontologicaModel::all();
-
-        return view('users.create')->with('entidades', $entidades);
+        return view('users.create');
     }
 
     /**
@@ -80,19 +79,22 @@ class UsersController extends FrontController
                             'username'    => 'required|unique:users,username',
                             'email'       => 'required|unique:users,email',
                             'password'    => 'required',
-                            'name'        => 'required|unique:users,name',
-                            'desconto'    => 'required'
+                            'name'        => 'required|unique:users,name'
                           ]);
 
         $user->username    =  $request->input('username');
         $user->email       =  $request->input('email');
         $user->password    =  bcrypt($request->input('password'));
         $user->name        =  $request->input('name');
-        $user->desconto    =  $request->input('desconto');
 
         $user->save();
 
-        return redirect('/usuario');
+        \Avatar::create($user->name)->save(public_path('images/users/' . $user->id . '.png'));
+
+
+        //\File::exists(storage_path('app/blogpost/' . $postId))
+
+        return redirect('/users');
     }
 
     /**
@@ -152,11 +154,10 @@ class UsersController extends FrontController
         $user->password    = bcrypt($request->input('password'));
         $user->username    = $request->input('username');
         $user->entidade_id = $request->input('entidade_id');
-        $user->desconto    = $request->input('desconto');
 
         $user->save();
 
-        return redirect('/usuario/' . $id);
+        return redirect('/users/' . $id);
     }
 
     /**
@@ -222,14 +223,14 @@ class UsersController extends FrontController
             try
             {
 
-                $allPhotos = glob('usuarios/' .  \Auth::user()->id . '.*');
+                $allPhotos = glob('public/images/users/' .  \Auth::user()->id . '.*');
 
                 foreach($allPhotos as $p)
                 {
                     unlink($p);
                 }
 
-                $saved = $file->move('usuarios', \Auth::user()->id . '.' . $extension);
+                $saved = $file->move('public/images/users/', \Auth::user()->id . '.' . $extension);
 
                 if($saved)
                 {
