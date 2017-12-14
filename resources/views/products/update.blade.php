@@ -18,6 +18,13 @@
       <form id="update" name="update" method="post" action="{{action('ProductsController@update', [$object->id])}}" >
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <input type="hidden" name="_method" value="PATCH" />
+                <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Código Externo</label><input id="external_code" type="text" name="external_code" value="{{$object->external_code}}" class="form-control input-sm external_code">
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
@@ -39,7 +46,7 @@
             <div class="form-group">
               <label>Descrição</label>
               <textarea class="form-control input-sm name" name="description" id="description" >
-              {{$object->description}}
+                {{$object->description}}
               </textarea>
             </div>
           </div>
@@ -49,9 +56,6 @@
             <div class="form-group">
               <label>Tags</label>
               <select name="tags[]" class="form-control select2-tags" multiple >
-                @foreach($object->tags as $t)
-                <option value="{{$t}}" selected="selected">{{$t}}</option>
-                @endforeach
               </select>
             </div>
           </div>
@@ -59,25 +63,80 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Quantidade Limite</label> 
-                <input id="quantity_limit" type="text" name="quantity_limit" value="{{$object->quantity_limit}}" class="form-control input-sm quantity_limit">
+              <label>Quantidade Limite</label>
+              <input id="quantity_limit" type="text" name="quantity_limit" value="{{$object->quantity_limit}}" class="form-control input-sm quantity_limit">
             </div>
           </div>
         </div>
-      <div class="row">
+        <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Quantidade</label> 
-                <input id="quantity" type="text" name="quantity" value="{{$object->quantity}}" class="form-control input-sm quantity">
+              <label>Quantidade</label>
+              <input id="quantity" type="text" name="quantity" value="{{$object->quantity}}" class="form-control input-sm quantity">
             </div>
           </div>
         </div>
-
-      <div class="row">
+        <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Preço</label> 
-                <input id="price" type="text" name="price" value="{{$object->price}}" class="form-control input-sm price">
+              <label>Preço de Compra</label>
+              <input id="purchase_price" type="text" name="purchase_price" value="{{$object->purchase_price}}" class="form-control input-sm price">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Preço de Venda</label>
+              <input id="sale_price" type="text" name="sale_price" value="{{$object->sale_price}}" class="form-control input-sm price">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>{{$configuracao->custom_field1_label}}</label>
+              <input id="sale_price" type="text" name="custom_field1" value="{{$object->custom_field1}}" class="form-control input-sm price">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>{{$configuracao->custom_field2_label}}</label>
+              <input id="sale_price" type="text" name="custom_field2" value="{{$object->custom_field2}}" class="form-control input-sm price">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>{{$configuracao->custom_field3_label}}</label>
+              <input id="sale_price" type="text" name="custom_field3" value="{{$object->custom_field3}}" class="form-control input-sm price">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>{{$configuracao->custom_field4_label}}</label>
+              <input id="sale_price" type="text" name="custom_field4" value="{{$object->custom_field4}}" class="form-control input-sm price">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>{{$configuracao->custom_field5_label}}</label>
+              <input id="sale_price" type="text" name="custom_field5" value="{{$object->custom_field5}}" class="form-control input-sm price">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>{{$configuracao->custom_field6_label}}</label>
+              <input id="sale_price" type="text" name="custom_field6" value="{{$object->custom_field6}}" class="form-control input-sm price">
             </div>
           </div>
         </div>

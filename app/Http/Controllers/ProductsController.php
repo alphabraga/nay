@@ -82,7 +82,15 @@ class ProductsController extends FrontController
         $object->tags           = $request->input('tags');
         $object->quantity_limit = $request->input('quantity_limit');
         $object->quantity       = $request->input('quantity');
-        $object->price          = $request->input('price');
+        $object->sale_price     = $request->input('sale_price');
+        $object->purchase_price = $request->input('purchase_price');
+        $object->custom_field1 = $request->input('custom_field1');
+        $object->custom_field2 = $request->input('custom_field2');
+        $object->custom_field3 = $request->input('custom_field3');
+        $object->custom_field4 = $request->input('custom_field4');
+        $object->custom_field5 = $request->input('custom_field5');
+        $object->custom_field6 = $request->input('custom_field6');
+        $object->external_code = $request->input('external_code');
 
         $object->save();
 

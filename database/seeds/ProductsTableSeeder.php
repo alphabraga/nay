@@ -43,6 +43,8 @@ class ProductsTableSeeder extends Seeder
             }
 
 			$product->slug             = $slug;
+            $product->barcode          = $faker->ean13;
+            $product->external_code    = $faker->randomNumber(9);
 			$product->name             = $name;
 			$product->description      = substr($faker->paragraphs(1, true), 0, 100);
 			$product->tags             = $tags;
@@ -50,6 +52,12 @@ class ProductsTableSeeder extends Seeder
 			$product->quantity         = $faker->randomDigit;
 			$product->sale_price       = $sale_price;
             $product->purchase_price   = $purchase_price;
+            $product->custom_field1    = $faker->randomNumber(2);
+            $product->custom_field2    = $faker->name;
+            $product->custom_field3    = $faker->title;
+            $product->custom_field4    = $faker->postcode;
+            $product->custom_field5    = $faker->titleFemale;
+            $product->custom_field6    = $faker->randomNumber(1);
 			$product->created_by       = 1;
 			$product->updated_by       = 1;
 			$product->created_at       = date('Y-m-d H:i:s');
