@@ -34,9 +34,9 @@ class User extends Authenticatable
 
     public function getPhoto()
     {
-        $photo = 'images/users/' . $this->id . '.jpg';
+        $photo = 'images/users/' . $this->id . '.png';
 
-        $defaultPhoto = 'images/users/user.jpg';
+        $defaultPhoto = 'images/users/user.png';
 
         return \File::exists( public_path($photo))? $photo:$defaultPhoto;
     }

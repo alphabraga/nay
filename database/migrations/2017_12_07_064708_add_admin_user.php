@@ -14,13 +14,13 @@ class AddAdminUser extends Migration
     public function up()
     {
 
-        \App\User::create([
+        $admin = \App\User::create([
+                                        'name'     => 'admin', 
+                                        'email'    => 'alfredorodruguesbraga@gmail.com', 
+                                        'password' => \Hash::make('123456')
+                                   ]);
 
-                            'name' => 'admin', 
-                            'email' => 'alfredorodruguesbraga@gmail.com', 
-                            'password' => \Hash::make('123456')
-                        ]);
-
+        Avatar::create('admin')->save('public/images/users/' . $admin->id . '.png');
     }
 
     /**
