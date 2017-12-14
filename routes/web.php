@@ -66,6 +66,8 @@ Route::middleware('auth')->group(function ()
 	Route::get('perfil', 'UsersController@profile');
 
 	Route::get('/sobre', 'ConfigurationController@about');
+
+	Route::post('updateAnotherPassword', 'UsuarioController@updateAnotherPassword');
 });
 
 //Auth::routes();

@@ -30,6 +30,7 @@ class UsersController extends FrontController
                     'header' => [
                                  ['data' => 'name', 'title' => 'Nome'],
                                  ['data' => 'email', 'title' => 'Usuário'],
+                                 ['data' => 'username', 'title' => 'Usuário'],
                                 ]
                 ];
 
@@ -124,7 +125,7 @@ class UsersController extends FrontController
                   'roles'    => null,//$rolesId->all()
                 ];
 
-        return view('users.update')->with($data);
+        return view('users.show')->with($data);
     }
 
     /**
@@ -151,9 +152,9 @@ class UsersController extends FrontController
 
         $user->name        = $request->input('name');
         $user->email       = $request->input('email');
-        $user->password    = bcrypt($request->input('password'));
         $user->username    = $request->input('username');
-        $user->entidade_id = $request->input('entidade_id');
+        $user->activated   = $request->input('activated');
+        $user->validity    = $request->input('validity');
 
         $user->save();
 
@@ -276,5 +277,34 @@ class UsersController extends FrontController
     public function getUserName($id)
     {
       return response()->json(\App\Users::select(['username', 'name', 'email'])->find($id));      
-    }    
+    }
+
+
+    public function updateAnotherPassword(Request $request)
+    {
+
+        if($request->input('password') === $request->input('confirm'))
+        {
+            $currentUser = \App\User::find($request->input('user'));
+
+            $currentUser->password = \Hash::make($request->input('password'));
+
+            $saved = $currentUser->save();
+
+            if($saved)
+            {
+                \Session::flash('flash_message','A atualização de senha foi realizada com sucesso');
+
+                return redirect('/usuario/' . $request->input('user'));
+            }
+        }
+        else
+        {
+            \Session::flash('flash_error','Seus dados de senha e confirmação não são iguais');
+
+            return redirect('/perfil');
+        }   
+
+    }
+
 }

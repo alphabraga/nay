@@ -59,7 +59,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>personal_contact</label> 
+              <label>Contato</label> 
                 <input id="personal_contact" type="text" name="personal_contact" value="" class="form-control input-sm personal_contact">
             </div>
           </div>
@@ -68,7 +68,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>postal_code</label> 
+              <label>CEP</label> 
                 <input id="postal_code" type="text" name="postal_code" value="" class="form-control input-sm postal_code">
             </div>
           </div>
@@ -76,7 +76,7 @@
                 <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>address</label> 
+              <label>Endereço</label> 
                 <input id="address" type="text" name="address" value="" class="form-control input-sm address">
             </div>
           </div>
@@ -85,7 +85,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>address_number</label> 
+              <label>Numero</label> 
                 <input id="address_number" type="text" name="address_number" value="" class="form-control input-sm address_number">
             </div>
           </div>
@@ -94,7 +94,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>address_complement</label> 
+              <label>Complemento</label> 
                 <input id="address_complement" type="text" name="address_complement" value="" class="form-control input-sm address_complement">
             </div>
           </div>
@@ -103,7 +103,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>phone</label> 
+              <label>Fone</label> 
                 <input id="phone" type="text" name="phone" value="" class="form-control input-sm phone">
             </div>
           </div>
@@ -112,7 +112,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>cellphone</label> 
+              <label>Celular</label> 
                 <input id="cellphone" type="text" name="cellphone" value="" class="form-control input-sm cellphone">
             </div>
           </div>
@@ -121,7 +121,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>email</label> 
+              <label>Email</label> 
                 <input id="email" type="text" name="email" value="" class="form-control input-sm email">
             </div>
           </div>
@@ -130,7 +130,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>site</label> 
+              <label>Site</label> 
                 <input id="site" type="text" name="site" value="" class="form-control input-sm site">
             </div>
           </div>

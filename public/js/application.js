@@ -610,7 +610,7 @@ $('div#modal-table-body').on('click', 'table#modal-table tbody tr', function(e)
         currentRouteName = 'guia';
     }    
 
-    window.location.href = baseUrl + '/' + currentRouteName + '/' + $(this).attr('id');
+        window.location.href = baseUrl + '/' + currentRouteName + '/' + $(this).attr('id');
   });
 
 });
@@ -662,10 +662,12 @@ function atualizaCampo(){
 
     $('.cnpj').mask("99.999.999/9999-99");
     $('.cpf').mask("999.999.999-99");
-    
-    $('.data input').mask("99/99/9999");
-    $('.data-hora input').mask("99/99/9999 99:99");
-    $('.hora input').mask("99:99");
+
+    $('.input-data').mask("99/99/9999");    
+    //$('.data input').mask("99/99/9999");
+    $('.input-data-hora').mask("99/99/9999 99:99");
+    //$('.hora input').mask("99:99");
+    $('.input-hora').mask("99:99");
     $('.ano').mask("9999");
     
     $(".quantidade").maskMoney({thousands:'', precision:0, allowZero:false});

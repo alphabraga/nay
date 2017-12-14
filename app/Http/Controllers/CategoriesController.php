@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Yajra\DataTables\DataTables;
 
 class CategoriesController extends FrontController
@@ -152,7 +153,7 @@ class CategoriesController extends FrontController
 
 
         $request->validate([
-                                'name'        => 'required|unique:categories',
+                                'name'        =>  Rule::unique('users')->ignore($object->id),
                                 'tags'        => 'required',
                                 'description' => 'required'
                             ]);

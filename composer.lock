@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "816410ab1a28ee2d7a60c96846d70e22",
+    "content-hash": "6d2a432fb5c402cf89685d9c44519c92",
     "packages": [
         {
             "name": "danielstjules/stringy",
-            "version": "2.4.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/danielstjules/Stringy.git",
-                "reference": "edbda419cbe4bcc3cb200b7c9811cb6597bf058b"
+                "reference": "df24ab62d2d8213bbbe88cc36fc35a4503b4bd7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/edbda419cbe4bcc3cb200b7c9811cb6597bf058b",
-                "reference": "edbda419cbe4bcc3cb200b7c9811cb6597bf058b",
+                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/df24ab62d2d8213bbbe88cc36fc35a4503b4bd7e",
+                "reference": "df24ab62d2d8213bbbe88cc36fc35a4503b4bd7e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
+                "php": ">=5.4.0",
                 "symfony/polyfill-mbstring": "~1.1"
             },
             "require-dev": {
@@ -60,7 +60,7 @@
                 "utility",
                 "utils"
             ],
-            "time": "2017-03-02T20:43:29+00:00"
+            "time": "2017-06-12T01:10:27+00:00"
         },
         {
             "name": "darryldecode/cart",
@@ -710,16 +710,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.24",
+            "version": "v5.5.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "06135405bb1f736dac5e9529ed1541fc446c9c0f"
+                "reference": "0a5b6112f325c56ae5a6679c08a0a10723153fe0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/06135405bb1f736dac5e9529ed1541fc446c9c0f",
-                "reference": "06135405bb1f736dac5e9529ed1541fc446c9c0f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/0a5b6112f325c56ae5a6679c08a0a10723153fe0",
+                "reference": "0a5b6112f325c56ae5a6679c08a0a10723153fe0",
                 "shasum": ""
             },
             "require": {
@@ -799,6 +799,7 @@
                 "guzzlehttp/guzzle": "Required to use the Mailgun and Mandrill mail drivers and the ping methods on schedules (~6.0).",
                 "laravel/tinker": "Required to use the tinker console command (~1.0).",
                 "league/flysystem-aws-s3-v3": "Required to use the Flysystem S3 driver (~1.0).",
+                "league/flysystem-cached-adapter": "Required to use Flysystem caching (~1.0).",
                 "league/flysystem-rackspace": "Required to use the Flysystem Rackspace driver (~1.0).",
                 "nexmo/client": "Required to use the Nexmo transport (~1.0).",
                 "pda/pheanstalk": "Required to use the beanstalk queue driver (~3.0).",
@@ -839,7 +840,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-12-07T01:28:21+00:00"
+            "time": "2017-12-11T14:59:28+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -971,33 +972,41 @@
         },
         {
             "name": "laravolt/avatar",
-            "version": "1.8.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravolt/avatar.git",
-                "reference": "7ab8f07333410ddc6f833bd8460fc9bdcab67fb3"
+                "reference": "929d7e5fbbe8c09e20c966d53be9ef8d3b1e9ed5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravolt/avatar/zipball/7ab8f07333410ddc6f833bd8460fc9bdcab67fb3",
-                "reference": "7ab8f07333410ddc6f833bd8460fc9bdcab67fb3",
+                "url": "https://api.github.com/repos/laravolt/avatar/zipball/929d7e5fbbe8c09e20c966d53be9ef8d3b1e9ed5",
+                "reference": "929d7e5fbbe8c09e20c966d53be9ef8d3b1e9ed5",
                 "shasum": ""
             },
             "require": {
-                "danielstjules/stringy": "~2.2",
+                "danielstjules/stringy": "~3.1",
                 "illuminate/cache": "~5.2",
                 "illuminate/support": "~5.2",
                 "intervention/image": "^2.1",
-                "php": ">=5.5.0"
+                "php": ">=7.0"
             },
             "require-dev": {
-                "mockery/mockery": "0.9.*",
-                "phpunit/phpunit": "4.*"
+                "mockery/mockery": "^0.9.1",
+                "phpunit/phpunit": "~6.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "2.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravolt\\Avatar\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "Avatar": "Laravolt\\Avatar\\Facade"
+                    }
                 }
             },
             "autoload": {
@@ -1017,14 +1026,14 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Display avatar as base64",
+            "description": "Turn name, email, and any other string into beautiful, initial-based avatar.",
             "homepage": "https://github.com/laravolt/avatar",
             "keywords": [
                 "avatar",
                 "laravel",
                 "laravolt"
             ],
-            "time": "2017-06-02T16:39:53+00:00"
+            "time": "2017-11-17T03:16:40+00:00"
         },
         {
             "name": "league/flysystem",
@@ -3945,18 +3954,6 @@
         },
         {
             "name": "phpunit/phpunit",
-<<<<<<< HEAD
-            "version": "6.5.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "882e886cc928a0abd3c61282b2a64026237d14a4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/882e886cc928a0abd3c61282b2a64026237d14a4",
-                "reference": "882e886cc928a0abd3c61282b2a64026237d14a4",
-=======
             "version": "6.5.4",
             "source": {
                 "type": "git",
@@ -3967,7 +3964,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1b2f933d5775f9237369deaa2d2bfbf9d652be4c",
                 "reference": "1b2f933d5775f9237369deaa2d2bfbf9d652be4c",
->>>>>>> 3992a20486201dd4c7b28b78747e0376ba711651
                 "shasum": ""
             },
             "require": {
@@ -4038,11 +4034,7 @@
                 "testing",
                 "xunit"
             ],
-<<<<<<< HEAD
-            "time": "2017-12-06T09:42:03+00:00"
-=======
             "time": "2017-12-10T08:06:19+00:00"
->>>>>>> 3992a20486201dd4c7b28b78747e0376ba711651
         },
         {
             "name": "phpunit/phpunit-mock-objects",

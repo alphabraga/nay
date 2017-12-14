@@ -29,7 +29,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Email</label><input id="email" type="text" name="email" value="{{$object->email}}" class="form-control input-sm email">
+              <label>Username</label><input id="userame" type="text" name="username" value="{{$object->username}}" class="form-control input-sm email">
             </div>
           </div>
         </div>
