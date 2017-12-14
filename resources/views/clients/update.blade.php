@@ -4,9 +4,9 @@
   @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1><i class="fa fa-square fa-fw"></i>Clientes <small>Atualização</small></h1>
+  <h1><i class="fa fa-group  fa-fw"></i>Clientes <small>Atualização</small></h1>
   <ol class="breadcrumb">
-    <li><a href="{{action('BrandsController@index')}}"><i class="fa fa-square fa-fw"></i> Categorias</a></li>
+    <li><a href="{{action('BrandsController@index')}}"><i class="fa fa-group  fa-fw"></i> Categorias</a></li>
     <li class="active">Atualização</li>
   </ol>
 </section>
