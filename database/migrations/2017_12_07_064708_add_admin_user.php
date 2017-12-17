@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Laravolt\Avatar\Avatar;
 
 class AddAdminUser extends Migration
 {
@@ -20,7 +21,10 @@ class AddAdminUser extends Migration
                                         'password' => \Hash::make('123456')
                                    ]);
 
-        Avatar::create('admin')->save('public/images/users/' . $admin->id . '.png');
+
+        $avatar = new Avatar();
+
+        $avatar->create('admin')->save('public/images/users/' . $admin->id . '.png');
     }
 
     /**
