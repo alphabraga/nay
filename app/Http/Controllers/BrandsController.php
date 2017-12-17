@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use Laravolt\Avatar\Avatar;
 
 class BrandsController extends FrontController
 {
@@ -65,8 +66,12 @@ class BrandsController extends FrontController
      */
     public function create()
     {
+        $brand = new \App\Nay\Model\BrandsModel();
 
-        return view('brands.create');
+
+        $data = ['object' => $brand];
+
+        return view('brands.create')->with($data);
     }
 
     /**
@@ -77,15 +82,13 @@ class BrandsController extends FrontController
      */
     public function store(Request $request)
     {
+       $data         = $request->all();
+       $data['slug'] =  str_slug($data['name']);
 
-        $brand = new \App\Nay\Model\BrandsModel();
+       $brand = \App\Nay\Model\BrandsModel::create($data);
 
-        $brand->name        = $request->input('name');
-        $brand->description = $request->input('description');
-        $brand->tags        = $request->input('tags');
-        $brand->slug        = str_slug($request->input('name'));
-
-        $brand->save();
+        $avatar = new Avatar();
+        $avatar->create($brand->name)->save(public_path('images/brands/' . $brand->id . '.png'));
 
         return redirect('brands/' . $brand->id);
     }
@@ -99,7 +102,7 @@ class BrandsController extends FrontController
     public function show($id)
     {
 
-         $object  = \App\Nay\Model\BrandsModel::find($id);
+        $object  = \App\Nay\Model\BrandsModel::find($id);
 
         if($object === null)
         {
@@ -113,7 +116,7 @@ class BrandsController extends FrontController
                     'showMode'=> true
                 ];
 
-        return view('brands.update')->with($data);
+        return view('brands.create')->with($data);
 
     }
 
@@ -127,7 +130,7 @@ class BrandsController extends FrontController
     {
         $object = \App\Nay\Model\BrandsModel::find($id);
 
-        return view('brands.update')->with(['object' => $object]);
+        return view('brands.create')->with(['object' => $object]);
     }
 
     /**
@@ -143,12 +146,10 @@ class BrandsController extends FrontController
 
         $this->validate($request, [ 'name' => 'required|unique:brands,name,' . $object->id]);
 
-        $object->name        = $request->input('name');
-        $object->description = $request->input('description');
-        $object->tags        = $request->input('tags');
-        $object->slug        = str_slug($request->input('name'));
+        $data         = $request->all();
+        $data['slug'] = str_slug($data['name']);
 
-        $object->save();
+        $object->update($data);
 
         return redirect('brands/' . $object->id);
     }

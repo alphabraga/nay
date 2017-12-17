@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\DataTables;
+use Laravolt\Avatar\Avatar;
 
 class CategoriesController extends FrontController
 {
@@ -91,6 +92,10 @@ class CategoriesController extends FrontController
         $c->category_id = $request->input('category_id');
 
         $c->save();
+
+        $avatar = new Avatar();
+        $a->create($c->name)->save(public_path('images/categories/' . $c->id . '.png'));
+
 
         return redirect('categories/' . $c->id);
     }

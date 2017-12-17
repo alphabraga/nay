@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use Laravolt\Avatar\Avatar;
 
 class ProvidersController extends FrontController
 {
@@ -90,6 +91,9 @@ class ProvidersController extends FrontController
         $object->site               = $request->input('site');
 
         $object->save();
+
+        $avatar = new Avatar();
+        $avatar->create($object->name)->save(public_path('images/providers/' . $object->id . '.png'));
 
         return redirect('providers/' . $object->id);
     }

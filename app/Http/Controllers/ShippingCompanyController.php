@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use Laravolt\Avatar\Avatar;
 
 class ShippingCompanyController extends FrontController
 {
@@ -82,6 +83,9 @@ class ShippingCompanyController extends FrontController
         $object->slug               = str_slug($request->input('name'));
 
         $object->save();
+
+        $avatar = new Avatar();
+        $avatar->create($object->name)->save(public_path('images/providers/' . $object->id . '.png'));
 
         return redirect('shippingcompany/' . $object->id);
     }

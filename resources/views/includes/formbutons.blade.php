@@ -1,4 +1,8 @@
-<div class="btn-group">
-	<input id="btnSave" type="submit" name="btnSave" value="Salvar" class="btn btn-info">
-	{{-- <a id="novo" name="Novo" class="btn btn-default" href="{{action("$controller@create")}}">Novo</a> --}}
+<div class="pull-right">
+	<div class="btn-group">
+		<button id="btnSave" type="submit" name="btnSave" value="Salvar" class="btn btn-lg btn-success">
+		<i class="fa fa-save fa-fw"></i> Salvar
+		</button>
+		<a href="#" class="btn btn-danger btn-lg"><i class="fa fa-lg fa-ban"></i> Cancelar</a>
+	</div>
 </div>

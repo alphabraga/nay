@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\FrontController;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\File;
+use Laravolt\Avatar\Avatar;
 
 class UsersController extends FrontController
 {
@@ -89,11 +90,8 @@ class UsersController extends FrontController
         $user->name        =  $request->input('name');
 
         $user->save();
-
-        \Avatar::create($user->name)->save(public_path('images/users/' . $user->id . '.png'));
-
-
-        //\File::exists(storage_path('app/blogpost/' . $postId))
+        $avatar = new Avatar();
+        $avatar->create($user->name)->save(public_path('images/users/' . $user->id . '.png'));
 
         return redirect('/users');
     }
