@@ -1,12 +1,12 @@
 @extends('layouts.main')
 @section('title', 'Clientes')
-  @section('content')
+@section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1><i class="fa fa-group  fa-fw"></i>Clientes <small>Atualização</small></h1>
+  <h1><i class="fa fa-group fa-fw"></i>Clientes <small>Cadastro</small></h1>
   <ol class="breadcrumb">
-    <li><a href="{{action('BrandsController@index')}}"><i class="fa fa-group  fa-fw"></i> Categorias</a></li>
-    <li class="active">Atualização</li>
+    <li><a href="{{action('ClientsController@index')}}"><i class="fa fa-group fa-fw"></i> Clientes</a></li>
+    <li class="active">Cadastro</li>
   </ol>
 </section>
 <!-- Main content -->
@@ -14,11 +14,23 @@
   <div class="box">
     <!-- /.box-header -->
     <div class="box-body">
-      @include('includes.painel')
-      <form id="update" name="update" method="post" action="{{action('ClientsController@update', [$object->id])}}" >
+     @include('includes.painel')
+      <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-group fa-fw"></i>Cadastro</a></a></li>
+          <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-money fa-fw"></i>Transaçoes</a></li>
+          <li><a href="#tab_3" data-toggle="tab"><i class="fa fa-money fa-fw"></i>Contas em Aberto</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab_1">
+              @if(is_null($object->id))
+            <form id="update" name="update" method="post" action="{{action('ClientsController@store')}}" >
+              <input type="hidden" name="_method" value="POST" />
+              @else
+              <form id="update" name="update" method="post" action="{{action('ClientsController@update', [$object->id])}}" >
+                <input type="hidden" name="_method" value="PATCH" />
+                @endif
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-        <input type="hidden" name="_method" value="PATCH" />
-        
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
@@ -26,8 +38,7 @@
             </div>
           </div>
         </div>
-        
-        <div class="row">
+              <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label>Telefone</label><input id="phone" type="text" name="phone" value="{{$object->phone}}" class="form-control input-sm phone">
@@ -41,7 +52,6 @@
             </div>
           </div>
         </div>
-        
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
@@ -49,6 +59,7 @@
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
@@ -56,59 +67,67 @@
             </div>
           </div>
         </div>
-        
-        <div class="row">
+      
+
+              <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label>Número de Entrega</label><input id="shipping_number" type="text" name="shipping_number" value="{{$object->shipping_number}}" class="form-control input-sm shipping_number">
             </div>
           </div>
         </div>
-        <div class="row">
+
+                <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label>Bairro de Entrega</label><input id="shipping_neighborhood" type="text" name="shipping_neighborhood" value="{{$object->shipping_neighborhood}}" class="form-control input-sm shipping_neighborhood">
             </div>
           </div>
         </div>
-        
-        <div class="row">
+      
+
+              <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>CEP de Entrega</label><input id="shipping_postalcode" type="text" name="shipping_postalcode" value="{{$object->shipping_postalcode}}" class="form-control input-sm shipping_postalcode">
+              <label>CEP de Entrega</label><input id="shipping_postalcode" type="text" name="shipping_postalcode" value="{{$object->shipping_number}}" class="form-control input-sm shipping_postalcode">
             </div>
           </div>
         </div>
-        <div class="row">
+
+                <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label>Cidade de Entrega</label><input id="shipping_city" type="text" name="shipping_city" value="{{$object->shipping_city}}" class="form-control input-sm shipping_city">
             </div>
           </div>
         </div>
-        
-        <div class="row">
+      
+
+              <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label>Estado de Entrega</label><input id="shipping_state" type="text" name="shipping_state" value="{{$object->shipping_state}}" class="form-control input-sm shipping_state">
             </div>
           </div>
         </div>
-        <div class="row">
+
+                <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Estado de Entrega</label><input id="shipping_country" type="text" name="shipping_country" value="{{$object->shipping_country}}" class="form-control input-sm shipping_country">
+              <label>País de Entrega</label><input id="shipping_country" type="text" name="shipping_country" value="{{$object->shipping_country}}" class="form-control input-sm shipping_country">
             </div>
           </div>
         </div>
-        
-        <div class="row">
+      
+
+              <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label>Complemento de Entrega</label><input id="shipping_complement" type="text" name="shipping_complement" value="{{$object->shipping_complement}}" class="form-control input-sm shipping_complement">
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
@@ -116,71 +135,94 @@
             </div>
           </div>
         </div>
-        
-        <div class="row">
+      
+
+              <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label>Número de Cobrança</label><input id="billing_number" type="text" name="billing_number" value="{{$object->billing_number}}" class="form-control input-sm billing_number">
             </div>
           </div>
         </div>
-        <div class="row">
+
+                <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label>Bairro de Cobrança</label><input id="billing_neighborhood" type="text" name="billing_neighborhood" value="{{$object->billing_neighborhood}}" class="form-control input-sm billing_neighborhood">
             </div>
           </div>
         </div>
-        
-        <div class="row">
+      
+
+              <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label>CEP de Cobrança</label><input id="billing_postalcode" type="text" name="billing_postalcode" value="{{$object->billing_postalcode}}" class="form-control input-sm billing_postalcode">
             </div>
           </div>
         </div>
-        <div class="row">
+
+                <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label>Cidade de Cobrança</label><input id="billing_city" type="text" name="billing_city" value="{{$object->billing_city}}" class="form-control input-sm billing_city">
             </div>
           </div>
         </div>
-        
-        <div class="row">
+      
+
+              <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label>Estado de Cobrança</label><input id="billing_state" type="text" name="billing_state" value="{{$object->billing_state}}" class="form-control input-sm billing_state">
             </div>
           </div>
         </div>
-        <div class="row">
+
+                <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Pais de Cobrança</label><input id="billing_country" type="text" name="billing_country" value="{{$object->billing_country}}" class="form-control input-sm billing_country">
+              <label>Paìs de Cobrança</label><input id="billing_country" type="text" name="billing_country" value="{{$object->billing_country}}" class="form-control input-sm billing_country">
             </div>
           </div>
         </div>
-        
-        <div class="row">
+      
+
+              <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Complemento de Cobrança</label><input id="billing_complement" type="text" name="billing_complement" value="{{$object->billing_complement}}" class="form-control input-sm billing_complement">
+              <label>Complemtno de Cobrança</label><input id="billing_complement" type="text" name="billing_complement" value="{{$object->billing_complement}}" class="form-control input-sm billing_complement">
             </div>
           </div>
         </div>
+
+
         @include('includes.formbutons')
       </form>
-      
+            </div>
+            <!-- /.tab-pane -->
+            <div class="tab-pane" id="tab_2">
+              <p class="bg-danger">Colocar dados financeiros</p>
+            </div>
+            <div class="tab-pane" id="tab_3">
+              <p class="bg-danger">Colocar dados financeiros pendentes</p>
+            </div>
+            <!-- /.tab-pane -->
+            <!-- /.tab-pane -->
+          </div>
+          <!-- /.tab-content -->
+        </div>
+        
+      </div>
+      <!-- /.box-body -->
     </div>
-    <!-- /.box-body -->
-  </div>
-  @include('includes.timestamp')
-  <div id="info-text">
-    <p>O cadastro das Categorias no sistema tem como o objetivo o controle de todos os funcionarios das mesmas que serÃ£o cadatrados no sistema.</p>
-  </div>
-</section>
-<!-- /.content -->
+    {{-- @include('includes.timestamp') --}}
+    <div id="info-text">
+      <p>O cadastro das Categorias no sistema tem como o objetivo o controle de todos os funcionÃ¡rias das mesmas que serÃ£o cadatrados no sistema.</p>
+    </div>
+  </section>
+  <!-- /.content -->
+  @endsection
   @if(isset($showMode) && $showMode == true)
   @section('javascript')
   <script type="text/javascript">
@@ -188,4 +230,3 @@
   </script>
   @endsection
   @endif
-  @endsection

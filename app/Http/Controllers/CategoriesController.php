@@ -67,7 +67,8 @@ class CategoriesController extends FrontController
 
         $data = [
                     'object'     => $object,
-                    'categories' => $categories
+                    'categories' => $categories,
+                    'showMode'   => false
                 ];
 
         return view('categories.form')->with($data);
@@ -145,7 +146,7 @@ class CategoriesController extends FrontController
 
         $categories = \App\Nay\Model\CategoriesModel::all();
 
-        return view('categories.update')->with(['object' => $object, 'categories' => $categories]);
+        return view('categories.update')->with(['object' => $object, 'categories' => $categories, 'showMode' => false]);
     }
 
     /**
@@ -167,7 +168,7 @@ class CategoriesController extends FrontController
                             ]);
 
         $data          = $request->all();
-        $data['slug']  =  str_slug($data['slug']);
+        $data['slug']  =  str_slug($data['name']);
         $data['level'] = $request->input('level', 1);
 
         $object->update($data);

@@ -14,7 +14,7 @@
   <div class="box">
     <!-- /.box-header -->
     <div class="box-body">
-      @include('includes.menu-cadastro')
+     @include('includes.painel')
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-cubes fa-fw"></i>Cadastro</a></a></li>
@@ -91,7 +91,9 @@
                     </div>
                   </div>
                 </div>
+                @if($showMode == false)
                 @include('includes.formbutons')
+                @endif
               </form>
             </div>
             <!-- /.tab-pane -->
@@ -114,3 +116,10 @@
   </section>
   <!-- /.content -->
   @endsection
+  @if(isset($showMode) && $showMode == true)
+  @section('javascript')
+  <script type="text/javascript">
+  disableForm('update');
+  </script>
+  @endsection
+  @endif

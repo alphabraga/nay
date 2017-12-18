@@ -60,7 +60,9 @@ class ClientsController extends FrontController
      */
     public function create()
     {
-        return view('clients.create');
+        $object = new \App\Nay\Model\ClientsModel();
+
+        return view('clients.form')->with(['showMode' => false, 'object' => $object]);
     }
 
     /**
@@ -73,7 +75,7 @@ class ClientsController extends FrontController
     {
 
         $request->validate([
-                                'name'              => 'required'
+                                'name' => 'required'
                             ]);
 
         $client = new \App\Nay\Model\ClientsModel();
@@ -108,7 +110,7 @@ class ClientsController extends FrontController
                     'showMode'=> true
                 ];
 
-        return view('clients.update')->with($data);
+        return view('clients.form')->with($data);
 
     }
 
@@ -122,7 +124,7 @@ class ClientsController extends FrontController
     {
         $object = \App\Nay\Model\ClientsModel::find($id);
 
-        return view('clients.update')->with(['object' => $object]);
+        return view('clients.form')->with(['object' => $object, 'showMode' => false]);
     }
 
     /**

@@ -64,7 +64,7 @@ class BrandsController extends FrontController
         $brand = new \App\Nay\Model\BrandsModel();
 
 
-        $data = ['object' => $brand];
+        $data = ['object' => $brand, 'showMode' => false];
 
         return view('brands.form')->with($data);
     }
@@ -125,7 +125,7 @@ class BrandsController extends FrontController
     {
         $object = \App\Nay\Model\BrandsModel::find($id);
 
-        return view('brands.form')->with(['object' => $object]);
+        return view('brands.form')->with(['object' => $object, 'showMode' => false]);
     }
 
     /**

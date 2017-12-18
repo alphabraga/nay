@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('title', 'Sobre')
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">

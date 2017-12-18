@@ -63,7 +63,14 @@ class ProvidersController extends FrontController
      */
     public function create()
     {
-        return view('providers.create');
+
+        $data = [
+                    'object', new \App\Nay\Model\ProvidersModel(),
+                    'showMode' => false
+
+                ];
+
+        return view('providers.form')->with($data);
     }
 
     /**
@@ -90,6 +97,10 @@ class ProvidersController extends FrontController
         $object->email              = $request->input('email');
         $object->site               = $request->input('site');
 
+        $formData = $request->all();
+
+        $formData['slug'] = str_slug($formData['name']);
+
         $object->save();
 
         $avatar = new Avatar();
@@ -113,7 +124,7 @@ class ProvidersController extends FrontController
 
                 ];
 
-        return view('providers.update')->with($data);
+        return view('providers.form')->with($data);
     }
 
     /**
@@ -130,7 +141,7 @@ class ProvidersController extends FrontController
 
                 ];
 
-        return view('providers.update')->with($data);
+        return view('providers.form')->with($data);
     }
 
     /**
