@@ -54,11 +54,6 @@ class BrandsController extends FrontController
         ->make(true);
     }
 
-    public function system()
-    {
-    	//
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -71,7 +66,7 @@ class BrandsController extends FrontController
 
         $data = ['object' => $brand];
 
-        return view('brands.create')->with($data);
+        return view('brands.form')->with($data);
     }
 
     /**
@@ -116,7 +111,7 @@ class BrandsController extends FrontController
                     'showMode'=> true
                 ];
 
-        return view('brands.create')->with($data);
+        return view('brands.form')->with($data);
 
     }
 
@@ -130,7 +125,7 @@ class BrandsController extends FrontController
     {
         $object = \App\Nay\Model\BrandsModel::find($id);
 
-        return view('brands.create')->with(['object' => $object]);
+        return view('brands.form')->with(['object' => $object]);
     }
 
     /**

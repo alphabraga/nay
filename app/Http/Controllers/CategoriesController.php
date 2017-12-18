@@ -62,9 +62,15 @@ class CategoriesController extends FrontController
      */
     public function create()
     {
+        $object     =  new \App\nay\Model\CategoriesModel();
         $categories = \App\Nay\Model\CategoriesModel::all();
 
-        return view('categories.create')->with('categories', $categories);
+        $data = [
+                    'object'     => $object,
+                    'categories' => $categories
+                ];
+
+        return view('categories.form')->with($data);
     }
 
     /**
@@ -82,18 +88,15 @@ class CategoriesController extends FrontController
                                 'description' => 'required'
                             ]);
 
-        $c = new \App\Nay\Model\CategoriesModel();
+        $data = $request->all();
 
-        $c->name        = $request->input('name');
-        $c->description = $request->input('description');
-        $c->tags        = $request->input('tags');
-        $c->slug        = str_slug($request->input('name'));
-        $c->level       = $request->input('level', 1);
-        $c->category_id = $request->input('category_id');
+        $data['slug']  = str_slug($data['slug']);
+        $data['level'] = $request->input('level', 1);
 
-        $c->save();
+        $c = \App\Nay\Model\CategoriesModel::create($data);
 
         $avatar = new Avatar();
+
         $a->create($c->name)->save(public_path('images/categories/' . $c->id . '.png'));
 
 
@@ -126,7 +129,7 @@ class CategoriesController extends FrontController
                     'showMode'=> true
                 ];
 
-        return view('categories.update')->with($data);
+        return view('categories.form')->with($data);
 
     }
 
@@ -163,14 +166,11 @@ class CategoriesController extends FrontController
                                 'description' => 'required'
                             ]);
 
-        $object->name        = $request->input('name');
-        $object->description = $request->input('description');
-        $object->tags        = $request->input('tags');
-        $object->slug        = str_slug($request->input('name'));
-        $object->level       = $request->input('level', 1);
-        $object->category_id = $request->input('category_id');
+        $data          = $request->all();
+        $data['slug']  =  str_slug($data['slug']);
+        $data['level'] = $request->input('level', 1);
 
-        $object->save();
+        $object->update($data);
 
         return redirect('categories/' . $object->id);
     }
