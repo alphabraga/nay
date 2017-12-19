@@ -63,7 +63,12 @@ class ShippingCompanyController extends FrontController
      */
     public function create()
     {
-        return view('shippingcompany.create');
+        $data =  [ 
+                    'object' => new \App\Nay\Model\ShippingCompanyModel(),
+                    'showMode' =>false,
+        ];
+
+        return view('shippingcompany.form')->with($data);
     }
 
     /**
@@ -75,15 +80,10 @@ class ShippingCompanyController extends FrontController
     public function store(Request $request)
     {
 
-        $object = new \App\Nay\Model\ShippingCompanyModel();
+        $data = $request->all();
+        $data['slug'] = str_slug($request->input('name'));
 
-        $object->name               = $request->input('name');
-        $object->description        = $request->input('description');
-        $object->tags               = $request->input('tags');
-        $object->slug               = str_slug($request->input('name'));
-
-        $object->save();
-
+        $object = \App\Nay\Model\ShippingCompanyModel::create($data);
         $avatar = new Avatar();
         $avatar->create($object->name)->save(public_path('images/providers/' . $object->id . '.png'));
 
@@ -103,7 +103,7 @@ class ShippingCompanyController extends FrontController
                     'showMode' => true
                 ];
 
-        return view('shippingcompany.update')->with($data);
+        return view('shippingcompany.form')->with($data);
     }
 
     /**
@@ -120,7 +120,7 @@ class ShippingCompanyController extends FrontController
                 ];
 
 
-        return view('shippingcompany.update')->with($data);
+        return view('shippingcompany.form')->with($data);
     }
 
     /**
@@ -134,12 +134,10 @@ class ShippingCompanyController extends FrontController
     {
         $object = \App\Nay\Model\ShippingCompanyModel::find($id);
 
-        $object->name               = $request->input('name');
-        $object->description        = $request->input('description');
-        $object->tags               = $request->input('tags');
-        $object->slug               = str_slug($request->input('name'));
-        
-        $object->save();
+        $data = $request->all();
+        $data['slug'] = str_slug($request->input('name'));
+
+        $object->update($data);
 
         return redirect('shippingcompany/' . $object->id);
     }
