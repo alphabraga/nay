@@ -1,3 +1,24 @@
+Tarefas de HOje 19/12/2018
+	
+	Aplicar relacionarmsntos nos modelos
+
+	brands 	     -> providers
+	salesitens   -> products
+	sales 	     -> clients
+	sales 	     -> users
+	sales  	     -> salesmen (user)
+	sales        -> shipping_company
+	----------------------------------------
+
+
+	Criar tabelas e aplicar relacionamentos
+
+	request      -> providers
+	request      -> shipping_company
+	request      -> user
+	requestitens -> salesitens
+
+
 na tela de visualizaç~ao de cleinte colocar abas com as compras que ele fez
 criar funcionalidade de criar usuario para cliente
 o campo cellphone de fornecedor pode ser nulo e ele esta como n~ao nulo
