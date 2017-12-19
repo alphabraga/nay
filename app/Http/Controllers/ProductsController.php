@@ -64,7 +64,13 @@ class ProductsController extends FrontController
      */
     public function create()
     {
-        return view('products.create');
+
+        $data = [
+                    'object' => new \App\Nay\Model\ProductsModel(),
+                    'showMode' => false
+                ];
+
+        return view('products.form');
     }
 
     /**
@@ -75,25 +81,16 @@ class ProductsController extends FrontController
      */
     public function store(Request $request)
     {
-        $object = new \App\Nay\Model\ProductsModel();
 
-        $object->slug           = str_slug($request->input('name'));
-        $object->name           = $request->input('name');
-        $object->description    = $request->input('description');
-        $object->tags           = $request->input('tags');
-        $object->quantity_limit = $request->input('quantity_limit');
-        $object->quantity       = $request->input('quantity');
-        $object->sale_price     = $request->input('sale_price');
-        $object->purchase_price = $request->input('purchase_price');
-        $object->custom_field1 = $request->input('custom_field1');
-        $object->custom_field2 = $request->input('custom_field2');
-        $object->custom_field3 = $request->input('custom_field3');
-        $object->custom_field4 = $request->input('custom_field4');
-        $object->custom_field5 = $request->input('custom_field5');
-        $object->custom_field6 = $request->input('custom_field6');
-        $object->external_code = $request->input('external_code');
+        $data         = $request->all();
+        $data['slug'] = str_slug($request->input('name'));
 
-        $object->save();
+        $object = \App\Nay\Model\ProductsModel::create($data);
+
+        $viewData = [
+                        'object' => $object,
+                        'showMode' => false,
+                    ];
 
         return redirect('/products/' . $object->id);
     }
@@ -113,7 +110,7 @@ class ProductsController extends FrontController
                     'showMode'=> true 
                 ];
 
-        return view('products.update')->with($data);
+        return view('products.form')->with($data);
     }
 
     /**
@@ -131,7 +128,7 @@ class ProductsController extends FrontController
                     'showMode'=> false
                 ];
 
-        return view('products.update')->with($data);
+        return view('products.form')->with($data);
     }
 
     /**
@@ -145,15 +142,11 @@ class ProductsController extends FrontController
     {
         $object = \App\Nay\Model\ProductsModel::find($id);
         
-        $object->slug           = str_slug($request->input('name'));
-        $object->name           = $request->input('name');
-        $object->description    = $request->input('description');
-        $object->tags           = $request->input('tags');
-        $object->quantity_limit = $request->input('quantity_limit');
-        $object->quantity       = $request->input('quantity');
-        $object->price          = $request->input('price');
+        $data = $request->all();
 
-        $object->save();
+        $data['slug'] = str_slug($data['name']);
+
+        $object->update($data);
 
         return redirect('/products/' . $object->id);
     }

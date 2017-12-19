@@ -197,7 +197,9 @@
         </div>
 
 
-        @include('includes.formbutons')
+          @if($showMode == false)
+            @include('includes.formbutons')
+          @endif
       </form>
             </div>
             <!-- /.tab-pane -->

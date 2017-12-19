@@ -17,7 +17,8 @@ class ProductsModel extends BaseModel
 
 
 	protected $fillable = [
-							'id', 
+							'id',
+							'external_code', 
 							'slug', 
 							'name',
 							'description', 
@@ -31,7 +32,13 @@ class ProductsModel extends BaseModel
 							'deleted_by',
 							'created_at',
 							'updated_at',
-							'deleted_at'
+							'deleted_at',
+							'custom_field1',
+							'custom_field2',
+							'custom_field3',
+							'custom_field4',
+							'custom_field5',
+							'custom_field6'
 						];
 
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];					
