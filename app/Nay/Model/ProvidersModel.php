@@ -38,4 +38,10 @@ class ProvidersModel extends BaseModel
 	public $timestamps = true;
 
 	protected $casts = ['tags' => 'array'];
+
+    public function brands()
+    {
+        return $this->hasMany('App\Nay\Model\BrandsModel', 'provider_id', 'id');
+    }
+
 }

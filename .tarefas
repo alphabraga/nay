@@ -1,13 +1,15 @@
-Tarefas de HOje 19/12/2018
+Ainda não terminei a migração das chaves das tabelas de request e requesitens (pedido e pedidoitens)
+
+Tarefas de Hoje 19/12/2018
 	
 	Aplicar relacionarmsntos nos modelos
 
-	brands 	     -> providers
-	salesitens   -> products
-	sales 	     -> clients
-	sales 	     -> users
-	sales  	     -> salesmen (user)
-	sales        -> shipping_company
+	brands 	     -> providers	FOI
+	salesitens   -> products    FOI  
+	sales 	     -> clients     FOI
+	sales 	     -> users       os campos sao doferentes temmos que deixae eles iguais!
+	sales  	     -> salesmen (user)os campos sao doferentes temmos que deixae eles iguais!
+	sales        -> shipping_company FOI
 	----------------------------------------
 
 
@@ -22,3 +24,4 @@ Tarefas de HOje 19/12/2018
 na tela de visualizaç~ao de cleinte colocar abas com as compras que ele fez
 criar funcionalidade de criar usuario para cliente
 o campo cellphone de fornecedor pode ser nulo e ele esta como n~ao nulo
+colocar a opção de ativar/desativar um categoria. Isso ira desabilitar todos os itens dela de aparecer no site

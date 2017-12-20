@@ -62,7 +62,7 @@ class CategoriesController extends FrontController
      */
     public function create()
     {
-        $object     =  new \App\nay\Model\CategoriesModel();
+        $object     =  new \App\Nay\Model\CategoriesModel();
         $categories = \App\Nay\Model\CategoriesModel::all();
 
         $data = [
@@ -91,14 +91,14 @@ class CategoriesController extends FrontController
 
         $data = $request->all();
 
-        $data['slug']  = str_slug($data['slug']);
+        $data['slug']  = str_slug($data['name']);
         $data['level'] = $request->input('level', 1);
 
         $c = \App\Nay\Model\CategoriesModel::create($data);
 
         $avatar = new Avatar();
 
-        $a->create($c->name)->save(public_path('images/categories/' . $c->id . '.png'));
+        $avatar->create($c->name)->save(public_path('images/categories/' . $c->id . '.png'));
 
 
         return redirect('categories/' . $c->id);

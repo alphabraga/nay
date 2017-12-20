@@ -39,8 +39,6 @@ class CategoriesModel extends BaseModel
 		return $this->belongsTo('App\Nay\Model\CategoriesModel', 'category_id');
     }
 
-
-
     public function categoryChilds()
     {
         return $this->hasMany('App\Nay\Model\CategoriesModel', 'category_id', 'id');

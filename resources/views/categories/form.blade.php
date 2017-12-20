@@ -19,6 +19,8 @@
         <ul class="nav nav-tabs">
           <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-cubes fa-fw"></i>Cadastro</a></a></li>
           <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-image fa-fw"></i>Imagem</a></li>
+          <li><a href="#tab_3" data-toggle="tab"><i class="fa fa-level-up fa-fw"></i>Categoria Pai</a></li>
+          <li><a href="#tab_4" data-toggle="tab"><i class="fa fa-level-down fa-fw"></i>Categoria(s) Filha(s)</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="tab_1">
@@ -100,6 +102,18 @@
             <div class="tab-pane" id="tab_2">
               <p class="bg-danger">Colocar aqui a imagem</p>
             </div>
+
+              <div class="tab-pane" id="tab_3">
+
+                <p>informações sobre a categoria pai</p>
+
+            </div>
+
+                <div class="tab-pane" id="tab_4">
+
+                  <p>filhos...</p>
+            </div>
+
             <!-- /.tab-pane -->
             <!-- /.tab-pane -->
           </div>
@@ -111,7 +125,7 @@
     </div>
     {{-- @include('includes.timestamp') --}}
     <div id="info-text">
-      <p>O cadastro das Categorias no sistema tem como o objetivo o controle de todos os funcionÃ¡rias das mesmas que serÃ£o cadatrados no sistema.</p>
+      <p>O cadastro das Categorias no sistema.</p>
     </div>
   </section>
   <!-- /.content -->

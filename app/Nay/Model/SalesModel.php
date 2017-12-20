@@ -38,6 +38,11 @@ class SalesModel extends BaseModel
 
 	public $timestamps = true;
 
+	public function client()
+    {
+		return $this->belongsTo('App\Nay\Model\ClientsModel', 'client_id');
+    }
+
 	public function setPaymentMethod(PaymentMethod $paymentMethod)
 	{
 		$this->payment_method = $paymentMethod;

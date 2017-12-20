@@ -37,4 +37,10 @@ class BrandsModel extends BaseModel
 	protected $casts = ['tags' => 'array'];
 
 
+	public function provider()
+    {
+		return $this->belongsTo('App\Nay\Model\ProvidersModel', 'provider_id');
+    }
+
+
 }

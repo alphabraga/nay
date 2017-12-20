@@ -47,6 +47,10 @@ class ProductsModel extends BaseModel
 
 	protected $casts = ['tags' => 'array'];
 
+    public function salesItens()
+    {
+        return $this->hasMany('App\Nay\Model\SalesItensModel', 'product_id', 'id');
+    }
 	
 
 }

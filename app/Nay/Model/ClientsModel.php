@@ -49,4 +49,10 @@ class ClientsModel extends BaseModel
 
 	public $timestamps = true;
 
+    public function sales()
+    {
+        return $this->hasMany('App\Nay\Model\SalesModel', 'client_id', 'id');
+    }
+
+
 }

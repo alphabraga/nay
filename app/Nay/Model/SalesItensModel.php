@@ -31,4 +31,9 @@ class SalesItensModel extends BaseModel
 
 	public $timestamps = true;
 
+	public function product()
+    {
+		return $this->belongsTo('App\Nay\Model\ProductsModel', 'product_id');
+    }
+
 }
