@@ -16,7 +16,7 @@ class CreateTableRequest extends Migration
        Schema::create('requests', function (Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('provider_id');
+            $table->addColumn('integer', 'provider_id', ['unsigned' => true, 'length' => 10])->nullable();
             $table->index('provider_id');
 /*            $table->foreign('client_id')
                   ->references('id')

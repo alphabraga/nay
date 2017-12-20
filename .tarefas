@@ -7,8 +7,8 @@ Tarefas de Hoje 19/12/2018
 	brands 	     -> providers	FOI
 	salesitens   -> products    FOI  
 	sales 	     -> clients     FOI
-	sales 	     -> users       os campos sao doferentes temmos que deixae eles iguais!
-	sales  	     -> salesmen (user)os campos sao doferentes temmos que deixae eles iguais!
+	sales 	     -> users       FOI
+	sales  	     -> salesmen 	FOI
 	sales        -> shipping_company FOI
 	----------------------------------------
 

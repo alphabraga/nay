@@ -38,7 +38,9 @@ class ProductsModel extends BaseModel
 							'custom_field3',
 							'custom_field4',
 							'custom_field5',
-							'custom_field6'
+							'custom_field6',
+							'category_id',
+							'brand_id'
 						];
 
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];					
@@ -51,6 +53,15 @@ class ProductsModel extends BaseModel
     {
         return $this->hasMany('App\Nay\Model\SalesItensModel', 'product_id', 'id');
     }
-	
+
+    public function brand()
+    {
+		return $this->belongsTo('App\Nay\Model\BrandsModel', 'brand_id');
+    }
+
+    public function category()
+    {
+		return $this->belongsTo('App\Nay\Model\CategoriesModel', 'category_id');
+    }
 
 }

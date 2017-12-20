@@ -21,7 +21,12 @@ class ProductsTableSeeder extends Seeder
         foreach (range(1,50) as $index)
         {
     		
-    		$product = new \App\Nay\Model\ProductsModel();
+    		$product  = new \App\Nay\Model\ProductsModel();
+
+            $category = \App\Nay\Model\CategoriesModel::inRandomOrder()->first();
+
+            $brand    = \App\Nay\Model\BrandsModel::inRandomOrder()->first();
+
 
     		$name = $faker->name;
 
@@ -61,6 +66,8 @@ class ProductsTableSeeder extends Seeder
 			$product->created_by       = 1;
 			$product->updated_by       = 1;
 			$product->created_at       = date('Y-m-d H:i:s');
+            $product->category_id      = $category->id;
+            $product->brand_id         = $brand->id;
 
     		$product->save();
 

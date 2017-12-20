@@ -16,9 +16,9 @@ class CreateTableRequestItens extends Migration
         Schema::create('requestitens', function (Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('request_id');
+            $table->addColumn('integer', 'request_id', ['unsigned' => true, 'length' => 10])->nullable();
             $table->index('request_id');
-            $table->integer('salesitem_id');
+            $table->addColumn('integer', 'salesitem_id', ['unsigned' => true, 'length' => 10])->nullable();
             $table->index('salesitem_id');
             /*$table->foreign('client_id')
                   ->references('id')
