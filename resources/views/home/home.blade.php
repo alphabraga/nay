@@ -1,5 +1,5 @@
 @extends('home')
-
+@section('title', 'Principal')
 @section('content')
  <!-- Content Header (Page header) -->
     <section class="content-header">

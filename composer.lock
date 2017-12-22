@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fdc8d9d39e4d07935a82f11f01b6d874",
+    "content-hash": "222a7be61f94925313446716f4e5fcb4",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -710,16 +710,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.26",
+            "version": "v5.5.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d7e6a7aab600c5cfae595ea22074ac3c536cbc28"
+                "reference": "b4fb6eeb227b7327b4ca7f92263b693ec9ac9875"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d7e6a7aab600c5cfae595ea22074ac3c536cbc28",
-                "reference": "d7e6a7aab600c5cfae595ea22074ac3c536cbc28",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b4fb6eeb227b7327b4ca7f92263b693ec9ac9875",
+                "reference": "b4fb6eeb227b7327b4ca7f92263b693ec9ac9875",
                 "shasum": ""
             },
             "require": {
@@ -840,7 +840,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-12-18T14:15:59+00:00"
+            "time": "2017-12-20T15:43:48+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -3063,6 +3063,84 @@
                 "workflow"
             ],
             "time": "2015-12-02T18:02:03+00:00"
+        },
+        {
+            "name": "zizaco/entrust",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Zizaco/entrust.git",
+                "reference": "ba9241426f9c518982d868e2cbac381a9581d802"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Zizaco/entrust/zipball/ba9241426f9c518982d868e2cbac381a9581d802",
+                "reference": "ba9241426f9c518982d868e2cbac381a9581d802",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "~5.0",
+                "illuminate/console": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "illuminate/database": "~5.0",
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "~4.1",
+                "sami/sami": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Zizaco\\Entrust\\EntrustServiceProvider"
+                    ],
+                    "aliases": {
+                        "Entrust": "Zizaco\\Entrust\\EntrustFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/commands"
+                ],
+                "psr-4": {
+                    "Zizaco\\Entrust\\": "src/Entrust/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Elkins",
+                    "homepage": "http://andrewelkins.com"
+                },
+                {
+                    "name": "Zizaco Zizuini",
+                    "email": "zizaco@gmail.com"
+                },
+                {
+                    "name": "Ben Batschelet",
+                    "homepage": "http://github.com/bbatsche"
+                },
+                {
+                    "name": "Michele Angioni",
+                    "email": "michele.angioni@gmail.com"
+                }
+            ],
+            "description": "This package provides a flexible way to add Role-based Permissions to Laravel",
+            "keywords": [
+                "acl",
+                "auth",
+                "illuminate",
+                "laravel",
+                "permission",
+                "roles"
+            ],
+            "time": "2017-11-13T23:46:19+00:00"
         }
     ],
     "packages-dev": [
@@ -4142,16 +4220,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "1174d9018191e93cb9d719edec01257fc05f8158"
+                "reference": "b11c729f95109b56a0fe9650c6a63a0fcd8c439f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/1174d9018191e93cb9d719edec01257fc05f8158",
-                "reference": "1174d9018191e93cb9d719edec01257fc05f8158",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/b11c729f95109b56a0fe9650c6a63a0fcd8c439f",
+                "reference": "b11c729f95109b56a0fe9650c6a63a0fcd8c439f",
                 "shasum": ""
             },
             "require": {
@@ -4202,7 +4280,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-11-03T07:16:52+00:00"
+            "time": "2017-12-22T14:50:35+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -4747,7 +4825,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "zizaco/entrust": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

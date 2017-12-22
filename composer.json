@@ -15,7 +15,8 @@
         "laravolt/avatar": "2.0.2",
         "pagseguro/pagseguro-php-sdk": "3.1.0",
         "yajra/laravel-datatables-oracle": "~8.0",
-        "yohang/finite": "~1.1"
+        "yohang/finite": "~1.1",
+        "zizaco/entrust": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -2,6 +2,21 @@ Ainda não terminei a migração das chaves das tabelas de request e requesitens
 
 Tarefas de Hoje 19/12/2018
 	
+	Criar tabelas e aplicar relacionamentos
+
+	request      -> providers
+	request      -> shipping_company
+	request      -> user
+	requestitens -> salesitens
+
+colocar a lib de permissoes do sistema vamos usar zizaco mesmo
+na tela de visualizaç~ao de cleinte colocar abas com as compras que ele fez
+criar funcionalidade de criar usuario para cliente
+o campo cellphone de fornecedor pode ser nulo e ele esta como n~ao nulo
+colocar a opção de ativar/desativar um categoria. Isso ira desabilitar todos os itens dela de aparecer no site
+
+
+TAREFAS FEITAS
 	Aplicar relacionarmsntos nos modelos
 
 	brands 	     -> providers	FOI
@@ -10,18 +25,3 @@ Tarefas de Hoje 19/12/2018
 	sales 	     -> users       FOI
 	sales  	     -> salesmen 	FOI
 	sales        -> shipping_company FOI
-	----------------------------------------
-
-
-	Criar tabelas e aplicar relacionamentos
-
-	request      -> providers
-	request      -> shipping_company
-	request      -> user
-	requestitens -> salesitens
-
-
-na tela de visualizaç~ao de cleinte colocar abas com as compras que ele fez
-criar funcionalidade de criar usuario para cliente
-o campo cellphone de fornecedor pode ser nulo e ele esta como n~ao nulo
-colocar a opção de ativar/desativar um categoria. Isso ira desabilitar todos os itens dela de aparecer no site
