@@ -9,7 +9,7 @@
         </div>
         <div class="pull-left info">
           <p>{{$usuario->name}}</p>
-          <a href="#">[Perfil do Sistema]</a>
+          <span class="muted">{{$roles->implode(', ')}}</span>
         </div>
       </div>
       <!-- search form -->
