@@ -50,11 +50,11 @@
     <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
+            <span class="info-box-icon bg-aqua"><i class="fa fa-group"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Messages</span>
-              <span class="info-box-number">1,410</span>
+              <span class="info-box-text">Clientes</span>
+              <span class="info-box-number">{{$numeroClients}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -63,11 +63,11 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
+            <span class="info-box-icon bg-green"><i class="fa fa-money"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Bookmarks</span>
-              <span class="info-box-number">410</span>
+              <span class="info-box-text">Produtos</span>
+              <span class="info-box-number">{{$numeroProducts}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -76,11 +76,11 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="fa fa-files-o"></i></span>
+            <span class="info-box-icon bg-yellow"><i class="fa fa-cubes"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Uploads</span>
-              <span class="info-box-number">13,648</span>
+              <span class="info-box-text">Categorias</span>
+              <span class="info-box-number">{{$numeroCategories}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -89,11 +89,11 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
+            <span class="info-box-icon bg-red"><i class="fa fa-tags"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Likes</span>
-              <span class="info-box-number">93,139</span>
+              <span class="info-box-text">Marcas</span>
+              <span class="info-box-number">{{$numeroBrands}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -105,11 +105,11 @@
       <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box bg-aqua">
-            <span class="info-box-icon"><i class="fa fa-bookmark-o"></i></span>
+            <span class="info-box-icon"><i class="fa fa-user"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Bookmarks</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-text">Usuários</span>
+              <span class="info-box-number">{{$numeroUsers}}</span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: 70%"></div>
@@ -186,70 +186,53 @@
       </div>
       
 <div class="row">
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-4 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3>{{$numeroSales}}</h3>
 
-              <p>New Orders</p>
+              <p>Vendas</p>
             </div>
             <div class="icon">
               <i class="fa fa-shopping-cart"></i>
             </div>
             <a href="#" class="small-box-footer">
-              More info <i class="fa fa-arrow-circle-right"></i>
+              Mais informações <i class="fa fa-arrow-circle-right"></i>
             </a>
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-4 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+              <h3>53</h3>
 
-              <p>Bounce Rate</p>
+              <p>Pedidos</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
             <a href="#" class="small-box-footer">
-              More info <i class="fa fa-arrow-circle-right"></i>
+              Mais informações <i class="fa fa-arrow-circle-right"></i>
             </a>
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-4 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+              <h3>{{$numeroUsers}}</h3>
 
-              <p>User Registrations</p>
+              <p>Usuários Cadastrados</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">
-              More info <i class="fa fa-arrow-circle-right"></i>
-            </a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3>65</h3>
-
-              <p>Unique Visitors</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">
-              More info <i class="fa fa-arrow-circle-right"></i>
+            <a href="{{action('UsersController@index')}}" class="small-box-footer">
+              Mais informações <i class="fa fa-arrow-circle-right"></i>
             </a>
           </div>
         </div>

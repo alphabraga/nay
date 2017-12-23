@@ -45,7 +45,17 @@ class UsersController extends FrontController
 
     public function profile()
     {
-      return view('users.profile')->with(['object' => \Auth::user()]);
+
+        $user = \Auth::user();
+
+        $data = [
+                    'object'           => $user,
+                    'numeroSales'      => \App\Nay\Model\SalesModel::where('created_by', '=', $user->id)->count(),
+                    'numeroRequests'   => 145
+                ];
+
+
+      return view('users.profile')->with($data);
     }
 
     public function search()

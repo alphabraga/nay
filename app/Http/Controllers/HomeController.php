@@ -20,6 +20,17 @@ class HomeController extends FrontController
 
     public function index()
     {
-        return view('home');
+
+        $data = [
+                    'numeroClients'    => \App\Nay\Model\ClientsModel::count(),
+                    'numeroProducts'   => \App\Nay\Model\ProductsModel::count(),
+                    'numeroCategories' => \App\Nay\Model\CategoriesModel::count(),
+                    'numeroBrands'     => \App\Nay\Model\BrandsModel::count(),
+                    'numeroSales'      => \App\Nay\Model\SalesModel::count(),
+                    'numeroRequests'   => 145,
+                    'numeroUsers'     => \App\User::count(),
+                ];
+
+        return view('home')->with($data);
     }
 }
