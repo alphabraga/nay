@@ -91,6 +91,13 @@ class ConfigurationController extends FrontController
      */
     public function update(Request $request, $id)
     {
+        if(\Auth::user()->hasRole('administrador') ==  false){
+
+            \Session::flash('flash_message','Só o administrador do sistema pode alterar essas configurações');
+
+            return redirect('/');
+        }
+
     	$config = \App\Nay\Model\ConfigurationsModel::get();
 
         $config->system_name   = $request->input('system_name');

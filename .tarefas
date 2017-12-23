@@ -9,7 +9,15 @@ Tarefas de Hoje 19/12/2018
 	request      -> user
 	requestitens -> salesitens
 
-colocar a lib de permissoes do sistema vamos usar zizaco mesmo
+melhorar a tela de perfil 
+	remover a aba atividades
+	colocar formulario para atualuzar os dados do usuario logado
+	colocar a aba de Timelime para funcionar
+	colocar o icone
+	colocar a permissão do cara no sistema
+
+fazer a tela de transação
+melhorar a tela de carrinho o select2 não ta legal
 na tela de visualizaç~ao de cleinte colocar abas com as compras que ele fez
 criar funcionalidade de criar usuario para cliente
 o campo cellphone de fornecedor pode ser nulo e ele esta como n~ao nulo
@@ -25,3 +33,4 @@ TAREFAS FEITAS
 	sales 	     -> users       FOI
 	sales  	     -> salesmen 	FOI
 	sales        -> shipping_company FOI
+colocar a lib de permissoes do sistema vamos usar zizaco mesmo

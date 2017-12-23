@@ -206,6 +206,8 @@
 
   var usuarioLogado    = <?php if(isset($usuarioLogado)) echo json_encode($usuarioLogado); else echo "''";  ?>
 
+  var roles            = <?php if(isset($roles)) echo json_encode($roles); else echo "''";  ?>
+
 </script>
 
 @yield('javascript')
