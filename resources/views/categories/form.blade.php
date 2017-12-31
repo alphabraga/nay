@@ -19,7 +19,7 @@
         <ul class="nav nav-tabs">
           <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-cubes fa-fw"></i>Cadastro</a></a></li>
           <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-image fa-fw"></i>Imagem</a></li>
-          <li><a href="#tab_3" data-toggle="tab"><i class="fa fa-level-up fa-fw"></i>Categoria Pai</a></li>
+          <li><a href="#tab_3" data-toggle="tab"><i class="fa fa-level-up fa-fw"></i>Categoria Mãe</a></li>
           <li><a href="#tab_4" data-toggle="tab"><i class="fa fa-level-down fa-fw"></i>Categoria(s) Filha(s)</a></li>
         </ul>
         <div class="tab-content">
@@ -83,11 +83,11 @@
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label>Categpria Mãe</label> <br>
+                      <label>Categoria Mãe</label> <br>
                       <select id="category_id" name="category_id" class="form-control input-sm select2">
                         <option value="">Escolha uma Categoria...</option>
                         @foreach($categories as $c)
-                        <option value="{{$c->id}}">{{$c->name}}</option>
+                        <option value="{{$c->id}}" @if($object->category_id == $c->id) selected="selected" @endif>{{$c->name}}</option>
                         @endforeach
                       </select>
                     </div>
@@ -105,13 +105,46 @@
 
               <div class="tab-pane" id="tab_3">
 
-                <p>informações sobre a categoria pai</p>
+                  @if(isset($motherCategory))  
+
+                  <table id="data-simple" class="table table-striped table-condensed table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Categoria</th>
+                    </tr>
+                  </thead>                    
+                  <tbody>
+                  <tr><td>{{$motherCategory->id}}</td><td>{{$motherCategory->name}}</td> <td><a class="btn btn-info" href="{{action('CategoriesController@show', ['id' => $motherCategory->id])}}">Detalhes</a></td> </tr>
+                  </tbody>
+                  </table>
+                  @else
+                  <div class="alert alert-info"><i class="fa fa-exclamation fa-fw"></i> Não existem registros </div>
+                  @endif
 
             </div>
 
                 <div class="tab-pane" id="tab_4">
 
-                  <p>filhos...</p>
+                  @if(isset($childrenCategories) && $childrenCategories->count()>0)  
+
+                  <table id="data-simple" class="table table-striped table-condensed table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Categoria</th>
+                    </tr>
+                  </thead>                    
+                  <tbody>
+                  @foreach($childrenCategories as $c)
+                  <tr><td>{{$c->id}}</td><td>{{$c->name}}</td> <td><a class="btn btn-info" href="{{action('CategoriesController@show', ['id' => $c->id])}}">Detalhes</a></td> </tr>
+                  @endforeach
+                  </tbody>
+                  </table>
+                  @else
+                  <div class="alert alert-info"><i class="fa fa-exclamation fa-fw"></i> Não existem registros </div>
+                  @endif
+
             </div>
 
             <!-- /.tab-pane -->

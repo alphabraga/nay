@@ -62,12 +62,12 @@ class CategoriesController extends FrontController
      */
     public function create()
     {
-        $object     =  new \App\Nay\Model\CategoriesModel();
-        $categories = \App\Nay\Model\CategoriesModel::all();
+        $object              =  new \App\Nay\Model\CategoriesModel();
+        $categories          = \App\Nay\Model\CategoriesModel::all();
 
         $data = [
-                    'object'     => $object,
-                    'categories' => $categories,
+                    'object'             => $object,
+                    'categories'         => $categories,
                     'showMode'   => false
                 ];
 
@@ -84,9 +84,10 @@ class CategoriesController extends FrontController
     {
 
         $request->validate([
-                                'name'              => 'required|unique:categories',
+                                'name'        => 'required|unique:categories',
                                 'tags'        => 'required',
-                                'description' => 'required'
+                                'description' => 'required',
+                                'level'       => 'required'
                             ]);
 
         $data = $request->all();
@@ -113,7 +114,9 @@ class CategoriesController extends FrontController
     public function show($id)
     {
 
-         $object  = \App\Nay\Model\CategoriesModel::find($id);
+         $object             = \App\Nay\Model\CategoriesModel::find($id);
+         $categories         = \App\Nay\Model\CategoriesModel::all();
+         $childrenCategories = \App\Nay\Model\CategoriesModel::where('category_id' ,'=', $object->id)->get();
 
         if($object === null)
         {
@@ -125,9 +128,10 @@ class CategoriesController extends FrontController
         $categories = \App\Nay\Model\CategoriesModel::all();
 
         $data = [
-                    'object'  => $object,
-                    'categories' => $categories,
-                    'showMode'=> true
+                    'object'             => $object,
+                    'categories'         => $categories,
+                    'childrenCategories' => $childrenCategories,
+                    'showMode'           => true
                 ];
 
         return view('categories.form')->with($data);
@@ -143,10 +147,10 @@ class CategoriesController extends FrontController
     public function edit($id)
     {
         $object = \App\Nay\Model\CategoriesModel::find($id);
-
+        $childrenCategories = \App\Nay\Model\CategoriesModel::where('category_id' ,'=', $object->id)->get();
         $categories = \App\Nay\Model\CategoriesModel::all();
 
-        return view('categories.update')->with(['object' => $object, 'categories' => $categories, 'showMode' => false]);
+        return view('categories.form')->with(['object' => $object, 'categories' => $categories, 'showMode' => false, 'childrenCategories' => $childrenCategories]);
     }
 
     /**
@@ -164,7 +168,8 @@ class CategoriesController extends FrontController
         $request->validate([
                                 'name'        =>  Rule::unique('users')->ignore($object->id),
                                 'tags'        => 'required',
-                                'description' => 'required'
+                                'description' => 'required',
+                                'level'       => 'required'
                             ]);
 
         $data          = $request->all();
@@ -184,7 +189,16 @@ class CategoriesController extends FrontController
      */
     public function destroy($id)
     {
-        //
-    }
+        try
+        {
+            $afectedRows = \App\Nay\Model\CategoriesModel::destroy($id);        
 
+            return response()->json(['afectedRows' => $afectedRows, 'error' => null]);
+        }
+        catch (\Illuminate\Database\QueryException $e)
+        {
+
+            return response()->json(['afectedRows' => null, 'error' => $e->getCode()]);             
+        }
+    }
 }

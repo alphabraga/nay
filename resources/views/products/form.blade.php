@@ -31,7 +31,14 @@
                 <input type="hidden" name="_method" value="PATCH" />
                 @endif
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-          <div class="row">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Código De Barras</label><input id="barcode" type="text" name="barcode" value="{{old('barcode', $object->barcode)}}" class="form-control input-sm external_code">
+            </div>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-md-4">
             <div class="form-group">
               <label>Código Externo</label><input id="external_code" type="text" name="external_code" value="{{old('external_code', $object->external_code)}}" class="form-control input-sm external_code">
@@ -159,6 +166,39 @@
           </div>
         </div>
 
+          <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Marca</label>
+                      <select name="brand_id" class="form-control select2" >
+                        @if($brands->count()>0)
+                        <option value=""  >Selecione uma Marc</option>
+                        @foreach($brands as $b)
+                        <option value="{{$b->id}}" @if($object->brand_id == $b->id) selected="selected" @endif  >{{$b->name}}</option>
+                        @endforeach
+                        @endif
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Categoria</label>
+                      <select name="category_id" class="form-control select2" >
+                        @if($categories->count()>0)
+                        <option value=""  >Selecione uma Categoria</option>
+                        @foreach($categories as $c)
+                        <option value="{{$c->id}}" @if($object->provider_id == $c->id) selected="selected" @endif  >{{$c->name}}</option>
+                        @endforeach
+                        @endif
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+
           @if($showMode == false)
             @include('includes.formbutons')
           @endif
@@ -182,7 +222,7 @@
     </div>
     {{-- @include('includes.timestamp') --}}
     <div id="info-text">
-      <p>O cadastro das Produtos no sistema tem como o objetivo o controle de todos os funcionÃ¡rias das mesmas que serao cadatrados no sistema.</p>
+      <p>O cadastro das Produtos no sistema tem como o objetivo o controle de todos os produtos das mesmas que serao cadatrados no sistema.</p>
     </div>
   </section>
   <!-- /.content -->

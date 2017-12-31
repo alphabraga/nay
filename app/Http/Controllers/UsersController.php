@@ -177,20 +177,17 @@ class UsersController extends FrontController
      */
     public function destroy($id)
     {
-
         try
         {
-            $afectedRows = \App\User::destroy($id);        
+          $afectedRows = \App\User::destroy($id);        
 
-            return response()->json(['afectedRows' => $afectedRows, 'error' => null]);
+          return response()->json(['afectedRows' => $afectedRows, 'error' => null]);
         }
         catch (\Illuminate\Database\QueryException $e)
         {
 
-            return response()->json(['afectedRows' => null, 'error' => $e->getMessage()]);             
+          return response()->json(['afectedRows' => null, 'error' => $e->getMessage()]);             
         }
-
-
     }
 
     public function updatePassword(Request $request)

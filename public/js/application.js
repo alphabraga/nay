@@ -465,11 +465,11 @@ $('div#modal-table-body').on('click', 'table#modal-table tbody tr', function(e)
 
         if(info)
         {
-            bootbox.alert({title:'<i class="fa fa-info fa-fw"></i>InformaÃ§Ãµes', message:info});            
+            bootbox.alert({title:'<i class="fa fa-info fa-fw"></i>Informações', message:info});            
         }
         else
         {
-            bootbox.alert({title: '<i class="fa fa-info fa-fw"></i>InformaÃ§Ãµes', message:'Ainda nÃ£o existem informaÃ§Ãµes sobre essa tela.'});
+            bootbox.alert({title: '<i class="fa fa-info fa-fw"></i>Informações', message:'Ainda não existem informaçõees sobre essa tela.'});
         }    
 
         return false;

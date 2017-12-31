@@ -9,13 +9,13 @@ Tarefas de Hoje 19/12/2018
 	request      -> user
 	requestitens -> salesitens
 
-melhorar a tela de perfil 
-	remover a aba atividades
+
 	colocar formulario para atualuzar os dados do usuario logado
 	colocar a aba de Timelime para funcionar
-	colocar o icone
-	colocar a permissão do cara no sistema
 
+
+colocar o font awsome totalmente dentro do projeto
+habilitar ou desabilitar campos complementares de produtos
 fazer a tela de transação
 melhorar a tela de carrinho o select2 não ta legal
 na tela de visualizaç~ao de cleinte colocar abas com as compras que ele fez
@@ -25,8 +25,11 @@ colocar a opção de ativar/desativar um categoria. Isso ira desabilitar todos o
 
 
 TAREFAS FEITAS
+melhorar a tela de perfil 
+	remover a aba atividades
+	colocar o icone	
 	Aplicar relacionarmsntos nos modelos
-
+	colocar a permissão do cara no sistema
 	brands 	     -> providers	FOI
 	salesitens   -> products    FOI  
 	sales 	     -> clients     FOI

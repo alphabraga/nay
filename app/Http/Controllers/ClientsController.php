@@ -153,7 +153,17 @@ class ClientsController extends FrontController
      */
     public function destroy($id)
     {
-        //
+        try
+        {
+            $afectedRows = \App\Nay\Model\CategoriesModel::destroy($id);        
+
+            return response()->json(['afectedRows' => $afectedRows, 'error' => null]);
+        }
+        catch (\Illuminate\Database\QueryException $e)
+        {
+
+            return response()->json(['afectedRows' => null, 'error' => $e->getCode()]);             
+        }
     }
 
 }

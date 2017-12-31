@@ -150,6 +150,18 @@ class ShippingCompanyController extends FrontController
      */
     public function destroy($id)
     {
-        //
+
+        try
+        {
+            $afectedRows = \App\Nay\Model\ShippingCompanyModel::destroy($id);        
+
+            return response()->json(['afectedRows' => $afectedRows, 'error' => null]);
+        }
+        catch (\Illuminate\Database\QueryException $e)
+        {
+
+            return response()->json(['afectedRows' => null, 'error' => $e->getCode()]);             
+        }
+
     }
 }

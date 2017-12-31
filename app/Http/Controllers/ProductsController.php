@@ -66,11 +66,13 @@ class ProductsController extends FrontController
     {
 
         $data = [
-                    'object' => new \App\Nay\Model\ProductsModel(),
-                    'showMode' => false
+                    'object'     => new \App\Nay\Model\ProductsModel(),
+                    'brands'     => \App\Nay\Model\BrandsModel::all(),
+                    'categories' => \App\Nay\Model\CategoriesModel::all(),
+                    'showMode'   => false
                 ];
 
-        return view('products.form');
+        return view('products.form')->with($data);
     }
 
     /**
@@ -81,6 +83,18 @@ class ProductsController extends FrontController
      */
     public function store(Request $request)
     {
+       $rules = [
+                    'name'           => 'required|unique:brands,name', 
+                    'description'    => 'required', 
+                    'tags'           => 'required',
+                    'purchase_price' => 'required', 
+                    'sale_price'     => 'required',
+                    'brand_id'       => 'required',
+                    'category_id'    => 'required'
+                ]; 
+
+       $this->validate($request, $rules);
+
 
         $data         = $request->all();
         $data['slug'] = str_slug($request->input('name'));
@@ -106,8 +120,10 @@ class ProductsController extends FrontController
         $object = \App\Nay\Model\ProductsModel::find($id);
 
         $data = [
-                    'object'  => \App\Nay\Model\ProductsModel::find($id),
-                    'showMode'=> true 
+                    'object'     => \App\Nay\Model\ProductsModel::find($id),
+                    'brands'     => \App\Nay\Model\BrandsModel::all(),
+                    'categories' => \App\Nay\Model\CategoriesModel::all(),
+                    'showMode'   => true 
                 ];
 
         return view('products.form')->with($data);
@@ -124,8 +140,9 @@ class ProductsController extends FrontController
         $object = \App\Nay\Model\ProductsModel::find($id);
 
         $data = [
-                    'object'  => \App\Nay\Model\ProductsModel::find($id),
-                    'showMode'=> false
+                    'object'     => \App\Nay\Model\ProductsModel::find($id),
+                    'categories' => \App\Nay\Model\CategoriesModel::all(),
+                    'showMode'   => false
                 ];
 
         return view('products.form')->with($data);
@@ -159,7 +176,19 @@ class ProductsController extends FrontController
      */
     public function destroy($id)
     {
-        //
+
+        try
+        {
+            $afectedRows = \App\Nay\Model\ProductsModel::destroy($id);        
+
+            return response()->json(['afectedRows' => $afectedRows, 'error' => null]);
+        }
+        catch (\Illuminate\Database\QueryException $e)
+        {
+
+            return response()->json(['afectedRows' => null, 'error' => $e->getCode()]);             
+        }
+
     }
 
 

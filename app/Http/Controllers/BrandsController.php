@@ -63,8 +63,9 @@ class BrandsController extends FrontController
     {
         $brand = new \App\Nay\Model\BrandsModel();
 
+        $providers = \App\Nay\Model\ProvidersModel::all();
 
-        $data = ['object' => $brand, 'showMode' => false];
+        $data = ['object' => $brand, 'showMode' => false, 'providers' => $providers];
 
         return view('brands.form')->with($data);
     }
@@ -77,7 +78,10 @@ class BrandsController extends FrontController
      */
     public function store(Request $request)
     {
+       $this->validate($request, [ 'name' => 'required|unique:brands,name', 'description' => 'required', 'tags' => 'required', 'level' => 'required']);
+
        $data         = $request->all();
+
        $data['slug'] =  str_slug($data['name']);
 
        $brand = \App\Nay\Model\BrandsModel::create($data);
@@ -108,7 +112,9 @@ class BrandsController extends FrontController
 
         $data = [
                     'object'  => $object,
-                    'showMode'=> true
+                    'showMode'=> true,
+                    'providers' => \App\Nay\Model\ProvidersModel::all(),
+
                 ];
 
         return view('brands.form')->with($data);
@@ -123,9 +129,14 @@ class BrandsController extends FrontController
      */
     public function edit($id)
     {
-        $object = \App\Nay\Model\BrandsModel::find($id);
 
-        return view('brands.form')->with(['object' => $object, 'showMode' => false]);
+        $data = [
+                    'object'    => \App\Nay\Model\BrandsModel::find($id),
+                    'providers' => \App\Nay\Model\ProvidersModel::all(),
+                    'showMode'  => false
+                ];
+
+        return view('brands.form')->with($data);
     }
 
     /**
@@ -139,7 +150,7 @@ class BrandsController extends FrontController
     {
         $object = \App\Nay\Model\BrandsModel::find($id);
 
-        $this->validate($request, [ 'name' => 'required|unique:brands,name,' . $object->id]);
+        $this->validate($request, [ 'name' => 'required|unique:brands,name,' . $object->id, 'level' => 'required']);
 
         $data         = $request->all();
         $data['slug'] = str_slug($data['name']);
@@ -157,7 +168,19 @@ class BrandsController extends FrontController
      */
     public function destroy($id)
     {
-        //
+
+        try
+        {
+            $afectedRows = \App\Nay\Model\BrandsModel::destroy($id);
+
+            return response()->json(['afectedRows' => $afectedRows, 'error' => null]);
+        }
+        catch (\Illuminate\Database\QueryException $e)
+        {
+
+            return response()->json(['afectedRows' => null, 'error' => $e->getCode()]);             
+        }
+
     }
 
 }

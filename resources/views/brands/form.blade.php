@@ -73,6 +73,20 @@
                     </div>
                   </div>
                 </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Fonecedor</label>
+                      <select name="provider_id" class="form-control select2" >
+                        @if($providers->count()>0)
+                        @foreach($providers as $p)
+                        <option value="{{$p->id}}" @if($object->provider_id == $p->id) selected="selected" @endif  >{{$p->name}}</option>
+                        @endforeach
+                        @endif
+                      </select>
+                    </div>
+                  </div>
+                </div>
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_2">

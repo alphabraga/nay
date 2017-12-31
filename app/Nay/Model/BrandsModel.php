@@ -23,7 +23,8 @@ class BrandsModel extends BaseModel
 							'name',
 							'slug', 
 							'description', 
-							'tags', 
+							'tags',
+							'provider_id', 
 							'created_by', 
 							'updated_by',
 							'deleted_by'
