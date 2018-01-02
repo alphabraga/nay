@@ -68,6 +68,9 @@ Route::middleware('auth')->group(function ()
 	Route::get('/sobre', 'ConfigurationController@about');
 
 	Route::post('updateAnotherPassword', 'UsuarioController@updateAnotherPassword');
+
+	Route::post('uploadImage', 'CategoriesController@uploadImage');
+
 });
 
 //Auth::routes();

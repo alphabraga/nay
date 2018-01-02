@@ -202,4 +202,27 @@ class CategoriesController extends FrontController
             return response()->json(['afectedRows' => null, 'error' => $e->getCode()]);             
         }
     }
+
+
+    public function uploadImage(Request $request)
+    {
+        $c = \App\Nay\Model\CategoriesModel::find($request->input('id'));
+
+        $imageFileName = $c->getImageFileName();
+
+        $path = $request->file('image')->storeAs($c->imagePath, $imageFileName);
+
+        return $path;
+    }
+
+
+
+
+
+
+
+
+
+
+
 }

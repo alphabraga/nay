@@ -106,7 +106,69 @@
             </div>
             <!-- /.tab-pane -->
             <div class="tab-pane" id="tab_2">
-              <p class="bg-danger">Colocar aqui a imagem</p>
+
+
+              <div class="row">
+                <div class="col-md-12">
+                  
+                  <form class="form-inline" method="post" enctype="multipart/form-data" 
+
+                  action="{{action('CategoriesController@uploadImage', ['id' => $object->id, 'modelName' => 'CategoriesModel' ])}}" 
+
+                  >
+                  <input type="hidden" name="_method" value="POST" />
+                  <input type="hidden" name="id" value="{{$object->id}}" />
+                  <input type="hidden" name="modelName" value="CategoriesModel" />
+                  <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+
+                    <div class="form-group">
+                      <label for="image">Enviar Imagem</label>
+                      <input type="file" name="image" class="form-control" id="image" placeholder="Imagem">
+                    </div>
+                    <button type="submit" class="btn btn-default"> <i class="fa fa-send fa-fw"></i>Enviar</button>
+                  </form>
+
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="row">
+                
+
+
+                <div class="col-md-12">
+                  
+                  @if(isset($images) && $count($images)>0)
+
+
+                  <table id="data-simple" class="table table-striped table-condensed table-hover">
+                  <thead>
+                  <tr>
+                  <th>#</th>
+                  <th>Imagem</th>
+                  </tr>
+                  </thead>                    
+                  <tbody>
+                  @foreach($images as $i)
+                  <tr><td>#</td><td>{{$i->fileName}}</td> <td><a class="btn btn-info" href="#">Detalhes</a></td></tr>
+                  @endforeach
+                  </tbody>
+                  </table>
+                  
+                  @else
+                    <div class="alert alert-danger"><i class="fa fa-exclamation fa-fw"></i> Não existem registros </div>
+                  @endif
+
+
+                </div>
+
+
+              </div>    
+
+
+
+
             </div>
 
               <div class="tab-pane" id="tab_3">
