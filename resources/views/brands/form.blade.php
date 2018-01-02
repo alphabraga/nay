@@ -102,7 +102,26 @@
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_3">
-                <p class="bg-danger">dados do fornecedor dessa marca</p>
+                
+
+                    @if(isset($object->provider))  
+
+                  <table id="data-simple" class="table table-striped table-condensed table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Marca</th>
+                    </tr>
+                  </thead>                    
+                  <tbody>
+                  <tr><td>{{$object->provider->id}}</td><td>{{$object->provider->name}}</td> <td><a class="btn btn-info" href="{{action('ProvidersController@show', ['id' => $object->provider->id])}}">Detalhes</a></td> </tr>
+                  </tbody>
+                  </table>
+                  @else
+                  <div class="alert alert-info"><i class="fa fa-exclamation fa-fw"></i> Não existem registros </div>
+                  @endif
+
+
               </div>
               <!-- /.tab-pane -->
             </div>

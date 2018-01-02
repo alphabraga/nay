@@ -155,7 +155,26 @@
             </div>
             <!-- /.tab-pane -->
             <div class="tab-pane" id="tab_2">
-              <p class="bg-danger">Colocar aqui a imagem</p>
+
+                @if(isset($object->brands))  
+
+                  <table id="data-simple" class="table table-striped table-condensed table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Marca</th>
+                    </tr>
+                  </thead>                    
+                  <tbody>
+                  @foreach($object->brands as $b)  
+                  <tr><td>{{$b->id}}</td><td>{{$b->name}}</td> <td><a class="btn btn-info" href="{{action('BrandsController@show', ['id' => $b->id])}}">Detalhes</a></td> </tr>
+                  @endforeach
+                  </tbody>
+                  </table>
+                  @else
+                  <div class="alert alert-info"><i class="fa fa-exclamation fa-fw"></i> Não existem registros </div>
+                  @endif
+
             </div>
             <!-- /.tab-pane -->
             <!-- /.tab-pane -->
