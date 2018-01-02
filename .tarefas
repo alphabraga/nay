@@ -10,13 +10,14 @@ Tarefas de Hoje 19/12/2018
 	requestitens -> salesitens
 
 
-	colocar formulario para atualuzar os dados do usuario logado
-	colocar a aba de Timelime para funcionar
+colocar formulario para atualuzar os dados do usuario logado
+colocar a aba de Timelime para funcionar
 
-colocar cores em categorias, fornecedores, marcas
+fazer os testes unitarios com o pagseguro
+fazer a tela de transação
+usar o pagseguro para as transaçoes
 colocar o font awsome totalmente dentro do projeto
 habilitar ou desabilitar campos complementares de produtos
-fazer a tela de transação
 melhorar a tela de carrinho o select2 não ta legal
 na tela de visualizaç~ao de cleinte colocar abas com as compras que ele fez
 criar funcionalidade de criar usuario para cliente
@@ -25,6 +26,7 @@ colocar a opção de ativar/desativar um categoria. Isso ira desabilitar todos o
 
 
 TAREFAS FEITAS
+colocar cores em categorias, fornecedores, marcas
 melhorar a tela de perfil 
 	remover a aba atividades
 	colocar o icone	
