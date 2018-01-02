@@ -18,6 +18,7 @@ class CategoriesModel extends BaseModel
 	protected $fillable = [
 							'id', 
 							'name',
+							'color',
 							'slug', 
 							'description', 
 							'level',

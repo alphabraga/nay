@@ -78,7 +78,7 @@ class BrandsController extends FrontController
      */
     public function store(Request $request)
     {
-       $this->validate($request, [ 'name' => 'required|unique:brands,name', 'description' => 'required', 'tags' => 'required', 'level' => 'required']);
+       $this->validate($request, [ 'name' => 'required|unique:brands,name', 'description' => 'required', 'tags' => 'required', 'color' => 'required']);
 
        $data         = $request->all();
 
@@ -150,7 +150,7 @@ class BrandsController extends FrontController
     {
         $object = \App\Nay\Model\BrandsModel::find($id);
 
-        $this->validate($request, [ 'name' => 'required|unique:brands,name,' . $object->id, 'level' => 'required']);
+        $this->validate($request, [ 'name' => 'required|unique:brands,name,' . $object->id]);
 
         $data         = $request->all();
         $data['slug'] = str_slug($data['name']);

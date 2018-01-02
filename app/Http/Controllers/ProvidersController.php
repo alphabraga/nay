@@ -83,22 +83,9 @@ class ProvidersController extends FrontController
     {
         $object = new \App\Nay\Model\ProvidersModel();
 
-        $object->name               = $request->input('name');
-        $object->description        = $request->input('description');
-        $object->tags               = $request->input('tags');
-        $object->slug               = str_slug($request->input('name'));
-        $object->personal_contact   = $request->input('personal_contact');
-        $object->postal_code        = $request->input('postal_code');
-        $object->address            = $request->input('address');
-        $object->address_number     = $request->input('address_number');
-        $object->address_complement = $request->input('address_complement');
-        $object->phone              = $request->input('phone');
-        $object->cellphone          = $request->input('cellphone');
-        $object->email              = $request->input('email');
-        $object->site               = $request->input('site');
+        $this->validate($request, [ 'name' => 'required|unique:brands,name', 'color' => 'required', 'cellphone' => 'required']);
 
-        $formData = $request->all();
-
+        $formData         = $request->all();
         $formData['slug'] = str_slug($formData['name']);
 
         $object->save();
@@ -155,23 +142,12 @@ class ProvidersController extends FrontController
     {
         $object = \App\Nay\Model\ProvidersModel::find($id);
 
-        $this->validate($request, [ 'name' => 'required|unique:brands,name,' . $object->id]);
+        $this->validate($request, [ 'name' => 'required|unique:brands,name,' . $object->id, 'color' => 'required', 'cellphone' => 'required']);
 
-        $object->name               = $request->input('name');
-        $object->description        = $request->input('description');
-        $object->tags               = $request->input('tags');
-        $object->slug               = str_slug($request->input('name'));
-        $object->personal_contact   = $request->input('personal_contact');
-        $object->postal_code        = $request->input('postal_code');
-        $object->address            = $request->input('address');
-        $object->address_number     = $request->input('address_number');
-        $object->address_complement = $request->input('address_complement');
-        $object->phone              = $request->input('phone');
-        $object->cellphone          = $request->input('cellphone');
-        $object->email              = $request->input('email');
-        $object->site               = $request->input('site');
+        $formData         = $request->all();
+        $formData['slug'] = str_slug($formData['name']);
 
-        $object->save();
+        $object->update($formData);
 
         return redirect('providers/' . $object->id);
     }

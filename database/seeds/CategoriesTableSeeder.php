@@ -28,6 +28,7 @@ class CategoriesTableSedder extends Seeder
     		$slug = str_slug($name);
 
 			$category->name          = $faker->name;
+            $category->color         = $faker->hexcolor;
 			$category->slug          = $slug;			
 			$category->description   = substr($faker->paragraphs(1, true), 0, 100);
 			$category->level         = 1;

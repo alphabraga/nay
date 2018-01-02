@@ -21,6 +21,7 @@ class BrandsModel extends BaseModel
 	protected $fillable = [
 							'id', 
 							'name',
+							'color',
 							'slug', 
 							'description', 
 							'tags',

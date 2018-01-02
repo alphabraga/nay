@@ -40,6 +40,7 @@ class BrandsTableSeeder extends Seeder
 			$brand->name             = $name;
 			$brand->description      = substr($faker->paragraphs(1, true), 0, 100);
 			$brand->tags             = $tags;
+            $brand->color            = $faker->hexcolor;
 			$brand->created_by       = 1;
 			$brand->updated_by       = 1;
 			$brand->created_at       = date('Y-m-d H:i:s');

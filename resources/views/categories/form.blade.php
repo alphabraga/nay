@@ -39,7 +39,13 @@
                     </div>
                   </div>
                 </div>
-                
+               <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Cor</label><input id="color"  required="required" type="color" name="color" value="{{old('color' , $object->color)}}" class="form-control input-sm color">
+                    </div>
+                  </div>
+                </div>
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">

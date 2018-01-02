@@ -28,6 +28,7 @@ class ShippingCompanyTableSeeder extends Seeder
     		$slug = str_slug($name);
 
             $shippingCompany->name        = $name;
+            $shippingCompany->color       = $faker->hexcolor;
             $shippingCompany->slug        = $slug;
             $shippingCompany->description = substr($faker->paragraphs(1, true), 0, 100);
             $shippingCompany->tags        = [$faker->name, $faker->name, $faker->name];

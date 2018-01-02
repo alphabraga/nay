@@ -87,7 +87,8 @@ class CategoriesController extends FrontController
                                 'name'        => 'required|unique:categories',
                                 'tags'        => 'required',
                                 'description' => 'required',
-                                'level'       => 'required'
+                                'level'       => 'required',
+                                'color'       => 'required'
                             ]);
 
         $data = $request->all();

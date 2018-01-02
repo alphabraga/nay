@@ -37,6 +37,7 @@ class ProvidersTableSeeder extends Seeder
 
 			$provider->slug              = $slug;
 			$provider->name              = $name;
+            $provider->color             = $faker->hexcolor;
 			$provider->description       = substr($faker->paragraphs(1, true), 0, 100);
 			$provider->tags              = $tags;
             $provider->cellphone         = $faker->postcode;

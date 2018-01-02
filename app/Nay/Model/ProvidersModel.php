@@ -19,6 +19,7 @@ class ProvidersModel extends BaseModel
 							'id', 
 							'slug', 
 							'name',
+							'color',
 							'description', 
 							'personal_contact',
 							'postal_code',
