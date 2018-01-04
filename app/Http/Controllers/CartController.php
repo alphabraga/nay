@@ -22,9 +22,11 @@ class CartController extends FrontController
     public function index()
     {
         $clients = \App\Nay\Model\ClientsModel::all();
+        $users   = \App\User::all();
 
         $data = [
-                    'clients'       => $clients
+                    'clients'       => $clients,
+                    'users'         => $users
                 ];
 
         return view('cart.index')->with($data);

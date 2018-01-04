@@ -122,7 +122,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="finalizar-compra" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="finalizar-compra" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -155,7 +155,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Comprador</label> <br>
-                <select style="width : 100%;" id="category_id" name="category_id" class="form-control input-sm select2">
+                <select style="width : 100%;" id="client_id" name="client_id" class="form-control input-sm select2">
                   @foreach($clients as $c)
                     @if($c->id == $configuracao->default_client_id) 
                       <option value="{{$c->id}}" selected="selected">{{$c->name}}</option>
@@ -168,11 +168,28 @@
           </div>
         </div>
 
+  <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Vendedor</label> <br>
+                <select style="width : 100%;" id="salesman_id" name="category_id" class="form-control input-sm select2">
+                  @foreach($users as $u)
+                    @if($usuarioLogado->id == $u->id) 
+                      <option value="{{$u->id}}" selected="selected">{{$u->name}}</option>
+                    @else
+                      <option value="{{$u->id}}">{{$u->name}}</option>
+                    @endif
+                  @endforeach
+                </select>
+            </div>
+          </div>
+        </div>
+
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
               <label>Forma de Pagamento</label> <br>
-                <select style="width : 100%;" id="category_id" name="category_id" class="form-control input-sm select2">
+                <select style="width : 100%;" id="payment_type" name="payment_type" class="form-control input-sm select2">
                   @foreach($clients as $c)
                     @if($c->id == $configuracao->default_client_id) 
                       <option value="{{$c->id}}" selected="selected">{{$c->name}}</option>
