@@ -71,6 +71,16 @@ Route::middleware('auth')->group(function ()
 
 	Route::post('uploadImage', 'CategoriesController@uploadImage');
 
+	Route::get('/backup', 'ConfigurationController@backupPage');
+
+	Route::get('/backupList', 'ConfigurationController@backupList');
+	Route::get('/backupMonitor', 'ConfigurationController@backupMonitor');
+	Route::get('/backupClean', 'ConfigurationController@backupClean');
+	Route::get('/backupRun', 'ConfigurationController@backupRun');
+	Route::get('/showBackups', 'ConfigurationController@showBackups');
+	Route::get('/downloadBackup/{fileName}', 'ConfigurationController@downloadBackup');
+	
+
 });
 
 //Auth::routes();

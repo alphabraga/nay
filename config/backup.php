@@ -19,8 +19,6 @@ return [
                  */
                 'include' => [
                     base_path(),
-                    'public/images',
-                    'config'
                 ],
 
                 /*

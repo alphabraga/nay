@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Storage;
+
 class ConfigurationController extends FrontController
 {
 
@@ -157,4 +159,76 @@ class ConfigurationController extends FrontController
 
         return view('configuration.about')->with($data);
     }
+
+
+    public function backupPage()
+    {
+
+        return view('configuration.backup');
+    }
+
+
+    public function backupMonitor()
+    {
+        $returnCode = \Artisan::call('backup:monitor');
+        $output     = \Artisan::output();
+
+        return response()->json(['returnCode' =>$returnCode, 'output' => $output]);
+    }
+
+    public function backupList()
+    {
+
+        $returnCode = \Artisan::call('backup:list');
+        $output = \Artisan::output();
+
+        return response()->json(['returnCode' =>$returnCode, 'output' => $output]);
+
+    }
+
+
+    public function backupClean()
+    {
+
+
+        $returnCode = \Artisan::call('backup:clean');
+        $output = \Artisan::output();
+
+        return response()->json(['returnCode' =>$returnCode, 'output' => $output]);
+
+    }
+
+
+
+    public function backupRun()
+    {
+        $returnCode = \Artisan::call('backup:run');
+        $output = \Artisan::output();
+
+        return response()->json(['returnCode' =>$returnCode, 'output' => $output]);
+
+    }
+
+    public function showBackups()
+    {
+        $files = glob(storage_path('app/Nay/**'));
+
+        foreach ($files as $f){
+
+            $b['file']     = $f;
+            $b['fileName'] = basename($f); 
+
+            $backups[] = $b;
+
+        }
+
+        return response()->json(['backups' => $backups]);
+    }
+
+
+    public function downloadBackup($fileName)
+    {
+       return response()->download(storage_path("app/Nay/{$fileName}"));
+    }
+
 }

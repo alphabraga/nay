@@ -13,3 +13,26 @@ div#info-text
 { 
 	display: none;  
 }
+
+
+
+pre.console-output{
+
+	background-color: #050a31;
+	color: #e757e1;
+	font-family: monospace;
+
+}
+
+
+pre.embassado{
+
+ -webkit-filter: blur(15px);
+  -moz-filter: blur(15px);
+  -o-filter: blur(15px);
+  -ms-filter: blur(15px);
+  filter: blur(15px);
+
+}
+
+

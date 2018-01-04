@@ -65,7 +65,7 @@
           <ul class="treeview-menu">
             <li><a href="{{URL::to('/users')}}"><i class="fa fa-user fa-fw"></i>Usuários</a></li>
             <li><a href="{{URL::to('/configuration/1')}}"><i class="fa fa-cogs fa-fw"></i>Configurações</a></li>
-            <li><a href="{{URL::to('#')}}"><i class="fa fa-hdd-o fa-fw"></i>Backup</a></li>
+            <li><a href="{{URL::to('/backup')}}"><i class="fa fa-hdd-o fa-fw"></i>Backup</a></li>
             <li><a href="{{URL::to('/sobre')}}"><i class="fa fa-comment fa-fw"></i>Sobre</a></li>
             <li><a href="#"><i class="fa fa-play"></i>Ajuda com videos</a></li>
             <li><a href="#"><i class="fa fa-file"></i>Logs</a></li>
