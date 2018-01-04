@@ -205,27 +205,35 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label>Nome</label><input id="name" type="text" name="name" value="" class="form-control input-sm name">
+              <label>Total</label><input id="total" disabled="disabled" type="text" name="total" value=""  class="form-control input-sm name">
             </div>
           </div>
         </div>
 
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Desconto Percentual</label><input id="desconto_percentual" type="text" name="desconto_percentual" value=""  class="form-control input-sm name">
+            </div>
+          </div>
+        </div>
 
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Desconto Valor</label><input id="desconto_valor" type="text" name="desconto_valor" value=""  class="form-control input-sm name">
+            </div>
+          </div>
+        </div>
 
-          <ul>
-            <li>Cliente (Deixar preselecionado o cliente padrão)</li>
-            <li>Vendedor (preselecionado o que esta logado na maquina)</li>
-            <li>
-              Forma de Pagamento
-                <ul>
-                  <li>Avista</li>
-                  <li>Cartao Credito Debito</li>
-                  <li>Cartao Credito Credito (Escolher numero de parcelas)</li>
-                  <li>Fléxivel</li>  
-                </ul>
-            </li>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Total Liquido</label><input id="liquido" type="text"  disabled="disabled" name="liquido" value=""  class="form-control input-sm name">
+            </div>
+          </div>
+        </div>        
 
-          </ul>
 
 
         </form>

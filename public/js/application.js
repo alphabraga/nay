@@ -66,6 +66,15 @@ $(document).ready(function()
 
      }
 
+
+     $('button#registrar').on('click', function(e)
+     {
+        carrinho.total(function(data){ $('input#total').val(data) });        
+        carrinho.total(function(data){ $('input#liquido').val(data) });        
+
+     });
+
+
      $('button#limpar').on('click', function()
     {
         bootbox.confirm("Você realmente deseja limpar o carrinho?", function(response)
