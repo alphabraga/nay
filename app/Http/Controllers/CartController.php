@@ -25,8 +25,11 @@ class CartController extends FrontController
         $users   = \App\User::all();
 
         $data = [
-                    'clients'       => $clients,
-                    'users'         => $users
+                    'object'           => new \App\Nay\Model\SalesModel(),
+                    'clients'        => $clients,
+                    'users'          => $users,
+                    'paymentMethods' => \App\Nay\Model\PaymentMethod::getAll(), 
+                    'saleCategories' => \App\Nay\Model\SaleCategory::getAll(), 
                 ];
 
         return view('cart.index')->with($data);

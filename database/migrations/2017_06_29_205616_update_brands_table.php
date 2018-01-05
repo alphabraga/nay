@@ -15,7 +15,7 @@ class UpdateBrandsTable extends Migration
     {
         Schema::table('brands', function (Blueprint $table)
         {
-            $table->string('slug');
+            $table->string('slug')->unique();
         });
     }
 

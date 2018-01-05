@@ -19,7 +19,7 @@ class CategoriesTableSedder extends Seeder
         $faker->addProvider(new Faker\Provider\pt_BR\PhoneNumber($faker));
 
 
-        foreach (range(1,100) as $index)
+        foreach (range(1,15) as $index)
         {
             $category = new \App\Nay\Model\CategoriesModel();
 

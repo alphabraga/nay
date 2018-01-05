@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSlugFieldInCategories extends Migration
+class AddDescontoOnSales extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class AddSlugFieldInCategories extends Migration
      */
     public function up()
     {
-        Schema::table('categories', function(Blueprint $table)
+        Schema::table('sales', function($table)
         {
-
-            $table->string('slug')->unique();
-
+            $table->double('discount', 3, 2);
         });
+
     }
 
     /**

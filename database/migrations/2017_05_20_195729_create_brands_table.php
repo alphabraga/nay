@@ -19,7 +19,7 @@ class CreateBrandsTable extends Migration
         {
 
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->longText('description');
             $table->json('tags');
             $table->integer('created_by');

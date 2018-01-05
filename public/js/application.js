@@ -694,4 +694,135 @@ function atualizaCampo(){
     $('input.numero').mask('9');
 
     
+
+
+  //{product : {id:1223233223, name:'Alfredo Braga', price:100, quantity: 1, atributes:[] }}
+
+      carrinho = {
+                        add : function(productData)
+                        {
+                                $.ajax({
+                                  type: "POST",
+                                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                                  url: "/carrinho",
+                                  data: productData
+                                });
+                        },
+                        update : function(id, productData)
+                        {
+
+                                $.ajax({
+                                  type: "PATCH",
+                                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                                  url: "/carrinho/" + id,
+                                  data: productData
+                                });
+
+                        },
+                        delete : function(id, callBackFunction)
+                        {
+                                $.ajax({
+                                  type: "DELETE",
+                                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                                  url: "/carrinho/"+id,
+                                  success: function(data){ callBackFunction(data); }
+                                });
+
+
+                        },
+                        clear : function(callBackFunction)
+                        {
+                                $.ajax({
+                                  type: "GET",
+                                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                                  url: "/carrinhoClear",
+                                  success: function(data){ callBackFunction(data); }
+                                });
+
+
+                        },
+                        show : function(callBackFunction)
+                        {
+                                $.ajax({
+                                  type: "GET",
+                                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                                  url: "/carrinho/1",
+                                  success: function(data){ callBackFunction(data); }
+                                });
+                        },
+                        isEmpty : function(callBackFunction)
+                        {
+                                $.ajax({
+                                  type: "GET",
+                                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                                  url: "/carrinhoIsEmpty",
+                                  success: function(data){ callBackFunction(data); }
+                                });
+                        },
+                        total : function(callBackFunction)
+                        {
+                                $.ajax({
+                                  type: "GET",
+                                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                                  url: "/carrinhoTotal",
+                                  success: function(data){ callBackFunction(data); }
+                                });
+                        },
+                        subTotal : function(callBackFunction)
+                        {
+                                $.ajax({
+                                  type: "GET",
+                                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                                  url: "/carrinhoSubTotal",
+                                  success: function(data){ callBackFunction(data); }
+                                });
+                        },
+                        totalQuantity : function(callBackFunction)
+                        {
+                              $.ajax({
+                                type: "GET",
+                                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                                url: "/carrinhoQuantity",
+                                success: function(data){ callBackFunction(data); }
+                              });                          
+                        }                                                     
+                     };
+
+                    atualizarCarrinho(); 
+
+                    $(document).on("click","a.remove-item", function(e)
+                     {
+                        e.preventDefault();
+
+                        itemId = $(this).data('id');
+
+                        bootbox.confirm('E ai vai querer excluir isso mesmo', function(confirmation)
+                        {
+
+                          if(confirmation == true){
+
+                              carrinho.delete(itemId, function(){});
+
+                              atualizarCarrinho();
+                          }
+
+                        });
+
+                        
+
+                    });
+
+                    carrinho.totalQuantity(function(totalQuantity)
+                    {
+
+                        $('a#cart-icon').append('<span class="label label-info">'+ totalQuantity  +'</span>');
+                        $('span#cart-total-itens').text(totalQuantity);
+
+                    });
+
+
+                    carrinho.total(function(total)
+                    {
+                        $('span#total-carrinho').text(total);
+                    });
 }

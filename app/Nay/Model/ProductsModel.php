@@ -19,7 +19,8 @@ class ProductsModel extends BaseModel
 	protected $fillable = [
 							'id',
 							'barcode',
-							'external_code', 
+							'external_code',
+							'code', 
 							'slug', 
 							'name',
 							'description', 

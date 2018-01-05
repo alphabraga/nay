@@ -48,6 +48,7 @@ class ProductsTableSeeder extends Seeder
             }
 
 			$product->slug             = $slug;
+            $product->code             = $faker->randomNumber(9, true);
             $product->barcode          = $faker->ean13;
             $product->external_code    = $faker->randomNumber(9);
 			$product->name             = $name;

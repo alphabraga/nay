@@ -41,6 +41,13 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
+              <label>Código</label><input id="code" type="text" name="code" value="{{old('code', $object->code)}}" class="form-control input-sm code">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
               <label>Código Externo</label><input id="external_code" type="text" name="external_code" value="{{old('external_code', $object->external_code)}}" class="form-control input-sm external_code">
             </div>
           </div>

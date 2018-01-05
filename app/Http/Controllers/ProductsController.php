@@ -84,7 +84,8 @@ class ProductsController extends FrontController
     public function store(Request $request)
     {
        $rules = [
-                    'name'           => 'required|unique:brands,name', 
+                    'name'           => 'required|unique:brands,name',
+                    'code'           => 'required|unique:products,code', 
                     'description'    => 'required', 
                     'tags'           => 'required',
                     'purchase_price' => 'required', 
@@ -158,7 +159,21 @@ class ProductsController extends FrontController
     public function update(Request $request, $id)
     {
         $object = \App\Nay\Model\ProductsModel::find($id);
-        
+
+        $request->validade([
+                    'name'           =>  Rule::unique('products')->ignore($object->id),
+                    'code'           =>  Rule::unique('products')->ignore($object->id),
+                    'barcode'        =>  Rule::unique('products')->ignore($object->id),
+                    'description'    => 'required', 
+                    'tags'           => 'required',
+                    'purchase_price' => 'required', 
+                    'sale_price'     => 'required',
+                    'brand_id'       => 'required',
+                    'category_id'    => 'required'
+                ]); 
+
+        $this->validate($request, $rules);
+
         $data = $request->all();
 
         $data['slug'] = str_slug($data['name']);
@@ -200,6 +215,8 @@ class ProductsController extends FrontController
 
         $products = \App\Nay\Model\ProductsModel::select('id', 'name', 'sale_price')
                                                   ->where('name', 'like', "%$term%")
+                                                  ->orWhere('barcode', '=', $term)
+                                                  ->orWhere('code', '=', $term)
                                                   ->take(100)
                                                   ->get();
 

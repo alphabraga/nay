@@ -16,22 +16,22 @@ class AddColors extends Migration
 
         Schema::table('categories', function (Blueprint $table)
         {
-            $table->string('color');
+            $table->string('color')->unique();
         });
 
         Schema::table('brands', function (Blueprint $table)
         {
-            $table->string('color');
+            $table->string('color')->unique();
         });
 
         Schema::table('providers', function (Blueprint $table)
         {
-            $table->string('color');
+            $table->string('color')->unique();
         });
 
         Schema::table('shipping_company', function (Blueprint $table)
         {
-            $table->string('color');
+            $table->string('color')->unique();
         });
 
     }

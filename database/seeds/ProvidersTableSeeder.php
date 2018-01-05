@@ -19,7 +19,7 @@ class ProvidersTableSeeder extends Seeder
         $faker->addProvider(new Faker\Provider\pt_BR\PhoneNumber($faker));
 
 
-        foreach (range(1,25) as $index)
+        foreach (range(1,10) as $index)
         {
     		
     		$provider = new \App\Nay\Model\ProvidersModel();

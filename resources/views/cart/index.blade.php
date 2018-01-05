@@ -142,9 +142,9 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Tipo de Transação</label> <br>
-                <select style="width : 100%;" id="transaction_type" name="transaction_type" class="form-control input-sm select2">
-                  @foreach($clients as $c)
-                      <option value="{{$c->id}}">{{$c->name}}</option>
+                <select style="width : 100%;" id="transction_method" name="transction_method" class="form-control input-sm select2">
+                  @foreach($saleCategories as $scKey=> $scValue)
+                      <option value="{{$scValue}}">{{ __('messages.' . $scKey) }}</option>
                   @endforeach
                 </select>
             </div>
@@ -157,7 +157,7 @@
               <label>Comprador</label> <br>
                 <select style="width : 100%;" id="client_id" name="client_id" class="form-control input-sm select2">
                   @foreach($clients as $c)
-                    @if($c->id == $configuracao->default_client_id) 
+                    @if($object->client_id ==  $c->id || $c->id == $configuracao->default_client_id) 
                       <option value="{{$c->id}}" selected="selected">{{$c->name}}</option>
                     @else
                       <option value="{{$c->id}}">{{$c->name}}</option>
@@ -172,9 +172,9 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Vendedor</label> <br>
-                <select style="width : 100%;" id="salesman_id" name="category_id" class="form-control input-sm select2">
+                <select style="width : 100%;" id="salesman_id" name="salesman_id" class="form-control input-sm select2">
                   @foreach($users as $u)
-                    @if($usuarioLogado->id == $u->id) 
+                    @if($object->created_by ==  $u->id || $usuarioLogado->id == $u->id) 
                       <option value="{{$u->id}}" selected="selected">{{$u->name}}</option>
                     @else
                       <option value="{{$u->id}}">{{$u->name}}</option>
@@ -189,12 +189,12 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Forma de Pagamento</label> <br>
-                <select style="width : 100%;" id="payment_type" name="payment_type" class="form-control input-sm select2">
-                  @foreach($clients as $c)
-                    @if($c->id == $configuracao->default_client_id) 
-                      <option value="{{$c->id}}" selected="selected">{{$c->name}}</option>
+                <select style="width : 100%;" id="payment_method" name="payment_method" class="form-control input-sm select2">
+                  @foreach($paymentMethods as $pmKey => $pmValue)
+                    @if($object->payment_method == $pmValue) 
+                      <option selected="selected" value="{{$pmValue}}">{{__('messages.' . $pmKey)}}</option>
                     @else
-                      <option value="{{$c->id}}">{{$c->name}}</option>
+                      <option value="{{$pmValue}}">{{__('messages.' . $pmKey)}}</option>
                     @endif
                   @endforeach
                 </select>
@@ -213,7 +213,11 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label>Desconto Percentual</label><input id="desconto_percentual" type="text" name="desconto_percentual" value=""  class="form-control input-sm name">
+              <label>Desconto Percentual</label>
+              <div class="input-group">
+                  <input id="desconto_percentual" type="text" name="desconto_percentual" value="0.00"  class="form-control input-sm name">
+                <span class="input-group-addon">%</span>
+              </div>
             </div>
           </div>
         </div>
@@ -221,7 +225,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label>Desconto Valor</label><input id="desconto_valor" type="text" name="desconto_valor" value=""  class="form-control input-sm name">
+              <label>Desconto Valor</label><input id="desconto_valor" type="text" name="desconto_valor" value="0.00"  class="form-control input-sm name">
             </div>
           </div>
         </div>
@@ -229,13 +233,10 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label>Total Liquido</label><input id="liquido" type="text"  disabled="disabled" name="liquido" value=""  class="form-control input-sm name">
+              <label>Total Liquido</label><input id="liquido" type="text"  disabled="disabled" name="liquido" value="0.00"  class="form-control input-sm name">
             </div>
           </div>
         </div>        
-
-
-
         </form>
 
 
@@ -258,121 +259,7 @@
 
 
 
-      //{product : {id:1223233223, name:'Alfredo Braga', price:100, quantity: 1, atributes:[] }}
-
-      carrinho = {
-                        add : function(productData)
-                        {
-                                $.ajax({
-                                  type: "POST",
-                                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                  url: "/carrinho",
-                                  data: productData
-                                });
-                        },
-                        update : function(id, productData)
-                        {
-
-                                $.ajax({
-                                  type: "PATCH",
-                                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                  url: "/carrinho/" + id,
-                                  data: productData
-                                });
-
-                        },
-                        delete : function(id, callBackFunction)
-                        {
-                                $.ajax({
-                                  type: "DELETE",
-                                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                  url: "/carrinho/"+id,
-                                  success: function(data){ callBackFunction(data); }
-                                });
-
-
-                        },
-                        clear : function(callBackFunction)
-                        {
-                                $.ajax({
-                                  type: "GET",
-                                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                  url: "/carrinhoClear",
-                                  success: function(data){ callBackFunction(data); }
-                                });
-
-
-                        },
-                        show : function(callBackFunction)
-                        {
-                                $.ajax({
-                                  type: "GET",
-                                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                  url: "/carrinho/1",
-                                  success: function(data){ callBackFunction(data); }
-                                });
-                        },
-                        isEmpty : function(callBackFunction)
-                        {
-                                $.ajax({
-                                  type: "GET",
-                                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                  url: "/carrinhoIsEmpty",
-                                  success: function(data){ callBackFunction(data); }
-                                });
-                        },
-                        total : function(callBackFunction)
-                        {
-                                $.ajax({
-                                  type: "GET",
-                                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                  url: "/carrinhoTotal",
-                                  success: function(data){ callBackFunction(data); }
-                                });
-                        },
-                        subTotal : function(callBackFunction)
-                        {
-                                $.ajax({
-                                  type: "GET",
-                                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                  url: "/carrinhoSubTotal",
-                                  success: function(data){ callBackFunction(data); }
-                                });
-                        },
-                        totalQuantity : function(callBackFunction)
-                        {
-                              $.ajax({
-                                type: "GET",
-                                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                url: "/carrinhoQuantity",
-                                success: function(data){ callBackFunction(data); }
-                              });                          
-                        }                                                     
-                     };
-
-                    atualizarCarrinho(); 
-
-                    $(document).on("click","a.remove-item", function(e)
-                     {
-                        e.preventDefault();
-
-                        itemId = $(this).data('id');
-
-                        bootbox.confirm('E ai vai querer excluir isso mesmo', function(confirmation)
-                        {
-
-                          if(confirmation == true){
-
-                              carrinho.delete(itemId, function(){});
-
-                              atualizarCarrinho();
-                          }
-
-                        });
-
-                        
-
-                    });
+    
 
 
       });

@@ -19,7 +19,7 @@ class ShippingCompanyTableSeeder extends Seeder
         $faker->addProvider(new Faker\Provider\pt_BR\PhoneNumber($faker));
 
 
-        foreach (range(1,25) as $index)
+        foreach (range(1,5) as $index)
         {
             $shippingCompany = new \App\Nay\Model\ShippingCompanyModel();
 

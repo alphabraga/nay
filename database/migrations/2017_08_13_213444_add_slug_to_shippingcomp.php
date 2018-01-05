@@ -16,7 +16,7 @@ class AddSlugToShippingcomp extends Migration
         Schema::table('shipping_company', function(Blueprint $table)
         {
 
-            $table->string('slug');
+            $table->string('slug')->unique();
         });
     }
 

@@ -9,10 +9,11 @@ Tarefas de Hoje 19/12/2018
 	request      -> user
 	requestitens -> salesitens
 
-
+Terminar cadastro de venda
+Colocar plugin de Logs que eu uso no odonto
+Nao 'registrar' deixar abrir modal se nao existem itens no carrinho
 colocar formulario para atualuzar os dados do usuario logado
 colocar a aba de Timelime para funcionar
-
 fazer os testes unitarios com o pagseguro
 fazer a tela de transação
 usar o pagseguro para as transaçoes

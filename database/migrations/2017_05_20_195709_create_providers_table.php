@@ -17,7 +17,7 @@ class CreateProvidersTable extends Migration
         {
             $table->increments('id');
             $table->string('slug');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('description');
             $table->string('personal_contact');
             $table->string('postal_code');

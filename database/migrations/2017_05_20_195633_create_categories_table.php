@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
         {
             $table->increments('id');
             $table->bigInteger('level');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->longText('description');
             $table->json('tags');
             $table->integer('created_by');  

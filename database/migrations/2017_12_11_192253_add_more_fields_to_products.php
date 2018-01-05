@@ -17,7 +17,7 @@ class AddMoreFieldsToProducts extends Migration
         Schema::table('products', function (Blueprint $table)
         {
 
-            $table->string('barcode');
+            $table->string('barcode')->unique();
             $table->string('external_code');
             $table->string('custom_field1');
             $table->string('custom_field2');
