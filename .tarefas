@@ -10,6 +10,10 @@ Tarefas de Hoje 19/12/2018
 	requestitens -> salesitens
 
 Terminar cadastro de venda
+fazer o relacionamento no banco de dados com os migrations entre a venda e os itens
+Deixar a venda dentro de uma transaç~ao
+Usar  a maquina de estados
+Fazer a tela de busca de vendas
 Colocar plugin de Logs que eu uso no odonto
 Nao 'registrar' deixar abrir modal se nao existem itens no carrinho
 colocar formulario para atualuzar os dados do usuario logado
