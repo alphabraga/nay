@@ -15,15 +15,15 @@ class SalesModel extends BaseModel
 	protected $table = 'sales';
 
 	protected $fillable = [
-							'id',          
-							'name',        
-							'phone',       
-							'cellphone',   
-							'address',     
-							'postalcode',  
-							'adressnumber',
+							'id',
+							'client_id',
+							'salesman_id',
+							'status',          
 							'payment_method',
 							'transaction_method',
+							'transction_method',
+							'shipping_company_id',
+							'discount',
 							'status',
 							'category',
 							'created_by',  
@@ -42,6 +42,12 @@ class SalesModel extends BaseModel
     {
 		return $this->belongsTo('App\Nay\Model\ClientsModel', 'client_id');
     }
+
+	public function itens()
+    {
+		return $this->hasMany('App\Nay\Model\SalesItensModel', 'sale_id');
+    }
+
 
 	public function setPaymentMethod(PaymentMethod $paymentMethod)
 	{

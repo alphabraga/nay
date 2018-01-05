@@ -36,4 +36,9 @@ class SalesItensModel extends BaseModel
 		return $this->belongsTo('App\Nay\Model\ProductsModel', 'product_id');
     }
 
+	public function sale()
+    {
+		return $this->belongsTo('App\Nay\Model\SalesModel', 'sale_id');
+    }
+
 }

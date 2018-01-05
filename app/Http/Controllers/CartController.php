@@ -174,10 +174,41 @@ class CartController extends FrontController
        \Cart::clear();
     }
 
-    public function checkout()
+    public function checkout(Request $request)
     {
+       $this->validate($request, [ 
+                                    'client_id'        => 'required', 
+                                    'payment_method'   => 'required', 
+                                    'salesman_id'      => 'required', 
+                                    'transction_method'=> 'required'
+                                ]);
 
 
+        $checkoutData = $request->all();
 
+        $checkoutData['deleted_by']          = '0';
+        $checkoutData['status']              = '0';
+        $checkoutData['shipping_company_id'] = '1';
+
+        $sale = \App\Nay\Model\SalesModel::create($checkoutData);
+
+        $shoppingItens =  \Cart::getContent();
+
+        foreach ($shoppingItens as $i)
+        {
+            $itens[] = \App\Nay\Model\SalesItensModel::create([
+                                                                'sale_id'   => $sale->id,
+                                                                'state'     => '0',
+                                                                'quantity'  => $i->quantity,
+                                                                'price'     => $i->price,
+                                                                'product_id'=> $i->id 
+                                                              ]);
+        }
+
+        $s = \App\Nay\Model\SalesModel::find($sale->id);
+
+        $response = ['sale' => $s, 'itens' => $s->];
+
+        return response()->json($s);
     }
 }

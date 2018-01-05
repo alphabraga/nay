@@ -132,7 +132,7 @@
       <div class="modal-body">
 
 
-        <form action="{{@action('CartController@checkout')}}" method="post">
+        <form id="checkout" action="{{@action('CartController@checkout')}}" method="post">
           
 
           <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
@@ -225,7 +225,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label>Desconto Valor</label><input id="desconto_valor" type="text" name="desconto_valor" value="0.00"  class="form-control input-sm name">
+              <label>Desconto Valor</label><input id="discount" type="text" name="discount" value="0.00"  class="form-control input-sm name">
             </div>
           </div>
         </div>
@@ -237,13 +237,14 @@
             </div>
           </div>
         </div>        
-        </form>
+
 
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-success"><i class="fa fa-save fa-fw"></i>Registrar</button>
+        <button type="submit" class="btn btn-success"><i class="fa fa-save fa-fw"></i>Registrar</button>
+      </form>
       </div>
     </div>
   </div>
@@ -256,13 +257,39 @@
     $(document).ready(function()
     {
 
+      $('form#checkout').on('submit', function(e)
+      {
 
+        console.log("Vamos registrar");
+        e.preventDefault();
+
+        $that = $(this);
+
+        $.ajax(
+        {
+            url: $that.attr('action'),
+            type: 'POST',
+            data: $that.serialize(), 
+            success: function(result)
+            {
+              console.log(result);
+              //location.reload();
+            },
+            error: function(data){
+
+                //location.reload();
+                //bootbox.alert( JSON.stringify(data));
+            }
+        });
+
+
+      });
 
 
     
 
 
-      });
+    });
 
   </script>
 
