@@ -44,4 +44,10 @@ class User extends Authenticatable
 
         return \File::exists( public_path($photo))? $photo:$defaultPhoto;
     }
+
+    public function sales()
+    {
+        return $this->hasMany('App\Nay\Model\SalesModel', 'created_by');
+    }
+
 }

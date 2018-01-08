@@ -48,6 +48,11 @@ class SalesModel extends BaseModel
 		return $this->belongsTo('App\User', 'salesman_id');
     }
 
+	public function user()
+    {
+		return $this->belongsTo('App\User', 'created_by');
+    }
+
 	public function itens()
     {
 		return $this->hasMany('App\Nay\Model\SalesItensModel', 'sale_id');

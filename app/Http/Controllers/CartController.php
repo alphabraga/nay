@@ -21,15 +21,19 @@ class CartController extends FrontController
      */
     public function index()
     {
+
+        $object = new \App\Nay\Model\SalesModel();   
+
         $clients = \App\Nay\Model\ClientsModel::all();
+
         $users   = \App\User::all();
 
         $data = [
-                    'object'           => new \App\Nay\Model\SalesModel(),
-                    'clients'        => $clients,
-                    'users'          => $users,
-                    'paymentMethods' => \App\Nay\Model\PaymentMethod::getAll(), 
-                    'saleCategories' => \App\Nay\Model\SaleCategory::getAll(), 
+                    'object'           => $object,
+                    'clients'          => $clients,
+                    'users'            => $users,
+                    'paymentMethods'   => \App\Nay\Model\PaymentMethod::getAll(), 
+                    'saleCategories'   => \App\Nay\Model\SaleCategory::getAll(), 
                 ];
 
         return view('cart.index')->with($data);
@@ -77,26 +81,6 @@ class CartController extends FrontController
      */
     public function show($id)
     {
-        /*$shoppingItens =  \Cart::getContent();
-
-        $itens = array();
-
-        foreach($shoppingItens as $key=>$value){
-
-            $itens[] = $value;
-        }
-
-        $data = [
-                    'draw'           => 1,
-                    'recordsTotal'   => count($shoppingItens),
-                    'recordsFiltered'=> count($shoppingItens),
-                    'data'           => $itens,
-                    'start'          => 0,
-                    'length'         => 10,  
-                ];
-
-        return response()->json($data);*/
-
         $shoppingItens =  \Cart::getContent();
 
         return response()->json($shoppingItens);

@@ -34,7 +34,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{URL::to('/carrinho')}}"><i class="fa fa-cart-o fa-shopping-cart"></i> Atendimento ao Cliente</a></li>
+            <li><a href="{{URL::to('/carrinho')}}"><i class="fa fa-cart-o fa-shopping-cart"></i> Nova Venda</a></li>
+            <li><a href="{{URL::to('/sales')}}"><i class="fa fa-cart-o fa-shopping-cart"></i> Vendas</a></li>            
+            <li><a href="#"><i class="fa fa-archive"></i> Novo Pedido</a></li>
             <li><a href="#"><i class="fa fa-archive"></i> Pedidos</a></li>
           </ul>
         </li>

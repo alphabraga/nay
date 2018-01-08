@@ -61,6 +61,9 @@ Route::middleware('auth')->group(function ()
 	Route::resource('users', 'UsersController');
 	Route::get('usersSearch', 'UsersController@search');
 
+	Route::resource('sales', 'SalesController');
+	Route::get('salesSearch', 'SalesController@search');
+
 	Route::get('/system', 'ConfigurationController@system');
 
 	Route::get('perfil', 'UsersController@profile');
