@@ -14,7 +14,8 @@ class SalesItensModel extends BaseModel
 	protected $table = 'salesitens';
 
 	protected $fillable = [
-							'id',          
+							'id',
+							'sale_id',          
 							'state',        
 							'quantity',       
 							'product_id',   

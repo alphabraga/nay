@@ -43,6 +43,11 @@ class SalesModel extends BaseModel
 		return $this->belongsTo('App\Nay\Model\ClientsModel', 'client_id');
     }
 
+	public function salesman()
+    {
+		return $this->belongsTo('App\User', 'salesman_id');
+    }
+
 	public function itens()
     {
 		return $this->hasMany('App\Nay\Model\SalesItensModel', 'sale_id');

@@ -207,8 +207,13 @@ class CartController extends FrontController
 
         $s = \App\Nay\Model\SalesModel::find($sale->id);
 
-        $response = ['sale' => $s, 'itens' => $s->];
+        $response = [
+                        'sale'    => $s, 
+                        'itens'   => $s->itens,
+                        'client'  => $s->client,
+                        'salesman'=> $s->salesman
+                    ];
 
-        return response()->json($s);
+        return response()->json($response);
     }
 }
