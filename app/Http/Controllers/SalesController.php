@@ -75,7 +75,8 @@ class SalesController extends FrontController
      */
     public function create()
     {
-        //
+        \Cart::clear();
+        return redirect('carrinho');
     }
 
     /**

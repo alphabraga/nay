@@ -9,18 +9,13 @@ Tarefas de Hoje 19/12/2018
 	request      -> user
 	requestitens -> salesitens
 
-Terminar cadastro de venda
-fazer o relacionamento no banco de dados com os migrations entre a venda e os itens
+
 Deixar a venda dentro de uma transaç~ao
-Usar  a maquina de estados
-Fazer a tela de busca de vendas
-Colocar plugin de Logs que eu uso no odonto
+usar o pagseguro para as transaçoes
+Usar  a maquina de estados para as vendas
 Nao 'registrar' deixar abrir modal se nao existem itens no carrinho
 colocar formulario para atualuzar os dados do usuario logado
-colocar a aba de Timelime para funcionar
 fazer os testes unitarios com o pagseguro
-fazer a tela de transação
-usar o pagseguro para as transaçoes
 colocar o font awsome totalmente dentro do projeto
 habilitar ou desabilitar campos complementares de produtos
 melhorar a tela de carrinho o select2 não ta legal
@@ -28,9 +23,15 @@ na tela de visualizaç~ao de cleinte colocar abas com as compras que ele fez
 criar funcionalidade de criar usuario para cliente
 o campo cellphone de fornecedor pode ser nulo e ele esta como n~ao nulo
 colocar a opção de ativar/desativar um categoria. Isso ira desabilitar todos os itens dela de aparecer no site
+colocar a aba de Timelime para funcionar
 
 
 TAREFAS FEITAS
+fazer a tela de transação
+Colocar plugin de Logs que eu uso no odonto
+Fazer a tela de busca de vendas
+fazer o relacionamento no banco de dados com os migrations entre a venda e os itens
+Terminar cadastro de venda
 colocar cores em categorias, fornecedores, marcas
 melhorar a tela de perfil 
 	remover a aba atividades

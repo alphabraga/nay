@@ -82,6 +82,9 @@ Route::middleware('auth')->group(function ()
 	Route::get('/backupRun', 'ConfigurationController@backupRun');
 	Route::get('/showBackups', 'ConfigurationController@showBackups');
 	Route::get('/downloadBackup/{fileName}', 'ConfigurationController@downloadBackup');
+
+
+	Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 	
 
 });
