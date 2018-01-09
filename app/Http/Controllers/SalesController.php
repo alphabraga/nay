@@ -26,6 +26,9 @@ class SalesController extends FrontController
                                  ['data' => 'id', 'title' => 'ID'],
                                  ['data' => 'client.name', 'title' => 'CLIENTE'],
                                  ['data' => 'salesman.name', 'title' => 'ATENDENTE'],
+                                 ['data' => 'total', 'title' => 'TOTAL'],
+                                 ['data' => 'sale_category', 'title' => 'CATEGORIA'],
+                                 ['data' => 'payment_method', 'title' => 'FORMA DE PAGAMENTO'],
                                  ['data' => 'action', 'title' => 'Ação', 'orderable' => false, 'searchable' => false]  
                                 ]
                 ];
@@ -38,6 +41,18 @@ class SalesController extends FrontController
 
         return DataTables::of(\App\Nay\Model\SalesModel::with('client')->with('salesman')->get())
         ->setRowId('id')
+        ->addColumn('total', function($object)
+        {
+            return number_format($object->total, 2, ',', '.');            
+        })
+        ->addColumn('payment_method', function($object)
+        {
+            return __('messages.' . \App\Nay\Model\PaymentMethod::name($object->payment_method));            
+        })
+        ->addColumn('sale_category', function($object)
+        {
+            return __('messages.' . \App\Nay\Model\SaleCategory::name($object->sale_category));            
+        })
         ->addColumn('action', function($object)
         {
             return '<div id="table-painel" class="btn-group">

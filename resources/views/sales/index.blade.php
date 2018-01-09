@@ -1,11 +1,11 @@
 @extends('layouts.main')
-@section('title', 'Marcas')
+@section('title', 'Transaçoes')
 @section('content')
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1><i class="fa fa-tags  fa-fw"></i>Marcas <small>Listagem</small></h1>
+    <h1><i class="fa fa-shopping-cart fa-fw"></i>Transaçoes <small>Listagem</small></h1>
     <ol class="breadcrumb">
-      <li><a href="{{action('BrandsController@index')}}"><i class="fa fa-tags  fa-fw"></i>Marcas</a></li>
+      <li><a href="{{action('SalesController@index')}}"><i class="fa fa-shopping-cart fa-fw"></i>Transacoes</a></li>
       <li class="active">Listagem</li>
     </ol>
   </section>
@@ -23,7 +23,7 @@
       <!-- /.box-body -->
     </div>
     <div id="info-text">
-	  <p>Nessa tela você controla as marcas do sistema</p>
+	  <p>Veja aqui todas as transaç~eos que voc^e cadastrou no sistema</p>
     </div>
   </section>
   <!-- /.content -->
