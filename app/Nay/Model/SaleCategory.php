@@ -21,7 +21,17 @@ abstract class SaleCategory
         unset($constants['__default']);
 
         return $constants;
+    }
 
+    /**
+    * Return the constant name using the value
+    * Usefull when you need the get the name of the PaymentMethod over the database
+    */
+    static function name($value)
+    {
+        $constants = self::getAll();
+
+        return array_search($value, $constants);
     }
 
 }

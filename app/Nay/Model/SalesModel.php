@@ -79,4 +79,44 @@ class SalesModel extends BaseModel
 		return new SaleCategory($this->sale_category);
 	}
 
+
+	public function getTotalAttribute()
+	{
+		$total = 0;
+
+		foreach ($this->itens as $item)
+		{
+			$total += $item->price;
+		}
+
+		return $total;
+	}
+
+	public function getTotalQuantityAttribute()
+	{
+		return $this->itens->count();
+	}
+
+	public function getLiquidAttribute()
+	{
+		$liquid = 0;
+
+		foreach ($this->itens as $item)
+		{
+			$liquid += $item->price;
+		}
+
+		return $liquid - $this->discount;
+	}
+
+	public function getPaymentMethodNameAttribute()
+	{
+		return \App\Nay\Model\PaymentMethod::name($this->payment_method);
+	}
+
+	public function getSaleCategoryNameAttribute()
+	{
+		return \App\Nay\Model\SaleCategory::name($this->sale_category);
+	}
+
 }
