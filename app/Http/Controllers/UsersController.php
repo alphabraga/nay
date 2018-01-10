@@ -48,10 +48,16 @@ class UsersController extends FrontController
 
         $user = \Auth::user();
 
+        $roles = \DB::select('select roles.id, roles.name, roles.display_name, roles.description 
+                              from role_user
+                              left join roles on roles.id = role_user.role_id
+                              where role_user.user_id = ?', [$user->id]);
+
         $data = [
                     'object'           => $user,
                     'numeroSales'      => \App\Nay\Model\SalesModel::where('created_by', '=', $user->id)->count(),
-                    'numeroRequests'   => 145
+                    'numeroRequests'   => 145,
+                    'userRoles'        => $roles
                 ];
 
 

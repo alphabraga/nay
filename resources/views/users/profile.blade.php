@@ -1,245 +1,145 @@
 @extends('layouts.main')
-@section('title', 'Marcas')
+@section('title', 'Meu perfil')
 @section('content')
+<!-- Content Header (Page header) -->
 <section class="content-header">
-      <h1> <i class="fa fa-user"></i> Meu Perfil</h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-user"></i> Home</a></li>
-        <li class="active">Meu Perfil</li>
-      </ol>
-    </section>
-
+  <h1><i class="fa fa-user"></i> Meu perfil</h1>
+  <ol class="breadcrumb">
+    <li><a href="{{action('UsersController@profile')}}"><i class="fa fa-user"></i>Meu perfil</a></li>
+    <li class="active">Listagem</li>
+  </ol>
+</section>
+<!-- Main content -->
 <section class="content">
+  <div class="box">
+    <!-- /.box-header -->
+    <div class="box-body">
 
-      <div class="row">
-        <div class="col-md-3">
 
-          <!-- Profile Image -->
-          <div class="box box-primary">
-            <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="{{$usuario->getPhoto()}}" alt="User profile picture">
 
-              <h3 class="profile-username text-center">{{$object->name}}</h3>
-
-              <p class="text-muted text-center">{{$roles->implode(', ')}}</p>
-
-              <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <i class="fa fa-shopping-cart" ></i> <b>Vendas</b> <a class="pull-right">{{$numeroSales}}</a>
-                </li>
-                <li class="list-group-item">
-                  <i class="fa fa-shopping-cart" ></i> <b>Encomendas</b> <a class="pull-right">{{$numeroSales}}</a>
-                </li>
-                <li class="list-group-item">
-                 <i class="fa fa-shopping-cart" ></i> <b>Pedidos</b> <a class="pull-right">{{$numeroRequests}}</a>
-                </li>
-              </ul>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-          <!-- About Me Box -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Sobre Mim</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <strong><i class="fa fa-book margin-r-5"></i> Nome</strong>
-
-              <p class="text-muted">
-              {{$usuario->name}}
-              </p>
-
-              <hr>
-
-              <strong><i class="fa fa-envelope margin-r-5"></i> Email</strong>
-
-              <p class="text-muted">{{$usuario->email}}</p>
-
-              <hr>
-
-              <strong><i class="fa fa-calendar margin-r-5"></i> Criado em</strong>
-
-              <p class="text-muted">
-              {{$usuario->created_at->format('d/m/Y H:i:s')}}
-              </p>
-
-              <hr>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><span class="fa fa-user"></span> Meus Dados</h3>
         </div>
-        <!-- /.col -->
-        <div class="col-md-9">
-          <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-              <li class="active" ><a href="#settings" data-toggle="tab">Configurações</a></li>
-              <li><a href="#timeline" data-toggle="tab">Linha do Tempo</a></li>
-            </ul>
-            <div class="tab-content">
-              <!-- /.tab-pane -->
-              <div class="tab-pane" id="timeline">
-                <!-- The timeline -->
-                <ul class="timeline timeline-inverse">
-                  <!-- timeline time label -->
-                  <li class="time-label">
-                        <span class="bg-red">
-                          10 Feb. 2014
-                        </span>
-                  </li>
-                  <!-- /.timeline-label -->
-                  <!-- timeline item -->
-                  <li>
-                    <i class="fa fa-envelope bg-blue"></i>
-
-                    <div class="timeline-item">
-                      <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-
-                      <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-
-                      <div class="timeline-body">
-                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                        quora plaxo ideeli hulu weebly balihoo...
-                      </div>
-                      <div class="timeline-footer">
-                        <a class="btn btn-primary btn-xs">Read more</a>
-                        <a class="btn btn-danger btn-xs">Delete</a>
-                      </div>
-                    </div>
-                  </li>
-                  <!-- END timeline item -->
-                  <!-- timeline item -->
-                  <li>
-                    <i class="fa fa-user bg-aqua"></i>
-
-                    <div class="timeline-item">
-                      <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
-
-                      <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend request
-                      </h3>
-                    </div>
-                  </li>
-                  <!-- END timeline item -->
-                  <!-- timeline item -->
-                  <li>
-                    <i class="fa fa-comments bg-yellow"></i>
-
-                    <div class="timeline-item">
-                      <span class="time"><i class="fa fa-clock-o"></i> 27 mins ago</span>
-
-                      <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-
-                      <div class="timeline-body">
-                        Take me to your leader!
-                        Switzerland is small and neutral!
-                        We are more like Germany, ambitious and misunderstood!
-                      </div>
-                      <div class="timeline-footer">
-                        <a class="btn btn-warning btn-flat btn-xs">View comment</a>
-                      </div>
-                    </div>
-                  </li>
-                  <!-- END timeline item -->
-                  <!-- timeline time label -->
-                  <li class="time-label">
-                        <span class="bg-green">
-                          3 Jan. 2014
-                        </span>
-                  </li>
-                  <!-- /.timeline-label -->
-                  <!-- timeline item -->
-                  <li>
-                    <i class="fa fa-camera bg-purple"></i>
-
-                    <div class="timeline-item">
-                      <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
-
-                      <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-
-                      <div class="timeline-body">
-                        <img src="http://placehold.it/150x100" alt="..." class="margin">
-                        <img src="http://placehold.it/150x100" alt="..." class="margin">
-                        <img src="http://placehold.it/150x100" alt="..." class="margin">
-                        <img src="http://placehold.it/150x100" alt="..." class="margin">
-                      </div>
-                    </div>
-                  </li>
-                  <!-- END timeline item -->
-                  <li>
-                    <i class="fa fa-clock-o bg-gray"></i>
-                  </li>
-                </ul>
-              </div>
-              <!-- /.tab-pane -->
-
-              <div class="active tab-pane" id="settings">
-                <form class="form-horizontal">
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputName" placeholder="Name">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputName" placeholder="Name">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
-
-                    <div class="col-sm-10">
-                      <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
-
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-danger">Submit</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <!-- /.tab-pane -->
-            </div>
-            <!-- /.tab-content -->
-          </div>
-          <!-- /.nav-tabs-custom -->
+        <div class="panel-body">
+           <table class="table table-striped table-bordered">
+        <tr>
+          <td>Nome</td><td>{{$object->name}}</td>
+        </tr>
+        <tr>
+          <td>Usuário</td><td>{{$object->username}}</td>
+        </tr>
+        <tr>
+          <td>Email</td><td>{{$object->email}}</td>
+        </tr>
+        <tr>
+          <td>Validade</td></td><td>@if(!is_null($object->validity)){{$object->validity->format('d/m/Y')}} @endif</td>
+        </tr>
+        <tr>
+        <tr>
+          <td>Primeiro Acesso</td><td>{{$object->created_at->format('d/m/Y H:i:s')}}</td>
+        </tr>
+        <tr>
+          <td>Ultimo Acesso</td><td>{{$object->updated_at->format('d/m/Y H:i:s')}}</td>
+        </tr>
+      </table>
         </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
 
 
-</div></section>
-@endsection
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><span class="fa fa-lock fa-fw"></span> Alterar Foto</h3>
+        </div>
+        <div class="panel-body">
+           <form class="form-inline" enctype="multipart/form-data" action="{{--action('UsuarioController@updatePhoto')--}}" method="post">
+           <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input name="file" type="file" class="form-control" id="file" placeholder="escolha uma foto" required="required">
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+        </div>
+      </div>
+
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><span class="fa fa-lock fa-fw"></span> Alterar Senha</h3>
+        </div>
+        <div class="panel-body">
+           <form class="form-inline" action="{{--action('UsuarioController@updatePassword')--}}" method="post">
+        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input name="password" type="password" class="form-control" id="senha" placeholder="Digite sua nova senha">
+        </div>
+        <div class="form-group">
+          <label for="confirme">Confirme</label>
+          <input type="password" name="confirm" class="form-control" id="confirme" placeholder="Confirme">
+        </div>
+        <button type="submit" class="btn btn-primary">Alterar Senha</button>
+      </form>
+        </div>
+      </div>
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><span class="fa fa-lock fa-fw"></span> Segurança</h3>
+        </div>
+        <div class="panel-body">
+           <table class="table table-striped table-bordered">
+        @foreach ($userRoles as $r)
+        <tr>
+          <td> <a class="class" href="#">{{$r->display_name}}</a></td>
+          <td>{{$r->name}}</td>
+          <td>{{$r->description}}</td>
+        </tr>
+        @endforeach
+        
+      </table>
+        </div>
+      </div>
+     
+      <!-- /.box-body -->
+    </div>
+    <div id="info-text">
+      <p>Nessa tela são listados os dados sobre a conta do usuário do sistema.</p>    
+      <p>Aqui é possivel verificar seu nivel de permissão e alterar a sua senha.</p>
+    </div>
+  </section>
+  <!-- /.content -->
+  @endsection
+  @section('javascript')
+  <script type="text/javascript">
+  
+  $(document).ready(function()
+  {
+  $('select[name="fk_id_pessoa"]').on('change', function(e)
+  {
+  e.preventDefault();
+  $that = $(this);
+  $.ajax(
+  {
+  url: "{{URL::to('adicionarPessoaAoPerfil')}}",
+  type: 'POST',
+  data: {'_token': "{{{ csrf_token() }}}", 'idPessoa': $that.val() },
+  dataType:"json",
+  success: function(result)
+  {
+  if(result.fk_pessoa_id == $('select[name="fk_id_pessoa"]').val())
+  {
+  bootbox.alert('Perfil acessociado com sucesso');
+  }
+  else
+  {
+  bootbox.alert('Erro ao realizar associação');
+  }
+  }
+  });
+  return false;
+  });
+  });
+  </script>
+  @endsection
