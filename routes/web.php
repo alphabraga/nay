@@ -18,6 +18,14 @@
 
 Auth::routes();
 
+//Password reset link request routes...
+//Route::get('password/email',  '\App\Http\Controllers\Auth\ResetPasswordController@getEmail');
+//Route::post('password/email', '\App\Http\Controllers\Auth\ResetPasswordController@postEmail');
+
+// Password reset routes...
+//Route::get('password/reset/{token}', '\App\Http\Controllers\Auth\ResetPasswordController@getReset');
+//Route::post('password/reset', '\App\Http\Controllers\Auth\ResetPasswordController@postReset');
+
 Route::middleware('auth')->group(function ()
 {
 	Route::get('/', 'HomeController@index')->name('home');

@@ -63,7 +63,7 @@
       <br>
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-info btn-block btn-flat">Esqueci minha senha</button>
+          <a href="{{URL::to('/password/reset')}}" class="btn btn-info btn-block btn-flat">Esqueci minha senha</a>
         </div>
       </div>
 
