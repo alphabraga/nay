@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Imagine\Image\Box;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\FrontController;
@@ -235,18 +236,25 @@ class UsersController extends FrontController
             try
             {
 
-                $allPhotos = glob('public/images/users/' .  \Auth::user()->id . '.*');
+                $allPhotos = glob('images/users/' .  \Auth::user()->id . '.*');
 
                 foreach($allPhotos as $p)
                 {
                     unlink($p);
                 }
 
-                $saved = $file->move('public/images/users/', \Auth::user()->id . '.' . $extension);
+                $saved = $file->move('images/users/', \Auth::user()->id . '.' . $extension);
 
                 if($saved)
                 {
                     \Session::flash('flash_message','imagem atualizada');
+
+                    $imagine = new \Imagine\Gd\Imagine();
+                    //$imagine = new \Imagine\Imagick\Imagine();
+
+                    $image = $imagine->open(public_path('/images/users/' . \Auth::user()->id . '.' . $extension));
+
+                    $image->resize(new Box(160, 160))->save();
 
                     return redirect('/perfil');
                 }

@@ -52,7 +52,7 @@
           <h3 class="panel-title"><span class="fa fa-lock fa-fw"></span> Alterar Foto</h3>
         </div>
         <div class="panel-body">
-           <form class="form-inline" enctype="multipart/form-data" action="{{--action('UsuarioController@updatePhoto')--}}" method="post">
+           <form class="form-inline" enctype="multipart/form-data" action="{{action('UsersController@updatePhoto')}}" method="post">
            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <div class="form-group">
           <label for="senha">Senha</label>
@@ -69,7 +69,7 @@
           <h3 class="panel-title"><span class="fa fa-lock fa-fw"></span> Alterar Senha</h3>
         </div>
         <div class="panel-body">
-           <form class="form-inline" action="{{--action('UsuarioController@updatePassword')--}}" method="post">
+           <form class="form-inline" action="{{action('UsersController@updatePassword')}}" method="post">
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <div class="form-group">
           <label for="senha">Senha</label>

@@ -215,14 +215,12 @@ class CategoriesController extends FrontController
         return $path;
     }
 
+    public function tree()
+    {
+        $categories = \App\Nay\Model\CategoriesModel::all()->toArray();
 
+        $categories = buildTree($categories);
 
-
-
-
-
-
-
-
-
+        return view('categories.tree')->with(['categories' => $categories]);
+    }
 }

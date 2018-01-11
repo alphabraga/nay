@@ -52,6 +52,7 @@
             <li><a href="{{action('ClientsController@index')}}"><i class="fa fa-group fa-fw"></i>Clientes</a></li>
             <li><a href="{{action('BrandsController@index')}}"><i class="fa fa-tags"></i>Marcas</a></li>
             <li><a href="{{action('CategoriesController@index')}}"><i class="fa fa-cubes"></i>Categorias</a></li>
+            <li><a href="{{action('CategoriesController@tree')}}"><i class="fa fa-cubes"></i>Arvore de Categorias</a></li>
             <li><a href="{{action('ProvidersController@index')}}"><i class="fa fa-industry fa-fw"></i>Fornecedores</a></li>
             <li><a href="{{action('ShippingCompanyController@index')}}"><i class="fa fa-truck fa-fw"></i>Transportadoras</a></li>
             <li><a href="{{action('ProductsController@index')}}"><i class="fa fa-money"></i>Produtos</a></li>

@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function ()
 
 	Route::resource('categories', 'CategoriesController');
 	Route::get('categoriesSearch', 'CategoriesController@search');
+	Route::get('categoriesTree', 'CategoriesController@tree');
+
 
 	Route::resource('providers', 'ProvidersController');
 	Route::get('providersSearch', 'ProvidersController@search');
@@ -61,12 +63,17 @@ Route::middleware('auth')->group(function ()
 	Route::resource('users', 'UsersController');
 	Route::get('usersSearch', 'UsersController@search');
 
+	Route::post('updatePassword', 'UsersController@updatePassword');
+	Route::post('updateAnotherPassword', 'UsersController@updateAnotherPassword');
+	Route::post('updatePhoto', 'UsersController@updatePhoto');
+	Route::get('perfil', 'UsersController@profile');	
+
 	Route::resource('sales', 'SalesController');
 	Route::get('salesSearch', 'SalesController@search');
 
 	Route::get('/system', 'ConfigurationController@system');
 
-	Route::get('perfil', 'UsersController@profile');
+
 
 	Route::get('/sobre', 'ConfigurationController@about');
 
