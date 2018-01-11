@@ -124,20 +124,20 @@ class UsersController extends FrontController
 
         $object = \App\User::findOrfail($id);
 
-        //$allRoles = \App\Role::all();
+        $allRoles = \App\Nay\Model\Role::all();
 
-        /*$roles = \DB::select('SELECT roles.id 
+        $roles = \DB::select('SELECT roles.id 
                               FROM role_user
                               LEFT JOIN roles ON roles.ID = role_user.role_id
                               WHERE role_user.user_id = ?', [$id]);
-        */
+        
 
-        //$rolesId = collect($roles)->pluck('id');
+        $rolesId = collect($roles)->pluck('id');
 
         $data = [
                   'object'   => $object,
-                  'allRoles' => null,//$allRoles,
-                  'roles'    => null,//$rolesId->all()
+                  'allRoles' => $allRoles,
+                  'userRoles'    => $rolesId->all()
                 ];
 
         return view('users.show')->with($data);

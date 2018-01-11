@@ -105,7 +105,7 @@
       <!-- /.tab-pane -->
       <div class="tab-pane" id="tab_3">
         
-        {{--
+        
         <div class="panel panel-primary">
           <div class="panel-heading">
           </div>
@@ -115,14 +115,14 @@
                 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                 <input type="hidden" name="usuario" id="usuario" value="{{$object->id}}">
                 @foreach ($allRoles as $r)
-                <input id="{{$r->name}}" type="checkbox" name="role[{{$r->name}}]" value="{{$r->id}}" @if(in_array($r->id, $roles)) checked="checked" @endif />
+                <input id="{{$r->name}}" type="checkbox" name="role[{{$r->name}}]" value="{{$r->id}}" @if(in_array($r->id, $userRoles)) checked="checked" @endif />
                 <label for="{{$r->name}}"><span class="label label-info">{{mb_strtoupper($r->display_name)}}</span> </label><hr>
                 @endforeach
               </form>
             </div>
           </div>
         </div>
-        --}}
+        
         
       </div>
       <!-- /.tab-pane -->

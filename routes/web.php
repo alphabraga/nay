@@ -66,6 +66,7 @@ Route::middleware('auth')->group(function ()
 	Route::post('updatePassword', 'UsersController@updatePassword');
 	Route::post('updateAnotherPassword', 'UsersController@updateAnotherPassword');
 	Route::post('updatePhoto', 'UsersController@updatePhoto');
+	Route::any('updateRole', 'UsersController@updateRole');
 	Route::get('perfil', 'UsersController@profile');	
 
 	Route::resource('sales', 'SalesController');
