@@ -74,11 +74,7 @@ Route::middleware('auth')->group(function ()
 
 	Route::get('/system', 'ConfigurationController@system');
 
-
-
 	Route::get('/sobre', 'ConfigurationController@about');
-
-	Route::post('updateAnotherPassword', 'UsuarioController@updateAnotherPassword');
 
 	Route::post('uploadImage', 'CategoriesController@uploadImage');
 
