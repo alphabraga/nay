@@ -314,7 +314,7 @@ class UsersController extends FrontController
             {
                 \Session::flash('flash_message','A atualização de senha foi realizada com sucesso');
 
-                return redirect('/usuario/' . $request->input('user'));
+                return redirect('/users/' . $request->input('user'));
             }
         }
         else

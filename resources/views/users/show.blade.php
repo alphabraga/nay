@@ -85,7 +85,7 @@
           <div class="panel-heading">
           </div>
           <div class="panel-body">
-            <form class="form-inline" action="{{--action('UsersController@updateAnotherPassword')--}}" method="post">
+            <form class="form-inline" action="{{action('UsersController@updateAnotherPassword')}}" method="post">
               <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
               <input type="hidden" name="user" value="{{$object->id}}" />
               <div class="form-group">
