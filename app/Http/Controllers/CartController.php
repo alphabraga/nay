@@ -189,6 +189,8 @@ class CartController extends FrontController
                                                               ]);
         }
 
+        \Cart::clear();
+
         $s = \App\Nay\Model\SalesModel::find($sale->id);
 
         $response = [

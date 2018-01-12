@@ -273,12 +273,32 @@
             success: function(result)
             {
               console.log(result);
-              //location.reload();
+
+              //$('div#finalizar-compra button').trigger('click');
+
+              bootbox.alert('Compra realizada com sucesso', function(){ 
+
+                window.location = baseUrl + '/sales';
+
+               });
+
+
+
+              return false;
+
+
             },
             error: function(data){
 
-                //location.reload();
-                //bootbox.alert( JSON.stringify(data));
+              bootbox.alert('Houve algum tipo de erro ao finalizar a sua compra', function(){
+
+
+              window.location = baseUrl + '/carrinho';
+
+              });
+
+
+
             }
         });
 

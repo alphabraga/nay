@@ -204,7 +204,28 @@
             </div>
             <!-- /.tab-pane -->
             <div class="tab-pane" id="tab_2">
-              <p class="bg-danger">Colocar dados financeiros</p>
+
+              <table class="table table-condensed table-striped">
+              <thead>
+                <th>#</th>
+                <th>STATUS</th>
+                <th>CLIENTE</th>
+                <th>VENDEDOR</th>
+                <th>TOTAL</th>
+             </thead>
+              <tbody>
+              @foreach($object->sales as $s)
+              <tr>
+                <td>{{$s->id}}</td>
+                <td>{{$s->status}}</td>
+                <td>{{$s->client->name}}</td>
+                <td>{{$s->user->name}}</td>
+                <td>{{$s->total}}</td>
+              </tr>
+              @endforeach
+              </tbody>
+              </table>
+
             </div>
             <div class="tab-pane" id="tab_3">
               <p class="bg-danger">Colocar dados financeiros pendentes</p>
