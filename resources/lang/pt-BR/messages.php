@@ -6,6 +6,6 @@ return [
 			'CreditCard' => 'Cartão de Credito',
 			'Flexible'   => 'Flexivel',
 			'Comun'      => 'Comum',
-			'Buget'      => 'Orçamento',
+			'Budget'     => 'Orçamento',
 			'Order'      => 'Encomenda'
 		];
