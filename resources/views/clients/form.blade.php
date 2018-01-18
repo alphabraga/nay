@@ -34,28 +34,28 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Nome</label><input id="name" type="text" name="name" value="{{old('name', $object->name)}}" class="form-control input-sm name">
+              <label>Nome</label><input id="name" type="text" name="name" value="{{old('name', $object->name)}}" class="form-control input-sm name" required="required">
             </div>
           </div>
         </div>
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Telefone</label><input id="phone" type="text" name="phone" value="{{old('phone', $object->phone)}}" class="form-control input-sm phone">
+              <label>Telefone</label><input id="phone" type="text" name="phone" value="{{old('phone', $object->phone)}}" class="form-control input-sm phone" required="required">
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Celular</label><input id="cellphone" type="text" name="cellphone" value="{{old('cellphone', $object->cellphone)}}" class="form-control input-sm cellphone">
+              <label>Celular</label><input id="cellphone" type="text" name="cellphone" value="{{old('cellphone', $object->cellphone)}}" class="form-control input-sm cellphone" required="required">
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>CPF</label><input id="cpf" type="text" name="cpf" value="{{old('cpf', $object->cpf)}}" class="form-control input-sm cpf">
+              <label>CPF</label><input id="cpf" type="text" name="cpf" value="{{old('cpf', $object->cpf)}}" class="form-control input-sm cpf" required="required">
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Endereço de Entrega</label><input id="shipping_address" type="text" name="shipping_address" value="{{old('shipping_address', $object->shipping_address)}}" class="form-control input-sm shipping_address">
+              <label>Endereço de Entrega</label><input id="shipping_address" type="text" name="shipping_address" value="{{old('shipping_address', $object->shipping_address)}}" class="form-control input-sm shipping_address" required="required">
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Número de Entrega</label><input id="shipping_number" type="text" name="shipping_number" value="{{old('shipping_number', $object->shipping_number)}}" class="form-control input-sm shipping_number">
+              <label>Número de Entrega</label><input id="shipping_number" type="text" name="shipping_number" value="{{old('shipping_number', $object->shipping_number)}}" class="form-control input-sm shipping_number" required="required">
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@
                 <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Bairro de Entrega</label><input id="shipping_neighborhood" type="text" name="shipping_neighborhood" value="{{old('shipping_neighborhood',$object->shipping_neighborhood)}}" class="form-control input-sm shipping_neighborhood">
+              <label>Bairro de Entrega</label><input id="shipping_neighborhood" type="text" name="shipping_neighborhood" value="{{old('shipping_neighborhood',$object->shipping_neighborhood)}}" class="form-control input-sm shipping_neighborhood" required="required"> 
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>CEP de Entrega</label><input id="shipping_postalcode" type="text" name="shipping_postalcode" value="{{old('shipping_postalcode', $object->shipping_number)}}" class="form-control input-sm shipping_postalcode">
+              <label>CEP de Entrega</label><input id="shipping_postalcode" type="text" name="shipping_postalcode" value="{{old('shipping_postalcode', $object->shipping_number)}}" class="form-control input-sm shipping_postalcode" required="required">
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@
                 <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Cidade de Entrega</label><input id="shipping_city" type="text" name="shipping_city" value="{{old('shipping_city', $object->shipping_city)}}" class="form-control input-sm shipping_city">
+              <label>Cidade de Entrega</label><input id="shipping_city" type="text" name="shipping_city" value="{{old('shipping_city', $object->shipping_city)}}" class="form-control input-sm shipping_city" required="required">
             </div>
           </div>
         </div>

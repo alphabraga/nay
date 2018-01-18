@@ -8,9 +8,9 @@ abstract class  PaymentMethod
 {
     const __default = self::Money;
     
-	const Money     = 0;
+	const Money      = 0;
 	const CreditCard = 1;
-	const Flexlible = 2;
+	const Flexible   = 2;
 
 	static function getAll()
 	{

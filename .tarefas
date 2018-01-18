@@ -10,13 +10,16 @@ Tarefas de Hoje 19/12/2018
 	requestitens -> salesitens
 
 
+colocar o font awsome totalmente dentro do projeto!!!!!!!! E todo o resto que estiver fora
+Desativar o funcionario não ta funcionando
+Exibir na grid se ele esta ativo ou não
+Tem um menu de log ultimo temos que remover
 Deixar a venda dentro de uma transaç~ao
 usar o pagseguro para as transaçoes
 Usar  a maquina de estados para as vendas
 Nao 'registrar' deixar abrir modal se nao existem itens no carrinho
 colocar formulario para atualuzar os dados do usuario logado
 fazer os testes unitarios com o pagseguro
-colocar o font awsome totalmente dentro do projeto
 habilitar ou desabilitar campos complementares de produtos
 melhorar a tela de carrinho o select2 não ta legal
 na tela de visualizaç~ao de cleinte colocar abas com as compras que ele fez
@@ -27,6 +30,8 @@ colocar a aba de Timelime para funcionar
 
 
 TAREFAS FEITAS
+Upload de foto dos usuarios
+alterar a senha do susuario na tela de perfil
 fazer a tela de transação
 Colocar plugin de Logs que eu uso no odonto
 Fazer a tela de busca de vendas
