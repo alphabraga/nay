@@ -10,12 +10,10 @@ Tarefas de Hoje 19/12/2018
 	requestitens -> salesitens
 
 
-colocar o font awsome totalmente dentro do projeto!!!!!!!! E todo o resto que estiver fora
+usar o pagseguro para as transaçoes
 Desativar o funcionario não ta funcionando
 Exibir na grid se ele esta ativo ou não
-Tem um menu de log ultimo temos que remover
 Deixar a venda dentro de uma transaç~ao
-usar o pagseguro para as transaçoes
 Usar  a maquina de estados para as vendas
 Nao 'registrar' deixar abrir modal se nao existem itens no carrinho
 colocar formulario para atualuzar os dados do usuario logado
@@ -30,6 +28,8 @@ colocar a aba de Timelime para funcionar
 
 
 TAREFAS FEITAS
+Tem um menu de log ultimo temos que remover
+colocar o font awsome totalmente dentro do projeto!!!!!!!! E todo o resto que estiver fora
 Upload de foto dos usuarios
 alterar a senha do susuario na tela de perfil
 fazer a tela de transação

@@ -72,7 +72,6 @@
             <li><a href="{{URL::to('/backup')}}"><i class="fa fa-hdd-o fa-fw"></i>Backup</a></li>
             <li><a href="{{URL::to('/sobre')}}"><i class="fa fa-comment fa-fw"></i>Sobre</a></li>
             <li><a href="#"><i class="fa fa-play"></i>Ajuda com videos</a></li>
-            <li><a href="#"><i class="fa fa-file"></i>Logs</a></li>
           </ul>
         </li>
 
