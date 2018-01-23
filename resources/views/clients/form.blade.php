@@ -18,7 +18,7 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-group fa-fw"></i>Cadastro</a></a></li>
-          <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-money fa-fw"></i>Transaçoes</a></li>
+          <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-money fa-fw"></i>Transações</a></li>
           <li><a href="#tab_3" data-toggle="tab"><i class="fa fa-money fa-fw"></i>Contas em Aberto</a></li>
         </ul>
         <div class="tab-content">
@@ -38,24 +38,31 @@
             </div>
           </div>
         </div>
+           <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Apelido</label><input id="nickname" type="text" name="nickname" value="{{old('nickname', $object->nickname)}}" class="form-control input-sm name">
+            </div>
+          </div>
+        </div>
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Telefone</label><input id="phone" type="text" name="phone" value="{{old('phone', $object->phone)}}" class="form-control input-sm phone" required="required">
+              <label>Telefone</label><input id="phone" type="text" name="phone" value="{{old('phone', $object->phone)}}" class="form-control input-sm phone" >
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Celular</label><input id="cellphone" type="text" name="cellphone" value="{{old('cellphone', $object->cellphone)}}" class="form-control input-sm cellphone" required="required">
+              <label>Celular</label><input id="cellphone" type="text" name="cellphone" value="{{old('cellphone', $object->cellphone)}}" class="form-control input-sm cellphone" >
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>CPF</label><input id="cpf" type="text" name="cpf" value="{{old('cpf', $object->cpf)}}" class="form-control input-sm cpf" required="required">
+              <label>CPF</label><input id="cpf" type="text" name="cpf" value="{{old('cpf', $object->cpf)}}" class="form-control input-sm cpf" >
             </div>
           </div>
         </div>
@@ -63,7 +70,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Endereço de Entrega</label><input id="shipping_address" type="text" name="shipping_address" value="{{old('shipping_address', $object->shipping_address)}}" class="form-control input-sm shipping_address" required="required">
+              <label>Endereço de Entrega</label><input id="shipping_address" type="text" name="shipping_address" value="{{old('shipping_address', $object->shipping_address)}}" class="form-control input-sm shipping_address">
             </div>
           </div>
         </div>
@@ -72,7 +79,7 @@
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Número de Entrega</label><input id="shipping_number" type="text" name="shipping_number" value="{{old('shipping_number', $object->shipping_number)}}" class="form-control input-sm shipping_number" required="required">
+              <label>Número de Entrega</label><input id="shipping_number" type="text" name="shipping_number" value="{{old('shipping_number', $object->shipping_number)}}" class="form-control input-sm shipping_number">
             </div>
           </div>
         </div>
@@ -80,7 +87,7 @@
                 <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Bairro de Entrega</label><input id="shipping_neighborhood" type="text" name="shipping_neighborhood" value="{{old('shipping_neighborhood',$object->shipping_neighborhood)}}" class="form-control input-sm shipping_neighborhood" required="required"> 
+              <label>Bairro de Entrega</label><input id="shipping_neighborhood" type="text" name="shipping_neighborhood" value="{{old('shipping_neighborhood',$object->shipping_neighborhood)}}" class="form-control input-sm shipping_neighborhood" > 
             </div>
           </div>
         </div>
@@ -89,7 +96,7 @@
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>CEP de Entrega</label><input id="shipping_postalcode" type="text" name="shipping_postalcode" value="{{old('shipping_postalcode', $object->shipping_number)}}" class="form-control input-sm shipping_postalcode" required="required">
+              <label>CEP de Entrega</label><input id="shipping_postalcode" type="text" name="shipping_postalcode" value="{{old('shipping_postalcode', $object->shipping_number)}}" class="form-control input-sm shipping_postalcode" >
             </div>
           </div>
         </div>
@@ -97,7 +104,7 @@
                 <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Cidade de Entrega</label><input id="shipping_city" type="text" name="shipping_city" value="{{old('shipping_city', $object->shipping_city)}}" class="form-control input-sm shipping_city" required="required">
+              <label>Cidade de Entrega</label><input id="shipping_city" type="text" name="shipping_city" value="{{old('shipping_city', $object->shipping_city)}}" class="form-control input-sm shipping_city" >
             </div>
           </div>
         </div>
@@ -191,11 +198,20 @@
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Complemtno de Cobrança</label><input id="billing_complement" type="text" name="billing_complement" value="{{old('billing_complement', $object->billing_complement)}}" class="form-control input-sm billing_complement">
+              <label>Complemento de Cobrança</label><input id="billing_complement" type="text" name="billing_complement" value="{{old('billing_complement', $object->billing_complement)}}" class="form-control input-sm billing_complement">
             </div>
           </div>
         </div>
-
+   <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Observações</label>
+              <textarea class="form-control input-sm name" name="observation" id="observation" >
+                {{old('observation', $object->observation)}}
+              </textarea>
+            </div>
+          </div>
+        </div>
 
           @if($showMode == false)
             @include('includes.formbutons')

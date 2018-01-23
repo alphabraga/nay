@@ -82,6 +82,8 @@ class ClientsController extends FrontController
 
         \App\Nay\Model\ClientsModel::create($request->all());
 
+        $client->name = $request->input('name');
+
         $client->save();
 
         return redirect('clients/' . $client->id);
@@ -139,7 +141,9 @@ class ClientsController extends FrontController
         $object = \App\Nay\Model\ClientsModel::find($id);
 
         $object->update($request->all());
-
+        
+        $object->name = $request->input('name');
+        
         $object->save();
 
         return redirect('clients/' . $object->id);

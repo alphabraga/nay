@@ -17,7 +17,9 @@ class ClientsModel extends BaseModel
 
 	protected $fillable = [
 							'id',          
-							'name',        
+							'name',
+							'nickname',
+							'observation',        
 							'phone',       
 							'cellphone',   
 							'cpf',
@@ -52,6 +54,29 @@ class ClientsModel extends BaseModel
     public function sales()
     {
         return $this->hasMany('App\Nay\Model\SalesModel', 'client_id', 'id');
+    }
+
+
+    /*
+		O sistema deve permitir o cadastro do cliente apenas com o nome 
+		para facilitar o cadastro. Mas deve ser feita essa checagem 
+		antes de ser realizada a venda online
+    */
+    public function isValidForOnlineShopping()
+    {
+
+    	return false;
+    }
+
+    /*
+		O sistema deve permitir o cadastro do cliente apenas com o nome 
+		para facilitar o cadastro. Mas deve ser feita essa checagem antes 
+		de ser realizada a venda pelo cartao de credito
+    */
+    public function isValidForCreditCardShopping()
+    {
+
+    	return false;
     }
 
 
