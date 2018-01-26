@@ -32,6 +32,7 @@ class UsersController extends FrontController
                     'header' => [
                                  ['data' => 'name', 'title' => 'Nome'],
                                  ['data' => 'email', 'title' => 'Usuário'],
+                                 ['data' => 'activated', 'title' => 'Ativo'],
                                  ['data' => 'username', 'title' => 'Usuário'],
                                 ]
                 ];
@@ -169,7 +170,7 @@ class UsersController extends FrontController
         $user->email       = $request->input('email');
         $user->username    = $request->input('username');
         $user->activated   = $request->input('activated');
-        $user->validity    = $request->input('validity');
+        $user->validity    = \Carbon\Carbon::createFromFormat('d/m/Y', $request->input('validity'));
 
         $user->save();
 
