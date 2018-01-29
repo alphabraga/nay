@@ -221,7 +221,9 @@
             <!-- /.tab-pane -->
             <div class="tab-pane" id="tab_2">
 
-              <table class="table table-condensed table-striped">
+            
+              @if($object->sales->count() > 0)
+                <table class="table table-condensed table-striped">
               <thead>
                 <th>#</th>
                 <th>STATUS</th>
@@ -234,21 +236,32 @@
                 <th>TOTAL LIQUIDO</th>
              </thead>
               <tbody>
-              @foreach($object->sales as $s)
-              <tr>
-                <td>{{$s->id}}</td>
-                <td>{{$s->status}}</td>
-                <td>{{$s->client->name}}</td>
-                <td>{{__('messages.' . $s->paymentMethodName)}}</td>
-                <td>{{__('messages.' . $s->saleCategoryName)}}</td>
-                <td>{{$s->user->name}}</td>
-                <td>{{number_format($s->total, 2,',', '.')}}</td>
-                <td>{{number_format($s->discount, 2,',', '.')}}</td>
-                <td>{{number_format($s->liquid, 2,',', '.')}}</td>
-              </tr>
-              @endforeach
-              </tbody>
+                @foreach($object->sales as $s)
+                <tr>
+                  <td>{{$s->id}}</td>
+                  <td>{{$s->status}}</td>
+                  <td>{{$s->client->name}}</td>
+                  <td>{{__('messages.' . $s->paymentMethodName)}}</td>
+                  <td>{{__('messages.' . $s->saleCategoryName)}}</td>
+                  <td>{{$s->user->name}}</td>
+                  <td>{{number_format($s->total, 2,',', '.')}}</td>
+                  <td>{{number_format($s->discount, 2,',', '.')}}</td>
+                  <td>{{number_format($s->liquid, 2,',', '.')}}</td>
+                </tr>
+                @endforeach
+                <tr class="info">
+                  <td>#</td>
+                  <td colspan="7">Total</td>
+                  <td>{{number_format($object->totalLiquid, 2, ',', '.')}}</td>
+                  </tr>
+               </tbody>
               </table>
+              @else
+                <div class="alert alert-info">
+                  <p> <i class="fa fa-exclamation fa-fw"></i> Não existem ainda compras para esse cliente.</p>
+                </div>
+              @endif
+
 
             </div>
             <div class="tab-pane" id="tab_3">

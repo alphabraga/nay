@@ -79,5 +79,63 @@ class ClientsModel extends BaseModel
     	return false;
     }
 
+    /**
+    * Metodo retorna o total de compras efetivamente pagas de um determinado cliente
+    * como ainda vou criar um entidade de lancamento financeiro e baixa de lancamento financeiro 
+    * acedito que isso cai mudar
+    */
+	public function getTotalLiquidAttribute()
+	{
+		$total = 0;
+
+		foreach ($this->sales as $sale)
+		{
+			$total += $sale->liquid;
+		}
+
+		return $total;
+	}
+
+
+    /**
+    * Metodo retorna o total que debito de um determinado cliente
+    * como ainda vou criar um entidade de lancamento financeiro e baixa de lancamento financeiro 
+    * acedito que isso cai mudar
+    */
+	public function getTotalDebitAttribute()
+	{
+		$totalDebit = 0;
+
+		foreach ($this->sales as $s)
+		{
+			if($s->status = 0 && $s->payment_method = \App\Nay\PaymentMethod::Flexible)
+			{
+
+				$totalDebit += $item->price;
+			}
+		}
+
+		return $totalDebit;
+	}
+
+    /**
+    * Metodo retorna o total de compras efetivamente pagas de um determinado cliente
+    * como ainda vou criar um entidade de lancamento financeiro e baixa de lancamento financeiro 
+    * acedito que isso cai mudar
+    */
+	public function getTotalPaymentsAttribute()
+	{
+		$totalPayments = 0;
+
+		foreach ($this->sales as $s)
+		{
+			if($s->status = 1)
+			{
+				$totalPayments += $item->price;
+			}
+		}
+
+		return $totalPayments;
+	}
 
 }

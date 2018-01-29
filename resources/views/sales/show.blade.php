@@ -154,7 +154,7 @@
                       <div class="panel-body">
                           
                         @if(is_null($object->observation))
-                          <div class="alert alert-info"> <i class="fa fa-exclamation-circle fa-fw"></i> Nao existe observaç~ao para essa transaç~ao. Utilize esse campo para relatar dados adicionais a essa venda.</div>
+                          <div class="alert alert-info"> <i class="fa fa-exclamation-circle fa-fw"></i> <b>Nao existe observação para essa transação. Utilize esse campo para relatar dados adicionais a essa venda.</b></div>
                         @else
                         {{$object->observation}}
                         @endif                        
