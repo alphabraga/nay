@@ -24,7 +24,7 @@
         <div class="tab-content">
           <div class="tab-pane active" id="tab_1">
               @if(is_null($object->id))
-            <form id="update" name="update" method="post" action="{{action('ClientsController@store')}}" >
+            <form id="store" name="store" method="post" action="{{action('ClientsController@store')}}" >
               <input type="hidden" name="_method" value="POST" />
               @else
               <form id="update" name="update" method="post" action="{{action('ClientsController@update', [$object->id])}}" >
@@ -226,8 +226,12 @@
                 <th>#</th>
                 <th>STATUS</th>
                 <th>CLIENTE</th>
+                <th>Forma de Pagamento</th>
+                <th>Tipo de Transação</th>
                 <th>VENDEDOR</th>
-                <th>TOTAL</th>
+                <th>TOTAL BRUTO</th>
+                <th>DESCONTO</th>
+                <th>TOTAL LIQUIDO</th>
              </thead>
               <tbody>
               @foreach($object->sales as $s)
@@ -235,8 +239,12 @@
                 <td>{{$s->id}}</td>
                 <td>{{$s->status}}</td>
                 <td>{{$s->client->name}}</td>
+                <td>{{__('messages.' . $s->paymentMethodName)}}</td>
+                <td>{{__('messages.' . $s->saleCategoryName)}}</td>
                 <td>{{$s->user->name}}</td>
-                <td>{{$s->total}}</td>
+                <td>{{number_format($s->total, 2,',', '.')}}</td>
+                <td>{{number_format($s->discount, 2,',', '.')}}</td>
+                <td>{{number_format($s->liquid, 2,',', '.')}}</td>
               </tr>
               @endforeach
               </tbody>

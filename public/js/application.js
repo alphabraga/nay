@@ -505,12 +505,11 @@ $('div#modal-table-body').on('click', 'table#modal-table tbody tr', function(e)
                                 } 
                             ); 
 
-    $('div#table-painel, div.btn-group, table#data').on( 'click', 'a.delete-link', function (e)
+    $(document).on( 'click', 'a.delete-link', function (e)
     {
+        e.preventDefault();
 
         console.log($(this).html());
-
-        e.preventDefault();
 
         $that = $(this);
 
@@ -591,6 +590,9 @@ $('div#modal-table-body').on('click', 'table#modal-table tbody tr', function(e)
                 });
             }
         });
+
+        return false;
+
     });
 
          

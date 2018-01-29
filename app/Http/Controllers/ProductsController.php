@@ -183,30 +183,7 @@ class ProductsController extends FrontController
         return redirect('/products/' . $object->id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-
-        try
-        {
-            $afectedRows = \App\Nay\Model\ProductsModel::destroy($id);        
-
-            return response()->json(['afectedRows' => $afectedRows, 'error' => null]);
-        }
-        catch (\Illuminate\Database\QueryException $e)
-        {
-
-            return response()->json(['afectedRows' => null, 'error' => $e->getCode()]);             
-        }
-
-    }
-
-
+    
     public function searchCart(Request $request)
     {
 
@@ -231,5 +208,28 @@ class ProductsController extends FrontController
         }
 
         return response()->json($data);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+
+        try
+        {
+            $afectedRows = \App\Nay\Model\ProductsModel::destroy($id);        
+
+            return response()->json(['afectedRows' => $afectedRows, 'error' => null]);
+        }
+        catch (\Illuminate\Database\QueryException $e)
+        {
+
+            return response()->json(['afectedRows' => null, 'error' => $e->getCode()]);             
+        }
+
     }
 }

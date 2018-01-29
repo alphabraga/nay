@@ -25,7 +25,10 @@ class ClientsController extends FrontController
         $grid = [
                     'header' => [
                                  ['data' => 'id', 'title' => 'ID'],
-                                 ['data' => 'name', 'title' => 'NOME'],
+                                 ['data' => 'name', 'title' => 'Nome'],
+                                 ['data' => 'nickname', 'title' => 'Apelido'],
+                                 ['data' => 'phone', 'title' => 'Telefone'],
+                                 ['data' => 'cellphone', 'title' => 'Celular'],
                                  ['data' => 'action', 'title' => 'Ação', 'orderable' => false, 'searchable' => false]  
                                 ]
                 ];        
@@ -36,7 +39,7 @@ class ClientsController extends FrontController
     public function search()
     {
 
-        return DataTables::of(\App\Nay\Model\ClientsModel::select('id', 'name'))
+        return DataTables::of(\App\Nay\Model\ClientsModel::select('id', 'name', 'nickname', 'phone', 'cellphone'))
         ->setRowId('id')
         ->addColumn('action', function($object)
         {
@@ -159,7 +162,7 @@ class ClientsController extends FrontController
     {
         try
         {
-            $afectedRows = \App\Nay\Model\CategoriesModel::destroy($id);        
+            $afectedRows = \App\Nay\Model\ClientsModel::destroy($id);        
 
             return response()->json(['afectedRows' => $afectedRows, 'error' => null]);
         }

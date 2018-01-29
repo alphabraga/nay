@@ -27,6 +27,7 @@ class ShippingCompanyController extends FrontController
                     'header' => [
                                  ['data' => 'id', 'title' => 'ID'],
                                  ['data' => 'name', 'title' => 'NOME'],
+                                 ['data' => 'color', 'title' => 'COR'],
                                  ['data' => 'action', 'title' => 'Ação', 'orderable' => false, 'searchable' => false]  
                                 ]
                 ];        
@@ -38,8 +39,13 @@ class ShippingCompanyController extends FrontController
     public function search()
     {
 
-        return DataTables::of(\App\Nay\Model\ShippingCompanyModel::select('id', 'name'))
+        return DataTables::of(\App\Nay\Model\ShippingCompanyModel::select('id', 'name', 'color'))
         ->setRowId('id')
+        ->addColumn('color', function($object)
+        {
+            return '<div style="color: ' . $object->color . '; background-color:' . $object->color . '">' . $object->color . '</div>';
+
+        })
         ->addColumn('action', function($object)
         {
             return '<div id="table-painel" class="btn-group">
@@ -52,6 +58,7 @@ class ShippingCompanyController extends FrontController
             </div>';
 
         })
+        ->rawColumns(['action', 'color'])
         ->make(true);
     }
 
