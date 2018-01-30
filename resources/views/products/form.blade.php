@@ -228,7 +228,56 @@
 
             </div>
             <div class="tab-pane" id="tab_3">
-              <p class="bg-danger">Colocar dados financeiros pendentes</p>
+
+            @if($object->salesItens->count() > 0)
+                <table class="table table-condensed table-striped">
+              <thead>
+                <th>#</th>
+                <th>STATUS</th>
+                <th>CLIENTE</th>
+                <th>Forma de Pagamento</th>
+                <th>Tipo de Transação</th>
+                <th>VENDEDOR</th>
+                <th>TOTAL BRUTO</th>
+                <th>DESCONTO</th>
+                <th>TOTAL LIQUIDO</th>
+             </thead>
+              <tbody>
+
+                <?php $total = 0; ?>
+
+                @foreach($object->salesItens as $saleItem)
+
+                <?php $s = $saleItem->sale; ?>
+
+                <tr>
+                  <td>{{$s->id}}</td>
+                  <td>{{$s->status}}</td>
+                  <td>{{$s->client->name}}</td>
+                  <td>{{__('messages.' . $s->paymentMethodName)}}</td>
+                  <td>{{__('messages.' . $s->saleCategoryName)}}</td>
+                  <td>{{$s->user->name}}</td>
+                  <td>{{number_format($s->total, 2,',', '.')}}</td>
+                  <td>{{number_format($s->discount, 2,',', '.')}}</td>
+                  <td>{{number_format($s->liquid, 2,',', '.')}}</td>
+                </tr>
+
+                <?php $total = $total + $saleItem->price; ?>
+
+                @endforeach
+                <tr class="info">
+                  <td>#</td>
+                  <td colspan="7">Total</td>
+                  <td>{{number_format($total, 2, ',', '.')}}</td>
+                  </tr>
+               </tbody>
+              </table>
+              @else
+                <div class="alert alert-info">
+                  <p> <i class="fa fa-exclamation fa-fw"></i> Não existem ainda compras para esse cliente.</p>
+                </div>
+              @endif
+
             </div>
             <!-- /.tab-pane -->
             <!-- /.tab-pane -->
