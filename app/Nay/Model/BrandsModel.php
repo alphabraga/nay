@@ -15,7 +15,7 @@ class BrandsModel extends BaseModel
 
 	protected $table = 'brands';
 
-	protected $imagePath = 'public/images/brands/';
+	protected $imagePath = 'images/brands/';
 
 
 	protected $fillable = [
@@ -44,5 +44,20 @@ class BrandsModel extends BaseModel
 		return $this->belongsTo('App\Nay\Model\ProvidersModel', 'provider_id');
     }
 
+
+    public function getImagesAttribute()
+    {
+
+		$images = $this->getImages();    	
+
+		$imageUrl = [];
+
+		foreach ($images as $i)
+		{
+			$imageUrl[] = url( $this->imagePath . basename($i));
+		}
+
+		return $imageUrl;
+    }
 
 }

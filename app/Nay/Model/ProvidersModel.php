@@ -13,7 +13,7 @@ class ProvidersModel extends BaseModel
 
 	protected $table = 'providers';
 
-	protected $imagePath = 'public/images/providers/';
+	protected $imagePath = 'images/providers/';
 
 	protected $fillable = [
 							'id', 

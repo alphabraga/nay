@@ -13,7 +13,7 @@ class ShippingCompanyModel extends BaseModel
 
 	protected $table = 'shipping_company';
 
-	protected $imagePath = 'public/images/shipping_company/';
+	protected $imagePath = 'images/shipping_company/';
 
 	protected $fillable = [
 							'id', 

@@ -13,7 +13,7 @@ class CategoriesModel extends BaseModel
 
 	protected $table = 'categories';
 
-	protected $imagePath = 'public/images/categories/';
+	protected $imagePath = 'images/categories/';
 
 	protected $fillable = [
 							'id', 

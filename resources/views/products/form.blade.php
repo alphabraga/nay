@@ -197,7 +197,7 @@
                         @if($categories->count()>0)
                         <option value=""  >Selecione uma Categoria</option>
                         @foreach($categories as $c)
-                        <option value="{{$c->id}}" @if($object->provider_id == $c->id) selected="selected" @endif  >{{$c->name}}</option>
+                        <option value="{{$c->id}}" @if($object->category_id == $c->id) selected="selected" @endif  >{{$c->name}}</option>
                         @endforeach
                         @endif
                       </select>
@@ -215,12 +215,10 @@
             <div class="tab-pane" id="tab_2">
             
              <div class="row">
-
-              {{dd($images)}}
             @if(count($object->images)>0)  
               @foreach($object->images as $image)  
               <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                  <img src="{{$image}}" class="img-responsive">
+                  <img src="{{URL::to($image)}}" class="img-responsive">
               </div>
               @endforeach
             @else

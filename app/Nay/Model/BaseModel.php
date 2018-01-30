@@ -58,7 +58,9 @@ class BaseModel extends Model
             $nextNumberOfImage = $numberOfSavedImages++;
         }
 
-        return (($withPath)? $this->imagePath : '') . $this->id . '-' . $this->slug . '-' . (($withNumber)? $nextNumberOfImage: '') . (($withExtension)? '.jpg': '');
+        $path =  (($withPath)? $this->imagePath : '') . $this->id . '-' . $this->slug . '-' . (($withNumber)? $nextNumberOfImage: '') . (($withExtension)? '.jpg': '');
+
+        return public_path($path);
     }
 
     public function saveFakeImage(\Faker\Generator $faker)

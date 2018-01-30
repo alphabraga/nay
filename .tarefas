@@ -29,6 +29,9 @@ colocar o input de pesquisa da grid mais em evidencia e colocar ela na direta da
 colocar a arvore de categoria para funcionar
 dar uma reorganizada nos formularios, poderia utiulizar melhor a tela a direita
 TRanspotadora não tem endereço e telefone e contato e email
+Existe muita logica dentro do CartController::checkout é preciso remover muita regrade negicio dai e colocar em um model
+O faker deveria ter classes para nomes de produtos, marcas, nome de empresas isso deve facilitar a semantica do sistema 
+esse icone de dinheiro para products não tem nada a ver
 
 TAREFAS FEITAS
 na tela de visualizaç~ao de cleinte colocar abas com as compras que ele fez

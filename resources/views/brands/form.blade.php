@@ -98,7 +98,17 @@
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_2">
-                <p class="bg-danger">Aqui vai ficar o form de upload de imagem e a imagem</p>
+                            <div class="row">
+            @if(count($object->images)>0)  
+              @foreach($object->images as $image)  
+              <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                  <img src="{{URL::to($image)}}" class="img-responsive">
+              </div>
+              @endforeach
+            @else
+              <div class="alert alert-info"><i class="fa fa-exclamation fa-fw"  ></i> Não existem imagens para esse produto </div>
+            @endif  
+             </div> 
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_3">
@@ -110,7 +120,7 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Marca</th>
+                      <th>Fornecedor</th>
                     </tr>
                   </thead>                    
                   <tbody>

@@ -13,7 +13,7 @@ class ProductsModel extends BaseModel
 
 	protected $table = 'products';
 
-	protected $imagePath = 'public/images/products/';
+	protected $imagePath = 'images/products/';
 
 
 	protected $fillable = [
@@ -68,7 +68,17 @@ class ProductsModel extends BaseModel
 
     public function getImagesAttribute()
     {
-		return $this->getImages();    	
+
+		$images = $this->getImages();    	
+
+		$imageUrl = [];
+
+		foreach ($images as $i)
+		{
+			$imageUrl[] = url( $this->imagePath . basename($i));
+		}
+
+		return $imageUrl;
     }
 
 }
