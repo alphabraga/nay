@@ -18,7 +18,7 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-money fa-fw"></i>Cadastro</a></a></li>
-          <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-image fa-fw"></i>Imagens</a></li>
+          <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-image fa-fw"></i>Galetria de Imagens</a></li>
           <li><a href="#tab_3" data-toggle="tab"><i class="fa fa-money fa-fw"></i>Vendas Recentes</a></li>
         </ul>
         <div class="tab-content">
@@ -213,7 +213,21 @@
             </div>
             <!-- /.tab-pane -->
             <div class="tab-pane" id="tab_2">
-              <p class="bg-danger">Colocar dados financeiros</p>
+            
+             <div class="row">
+
+              {{dd($images)}}
+            @if(count($object->images)>0)  
+              @foreach($object->images as $image)  
+              <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+                  <img src="{{$image}}" class="img-responsive">
+              </div>
+              @endforeach
+            @else
+              <div class="alert alert-info"><i class="fa fa-exclamation fa-fw"  ></i> Não existem imagens para esse produto </div>
+            @endif  
+             </div> 
+
             </div>
             <div class="tab-pane" id="tab_3">
               <p class="bg-danger">Colocar dados financeiros pendentes</p>

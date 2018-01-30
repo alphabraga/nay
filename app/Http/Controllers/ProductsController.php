@@ -122,6 +122,7 @@ class ProductsController extends FrontController
 
         $data = [
                     'object'     => \App\Nay\Model\ProductsModel::find($id),
+                    'images'     => \App\Nay\Model\ProductsModel::find($id)->images,  
                     'brands'     => \App\Nay\Model\BrandsModel::all(),
                     'categories' => \App\Nay\Model\CategoriesModel::all(),
                     'showMode'   => true 

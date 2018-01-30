@@ -66,4 +66,9 @@ class ProductsModel extends BaseModel
 		return $this->belongsTo('App\Nay\Model\CategoriesModel', 'category_id');
     }
 
+    public function getImagesAttribute()
+    {
+		return $this->getImages();    	
+    }
+
 }

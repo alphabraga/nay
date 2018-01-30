@@ -12,18 +12,23 @@ Tarefas de Hoje 19/12/2018
 
 usar o pagseguro para as transaçoes
 fazer os testes unitarios com o pagseguro
-Deixar a venda dentro de uma transaç~ao
+Deixar a venda dentro de uma transaç~ao de banco de dados
 Usar  a maquina de estados para as vendas
 Nao 'registrar' deixar abrir modal se nao existem itens no carrinho
 colocar formulario para atualuzar os dados do usuario logado
 habilitar ou desabilitar campos complementares de produtos
 melhorar a tela de carrinho o select2 não ta legal
-
 criar funcionalidade de criar usuario para cliente
 o campo cellphone de fornecedor pode ser nulo e ele esta como n~ao nulo
 colocar a opção de ativar/desativar um categoria. Isso ira desabilitar todos os itens dela de aparecer no site
 colocar a aba de Timelime para funcionar
-
+colocar favicon no sistema
+fazer o grafico da home funcionar
+Trocar a palavra Acessos por Permissoes na tela de visualização de usuario
+colocar o input de pesquisa da grid mais em evidencia e colocar ela na direta da tela como o padrao
+colocar a arvore de categoria para funcionar
+dar uma reorganizada nos formularios, poderia utiulizar melhor a tela a direita
+TRanspotadora não tem endereço e telefone e contato e email
 
 TAREFAS FEITAS
 na tela de visualizaç~ao de cleinte colocar abas com as compras que ele fez

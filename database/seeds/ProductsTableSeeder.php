@@ -72,9 +72,9 @@ class ProductsTableSeeder extends Seeder
 
     		$product->save();
 
-    		//$product->saveFakeImage($faker);
-    		//$product->saveFakeImage($faker);
-    		//$product->saveFakeImage($faker);
+    		$product->saveFakeImage($faker);
+    		$product->saveFakeImage($faker);
+    		$product->saveFakeImage($faker);
     	}
     }
 }

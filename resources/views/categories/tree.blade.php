@@ -15,7 +15,9 @@
     <!-- /.box-header -->
     <div class="box-body">
 
-
+      <pre>
+        {{print_r($categories)}}
+      </pre>  
 
     </div>
     <!-- /.box-body -->
