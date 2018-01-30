@@ -187,6 +187,15 @@ class CartController extends FrontController
                                                                 'price'     => $i->price,
                                                                 'product_id'=> $i->id 
                                                               ]);
+
+            if($sale->sale_category == \App\Nay\Model\SaleCategory::Comun)
+            {
+                $product = \App\Nay\Model\ProductsModel::find($i->id);
+
+                $product->quantity  =  $product->quantity - $i->quantity;
+
+                $product->save();
+            }    
         }
 
         \Cart::clear();
