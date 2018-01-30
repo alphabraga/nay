@@ -144,7 +144,8 @@ class ProductsController extends FrontController
         $data = [
                     'object'     => \App\Nay\Model\ProductsModel::find($id),
                     'categories' => \App\Nay\Model\CategoriesModel::all(),
-                    'showMode'   => false
+                    'showMode'   => false,
+                    'brands'     => \App\Nay\Model\BrandsModel::all()
                 ];
 
         return view('products.form')->with($data);
@@ -161,10 +162,10 @@ class ProductsController extends FrontController
     {
         $object = \App\Nay\Model\ProductsModel::find($id);
 
-        $request->validade([
-                    'name'           =>  Rule::unique('products')->ignore($object->id),
-                    'code'           =>  Rule::unique('products')->ignore($object->id),
-                    'barcode'        =>  Rule::unique('products')->ignore($object->id),
+        $request->validate([
+                    'name'           =>  \Illuminate\Validation\Rule::unique('products')->ignore($object->id),
+                    'code'           =>  \Illuminate\Validation\Rule::unique('products')->ignore($object->id),
+                    'barcode'        =>  \Illuminate\Validation\Rule::unique('products')->ignore($object->id),
                     'description'    => 'required', 
                     'tags'           => 'required',
                     'purchase_price' => 'required', 
@@ -172,8 +173,6 @@ class ProductsController extends FrontController
                     'brand_id'       => 'required',
                     'category_id'    => 'required'
                 ]); 
-
-        $this->validate($request, $rules);
 
         $data = $request->all();
 
