@@ -32,8 +32,8 @@
                 <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                 <div class="row">
                   <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Nome</label><input id="name" type="text" name="name" value="{{$object->name}}" class="form-control input-sm name">
+                    <div class="form-group"> {{--old('barcode', $object->barcode)--}}
+                      <label>Nome</label><input id="name" type="text" name="name" value="{{old('name', $object->name)}}" class="form-control input-sm name">
                     </div>
                   </div>
                 </div>
@@ -47,7 +47,7 @@
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label>Slug</label><input id="slug" type="text" name="slug" value="{{$object->slug}}" disabled="disabled" class="form-control input-sm name">
+                      <label>Slug</label><input id="slug" type="text" name="slug" value="{{old('slug', $object->slug)}}" disabled="disabled" class="form-control input-sm name">
                     </div>
                   </div>
                 </div>
@@ -57,7 +57,7 @@
                     <div class="form-group">
                       <label>Descrição</label>
                       <textarea class="form-control input-sm name" name="description" id="description" >
-                        {{$object->description}}
+                        {{old('description', $object->description)}}
                       </textarea>
                     </div>
                   </div>
@@ -67,10 +67,10 @@
                     <div class="form-group">
                       <label>Tags</label>
                       <select name="tags[]" class="form-control select2-tags" multiple >
-                           @if(count($object->tags))
-                        @foreach($object->tags as $t)
-                        <option value="{{$t}}" selected="selected">{{$t}}</option>
-                        @endforeach
+                        @if(count($object->tags))
+                          @foreach($object->tags as $t)
+                          <option value="{{$t}}" selected="selected">{{$t}}</option>
+                          @endforeach
                         @endif
                       </select>
                     </div>
@@ -80,7 +80,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Contato</label>
-                      <input id="personal_contact" type="text" name="personal_contact" value="{{$object->personal_contact}}" class="form-control input-sm personal_contact">
+                      <input id="personal_contact" type="text" name="personal_contact" value="{{old('personal_contact', $object->personal_contact)}}" class="form-control input-sm personal_contact">
                     </div>
                   </div>
                 </div>
@@ -88,7 +88,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>CEP</label>
-                      <input id="postal_code" type="text" name="postal_code" value="{{$object->postal_code}}" class="form-control input-sm postal_code">
+                      <input id="postal_code" type="text" name="postal_code" value="{{old('postal_code', $object->postal_code)}}" class="form-control input-sm postal_code">
                     </div>
                   </div>
                 </div>
@@ -96,7 +96,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Endereço</label>
-                      <input id="address" type="text" name="address" value="{{$object->address}}" class="form-control input-sm address">
+                      <input id="address" type="text" name="address" value="{{old('address', $object->address)}}" class="form-control input-sm address">
                     </div>
                   </div>
                 </div>
@@ -104,7 +104,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Numero</label>
-                      <input id="address_number" type="text" name="address_number" value="{{$object->address_number}}" class="form-control input-sm address_number">
+                      <input id="address_number" type="text" name="address_number" value="{{old('address_number', $object->address_number)}}" class="form-control input-sm address_number">
                     </div>
                   </div>
                 </div>
@@ -112,7 +112,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Complemento</label>
-                      <input id="address_complement" type="text" name="address_complement" value="{{$object->address_complement}}" class="form-control input-sm address_complement">
+                      <input id="address_complement" type="text" name="address_complement" value="{{old('address_complement', $object->address_complement)}}" class="form-control input-sm address_complement">
                     </div>
                   </div>
                 </div>
@@ -120,7 +120,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Fone</label>
-                      <input id="phone" type="text" name="phone" value="{{$object->phone}}" class="form-control input-sm phone">
+                      <input id="phone" type="text" name="phone" value="{{old('phone', $object->phone)}}" class="form-control input-sm phone">
                     </div>
                   </div>
                 </div>
@@ -128,7 +128,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Celular</label>
-                      <input id="cellphone" type="text" name="cellphone" value="{{$object->cellphone}}" class="form-control input-sm cellphone">
+                      <input id="cellphone" type="text" name="cellphone" value="{{old('cellphone', $object->cellphone)}}" class="form-control input-sm cellphone">
                     </div>
                   </div>
                 </div>
@@ -136,7 +136,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Email</label>
-                      <input id="email" type="text" name="email" value="{{$object->email}}" class="form-control input-sm email">
+                      <input id="email" type="text" name="email" value="{{old('email', $object->email)}}" class="form-control input-sm email">
                     </div>
                   </div>
                 </div>
@@ -144,7 +144,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Site</label>
-                      <input id="site" type="text" name="site" value="{{$object->site}}" class="form-control input-sm site">
+                      <input id="site" type="text" name="site" value="{{old('site', $object->site)}}" class="form-control input-sm site">
                     </div>
                   </div>
                 </div>

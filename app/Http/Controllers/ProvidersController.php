@@ -73,7 +73,7 @@ class ProvidersController extends FrontController
 
         $data = [
                     'object'   => new \App\Nay\Model\ProvidersModel(),
-                    'showMode' => false
+                    'showMode' => false,
 
                 ];
 
@@ -90,12 +90,12 @@ class ProvidersController extends FrontController
     {
         $object = new \App\Nay\Model\ProvidersModel();
 
-        $this->validate($request, [ 'name' => 'required|unique:brands,name', 'color' => 'required', 'cellphone' => 'required']);
+        $this->validate($request, [ 'name' => 'required|unique:brands,name', 'color' => 'required']);
 
         $formData         = $request->all();
         $formData['slug'] = str_slug($formData['name']);
 
-        $object->save();
+        $object->create($formData);
 
         $avatar = new Avatar();
         $avatar->create($object->name)->save(public_path('images/providers/' . $object->id . '.png'));
