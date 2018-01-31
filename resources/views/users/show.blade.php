@@ -16,7 +16,7 @@
     <ul class="nav nav-tabs">
       <li class="active"><a href="#tab_1" data-toggle="tab">Dados Gerais</a></li>
       <li><a href="#tab_2" data-toggle="tab">Senha</a></li>
-      <li><a href="#tab_3" data-toggle="tab">Acessos</a></li>
+      <li><a href="#tab_3" data-toggle="tab">Permissões</a></li>
     </ul>
     <div class="tab-content">
       <div class="tab-pane active" id="tab_1">

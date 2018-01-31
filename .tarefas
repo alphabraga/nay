@@ -10,33 +10,33 @@ Tarefas de Hoje 19/12/2018
 	requestitens -> salesitens
 
 
-usar o pagseguro para as transaçoes
-fazer os testes unitarios com o pagseguro
+
 Deixar a venda dentro de uma transaç~ao de banco de dados
 Usar  a maquina de estados para as vendas
 Nao 'registrar' deixar abrir modal se nao existem itens no carrinho
+Existe muita logica dentro do CartController::checkout é preciso remover muita regrade negicio dai e colocar em um model
 colocar formulario para atualuzar os dados do usuario logado
+usar o pagseguro para as transaçoes
+fazer os testes unitarios com o pagseguro
 habilitar ou desabilitar campos complementares de produtos
 melhorar a tela de carrinho o select2 não ta legal
-criar funcionalidade de criar usuario para cliente
-o campo cellphone de fornecedor pode ser nulo e ele esta como n~ao nulo
-colocar a opção de ativar/desativar um categoria. Isso ira desabilitar todos os itens dela de aparecer no site
-colocar a aba de Timelime para funcionar
 colocar favicon no sistema
 fazer o grafico da home funcionar
-Trocar a palavra Acessos por Permissoes na tela de visualização de usuario
 colocar o input de pesquisa da grid mais em evidencia e colocar ela na direta da tela como o padrao
 colocar a arvore de categoria para funcionar
 dar uma reorganizada nos formularios, poderia utiulizar melhor a tela a direita
-TRanspotadora não tem endereço e telefone e contato e email
-Existe muita logica dentro do CartController::checkout é preciso remover muita regrade negicio dai e colocar em um model
 O faker deveria ter classes para nomes de produtos, marcas, nome de empresas isso deve facilitar a semantica do sistema 
-
 upload de imagem de produtos, marcas, etc... pra funcionar
 deveria ter links na tela de venda ligando a venda ao cliente ao atendente, ao operrador ao produto
+TRanspotadora não tem endereço e telefone e contato e email
+colocar a opção de ativar/desativar um categoria. Isso ira desabilitar todos os itens dela de aparecer no site
+criar funcionalidade de criar usuario para cliente
+colocar a aba de Timelime para funcionar
 
 
 TAREFAS FEITAS
+Trocar a palavra Acessos por Permissoes na tela de visualização de usuario
+o campo cellphone de fornecedor pode ser nulo e ele esta como n~ao nulo
 esse icone de dinheiro para products não tem nada a ver Trocado por cubo
 na tela de visualizaç~ao de cleinte colocar abas com as compras que ele fez
 Exibir na grid se ele esta ativo ou não
