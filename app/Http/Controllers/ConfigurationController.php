@@ -61,7 +61,7 @@ class ConfigurationController extends FrontController
     {
     	$configuration = \App\Nay\Model\ConfigurationsModel::get();
 
-        $defaultClient = \App\Nay\Model\ClientsModel::find($configuration->default_client_id);
+        $defaultClient = \App\Nay\Model\EntitiesModel::find($configuration->default_client_id);
 
         $data = [
                     'object'        => $configuration,

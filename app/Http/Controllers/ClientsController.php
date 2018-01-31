@@ -39,7 +39,7 @@ class ClientsController extends FrontController
     public function search()
     {
 
-        return DataTables::of(\App\Nay\Model\ClientsModel::select('id', 'name', 'nickname', 'phone', 'cellphone'))
+        return DataTables::of(\App\Nay\Model\EntitiesModel::select('id', 'entity_category', 'name', 'nickname', 'phone', 'cellphone')->where('entity_category', '=', '0')->OrWhere('entity_category', '=', '2'))
         ->setRowId('id')
         ->addColumn('action', function($object)
         {
@@ -63,7 +63,7 @@ class ClientsController extends FrontController
      */
     public function create()
     {
-        $object = new \App\Nay\Model\ClientsModel();
+        $object = new \App\Nay\Model\EntitiesModel();
 
         return view('clients.form')->with(['showMode' => false, 'object' => $object]);
     }
@@ -81,9 +81,9 @@ class ClientsController extends FrontController
                                 'name' => 'required'
                             ]);
 
-        $client = new \App\Nay\Model\ClientsModel();
+        $client = new \App\Nay\Model\EntitiesModel();
 
-        \App\Nay\Model\ClientsModel::create($request->all());
+        \App\Nay\Model\EntitiesModel::create($request->all());
 
         $client->name = $request->input('name');
 
@@ -101,7 +101,7 @@ class ClientsController extends FrontController
     public function show($id)
     {
 
-        $object  = \App\Nay\Model\ClientsModel::find($id);
+        $object  = \App\Nay\Model\EntitiesModel::find($id);
 
         if($object === null)
         {
@@ -127,7 +127,7 @@ class ClientsController extends FrontController
      */
     public function edit($id)
     {
-        $object = \App\Nay\Model\ClientsModel::find($id);
+        $object = \App\Nay\Model\EntitiesModel::find($id);
 
         return view('clients.form')->with(['object' => $object, 'showMode' => false]);
     }
@@ -141,7 +141,7 @@ class ClientsController extends FrontController
      */
     public function update(Request $request, $id)
     {
-        $object = \App\Nay\Model\ClientsModel::find($id);
+        $object = \App\Nay\Model\EntitiesModel::find($id);
 
         $object->update($request->all());
         
@@ -162,7 +162,7 @@ class ClientsController extends FrontController
     {
         try
         {
-            $afectedRows = \App\Nay\Model\ClientsModel::destroy($id);        
+            $afectedRows = \App\Nay\Model\EntitiesModel::destroy($id);        
 
             return response()->json(['afectedRows' => $afectedRows, 'error' => null]);
         }

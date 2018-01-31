@@ -40,7 +40,7 @@ class SalesModel extends BaseModel
 
 	public function client()
     {
-		return $this->belongsTo('App\Nay\Model\ClientsModel', 'client_id');
+		return $this->belongsTo('App\Nay\Model\EntitiesModel', 'entity_id');
     }
 
 	public function salesman()

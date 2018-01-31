@@ -19,10 +19,11 @@ class ClientsTableSedder extends Seeder
         $faker->addProvider(new Faker\Provider\pt_BR\PhoneNumber($faker));
 
 
-        foreach (range(1,100) as $index)
+        foreach (range(1,50) as $index)
         {
-            $client = new \App\Nay\Model\ClientsModel();
+            $client = new \App\Nay\Model\EntitiesModel();
 
+            $client->entity_category       = \App\Nay\Model\EntityCategory::Client;
             $client->name                  = $faker->name;
             $client->phone                 =  $faker->phoneNumber;
             $client->cellphone             = $faker->cellphone;

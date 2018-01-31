@@ -39,7 +39,7 @@ class ProvidersController extends FrontController
     public function search()
     {
 
-       return DataTables::of(\App\Nay\Model\ProvidersModel::select('id', 'name', 'phone', 'color'))
+       return DataTables::of(\App\Nay\Model\EntitiesModel::select('id', 'name', 'phone', 'color')->where('entity_category', '=', '1')->OrWhere('entity_category', '=', '2'))
         ->setRowId('id')
         ->addColumn('color', function($object)
         {
@@ -72,7 +72,7 @@ class ProvidersController extends FrontController
     {
 
         $data = [
-                    'object'   => new \App\Nay\Model\ProvidersModel(),
+                    'object'   => new \App\Nay\Model\EntitiesModel(),
                     'showMode' => false,
 
                 ];
@@ -88,7 +88,7 @@ class ProvidersController extends FrontController
      */
     public function store(Request $request)
     {
-        $object = new \App\Nay\Model\ProvidersModel();
+        $object = new \App\Nay\Model\EntitiesModel();
 
         $this->validate($request, [ 'name' => 'required|unique:brands,name', 'color' => 'required']);
 
@@ -113,7 +113,7 @@ class ProvidersController extends FrontController
     {
 
         $data = [
-                    'object' => \App\Nay\Model\ProvidersModel::find($id),
+                    'object' => \App\Nay\Model\EntitiesModel::find($id),
                     'showMode' => true
 
                 ];
@@ -130,7 +130,7 @@ class ProvidersController extends FrontController
     public function edit($id)
     {
         $data = [
-                    'object' => \App\Nay\Model\ProvidersModel::find($id),
+                    'object' => \App\Nay\Model\EntitiesModel::find($id),
                     'showMode' => false
 
                 ];
@@ -147,7 +147,7 @@ class ProvidersController extends FrontController
      */
     public function update(Request $request, $id)
     {
-        $object = \App\Nay\Model\ProvidersModel::find($id);
+        $object = \App\Nay\Model\EntitiesModel::find($id);
 
         $this->validate($request, [ 'name' => 'required|unique:brands,name,' . $object->id, 'color' => 'required', 'cellphone' => 'required']);
 
@@ -170,7 +170,7 @@ class ProvidersController extends FrontController
 
         try
         {
-            $afectedRows = \App\Nay\Model\ProvidersModel::destroy($id);        
+            $afectedRows = \App\Nay\Model\EntitiesModel::destroy($id);        
 
             return response()->json(['afectedRows' => $afectedRows, 'error' => null]);
         }

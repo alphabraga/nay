@@ -1,3 +1,34 @@
+financialRecord
+
+	id
+	status (0 - em aberto, 1 - pago, 2 - pago parcial, 3 - cacenlado)
+	pagrec   (0 - pagamento, 1 - recebimento)
+	sale_id  chave para o pagamento
+	client_id id do cliente (temos um problema bem aqui meus amigos cliente e fornecedor tem que ser a mesma entidade)
+	value valor total do pagamento deve ser o valor liquido da venda
+	created_by quem criou a venda
+	updated_by
+	created_at
+	updated_at
+	deleted
+	payment_date
+	emisson_date
+	maturity_date
+
+financialPayment
+
+	id
+	financialRecord_id
+	value valor que foi efetivamente pago
+	created_by
+	updated_by
+	created_at
+	updated_at
+	deleted
+
+
+
+
 Ainda não terminei a migração das chaves das tabelas de request e requesitens (pedido e pedidoitens)
 
 Tarefas de Hoje 19/12/2018
@@ -63,3 +94,17 @@ melhorar a tela de perfil
 	sales  	     -> salesmen 	FOI
 	sales        -> shipping_company FOI
 colocar a lib de permissoes do sistema vamos usar zizaco mesmo
+
+
+
+
+
+
+
+
+
+
+
+
+
+

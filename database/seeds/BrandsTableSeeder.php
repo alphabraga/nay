@@ -34,7 +34,7 @@ class BrandsTableSeeder extends Seeder
     			$tags[] = $faker->name;
     		}
 
-            $provider = \App\Nay\Model\ProvidersModel::inRandomOrder()->first();
+            $provider = \App\Nay\Model\EntitiesModel::inRandomOrder()->first();
 
 			$brand->slug             = $slug;
 			$brand->name             = $name;
@@ -44,7 +44,7 @@ class BrandsTableSeeder extends Seeder
 			$brand->created_by       = 1;
 			$brand->updated_by       = 1;
 			$brand->created_at       = date('Y-m-d H:i:s');
-            $brand->provider_id      = $provider->id;   
+            $brand->entity_id        = $provider->id;   
 
     		$brand->save();
 

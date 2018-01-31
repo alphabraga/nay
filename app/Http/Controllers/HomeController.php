@@ -22,7 +22,7 @@ class HomeController extends FrontController
     {
 
         $data = [
-                    'numeroClients'    => \App\Nay\Model\ClientsModel::count(),
+                    'numeroClients'    => \App\Nay\Model\EntitiesModel::count(),
                     'numeroProducts'   => \App\Nay\Model\ProductsModel::count(),
                     'numeroCategories' => \App\Nay\Model\CategoriesModel::count(),
                     'numeroBrands'     => \App\Nay\Model\BrandsModel::count(),

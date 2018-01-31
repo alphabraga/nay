@@ -24,7 +24,7 @@ class CartController extends FrontController
 
         $object = new \App\Nay\Model\SalesModel();   
 
-        $clients = \App\Nay\Model\ClientsModel::all();
+        $clients = \App\Nay\Model\EntitiesModel::all();
 
         $users   = \App\User::all();
 

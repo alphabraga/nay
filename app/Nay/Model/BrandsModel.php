@@ -25,7 +25,7 @@ class BrandsModel extends BaseModel
 							'slug', 
 							'description', 
 							'tags',
-							'provider_id', 
+							'entity_id', 
 							'created_by', 
 							'updated_by',
 							'deleted_by'
@@ -41,7 +41,7 @@ class BrandsModel extends BaseModel
 
 	public function provider()
     {
-		return $this->belongsTo('App\Nay\Model\ProvidersModel', 'provider_id');
+		return $this->belongsTo('App\Nay\Model\EntitiesModel', 'entity_id');
     }
 
 
