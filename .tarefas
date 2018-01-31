@@ -13,7 +13,6 @@ Tarefas de Hoje 19/12/2018
 
 Deixar a venda dentro de uma transaç~ao de banco de dados
 Usar  a maquina de estados para as vendas
-Nao 'registrar' deixar abrir modal se nao existem itens no carrinho
 Existe muita logica dentro do CartController::checkout é preciso remover muita regrade negicio dai e colocar em um model
 colocar formulario para atualuzar os dados do usuario logado
 usar o pagseguro para as transaçoes
@@ -35,6 +34,7 @@ colocar a aba de Timelime para funcionar
 
 
 TAREFAS FEITAS
+Nao 'registrar' deixar abrir modal se nao existem itens no carrinho
 Trocar a palavra Acessos por Permissoes na tela de visualização de usuario
 o campo cellphone de fornecedor pode ser nulo e ele esta como n~ao nulo
 esse icone de dinheiro para products não tem nada a ver Trocado por cubo

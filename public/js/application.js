@@ -45,7 +45,10 @@ $(document).ready(function()
 
         carrinho.isEmpty(function(data)
         {
-          $('span#carrinho-vazio').text(data.toLocaleString('pt-BR'));          
+          $('span#carrinho-vazio').text(data.toLocaleString('pt-BR'));
+
+          $('button#registrar').prop('disabled', data);
+          
         });
 
         carrinho.totalQuantity(function(data)

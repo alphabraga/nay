@@ -100,8 +100,8 @@
           <div class="well">
           
             <div class="btn-group" role="group" >
-              <button id="limpar" type="button" class="btn btn-warning btn-lg"><i class="fa fa-eraser fa-lg"></i> Limpar</button>
-              <button id="registrar" type="submit" class="btn btn-success btn-lg" data-toggle="modal" data-target="#finalizar-compra" ><i class="fa fa-save fa-lg"></i> Registrar</button>
+              <button id="limpar" type="button" class="btn btn-warning btn-lg" ><i class="fa fa-eraser fa-lg"></i> Limpar</button>
+              <button id="registrar" type="submit" class="btn btn-success btn-lg" data-toggle="modal" data-target="#finalizar-compra" disabled="disabled" ><i class="fa fa-save fa-lg"></i> Registrar</button>
             </div>             
 
           </div>
