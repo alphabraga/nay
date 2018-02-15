@@ -40,6 +40,18 @@
             <li><a href="#"><i class="fa fa-archive"></i> Pedidos</a></li>
           </ul>
         </li>
+         <li class="treeview">
+          <a href="#">
+            <i class="fa fa-book fa-fw"></i>
+            <span>Financeiro</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{action('FinancialsController@index')}}"><i class="fa fa-group fa-money fa-fw"></i>Lancamentos</a></li>
+          </ul>
+        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-book fa-fw"></i>

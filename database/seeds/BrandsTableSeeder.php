@@ -48,7 +48,7 @@ class BrandsTableSeeder extends Seeder
 
     		$brand->save();
 
-    		$brand->saveFakeImage($faker);
+    		//$brand->saveFakeImage($faker);
     	}
     }
 }

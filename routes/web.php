@@ -71,6 +71,9 @@ Route::middleware('auth')->group(function ()
 	Route::resource('users', 'UsersController');
 	Route::get('usersSearch', 'UsersController@search');
 
+	Route::resource('financials', 'FinancialsController');
+	Route::get('financialsSearch', 'FinancialsController@search');
+
 	Route::post('updatePassword', 'UsersController@updatePassword');
 	Route::post('updateAnotherPassword', 'UsersController@updateAnotherPassword');
 	Route::post('updatePhoto', 'UsersController@updatePhoto');

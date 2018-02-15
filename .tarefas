@@ -1,10 +1,10 @@
-financialRecord
+financial
 
 	id
-	status (0 - em aberto, 1 - pago, 2 - pago parcial, 3 - cacenlado)
+	status (0 - em aberto, 1 - pago, 2 - pago parcial, 3 - cancelado)
 	pagrec   (0 - pagamento, 1 - recebimento)
-	sale_id  chave para o pagamento
-	client_id id do cliente (temos um problema bem aqui meus amigos cliente e fornecedor tem que ser a mesma entidade)
+	sale_id  chave para a vanda
+	client_id id do cliente
 	value valor total do pagamento deve ser o valor liquido da venda
 	created_by quem criou a venda
 	updated_by
