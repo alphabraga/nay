@@ -3,9 +3,9 @@
 @section('content')
   <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1><i class="fa fa-tags  fa-fw"></i>Financeiro <small>Listagem</small></h1>
+    <h1><i class="fa fa-money  fa-fw"></i>Financeiro <small>Listagem</small></h1>
     <ol class="breadcrumb">
-      <li><a href="{{action('FinancialsController@index')}}"><i class="fa fa-tags  fa-fw"></i>Financeiro</a></li>
+      <li><a href="{{action('FinancialsController@index')}}"><i class="fa fa-money fa-fw"></i>Financeiro</a></li>
       <li class="active">Listagem</li>
     </ol>
   </section>

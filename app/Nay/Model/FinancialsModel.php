@@ -35,7 +35,7 @@ class FinancialsModel extends BaseModel
 	protected $casts = ['tags' => 'array'];
 
 
-	public function provider()
+	public function entity()
     {
 		return $this->belongsTo('App\Nay\Model\EntitiesModel', 'entity_id');
     }

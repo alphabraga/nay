@@ -44,7 +44,7 @@ Tarefas de Hoje 19/12/2018
 
 Deixar a venda dentro de uma transaç~ao de banco de dados
 Usar  a maquina de estados para as vendas
-Existe muita logica dentro do CartController::checkout é preciso remover muita regrade negicio dai e colocar em um model
+Existe muita logica dentro do CartController::checkout é preciso remover muita regras de negicio dai e colocar em um model
 colocar formulario para atualuzar os dados do usuario logado
 usar o pagseguro para as transaçoes
 fazer os testes unitarios com o pagseguro
@@ -54,7 +54,7 @@ colocar favicon no sistema
 fazer o grafico da home funcionar
 colocar o input de pesquisa da grid mais em evidencia e colocar ela na direta da tela como o padrao
 colocar a arvore de categoria para funcionar
-dar uma reorganizada nos formularios, poderia utiulizar melhor a tela a direita
+dar uma reorganizada nos formularios, poderia utiulizar melhor a tela a direita. F´a fiz isso no form de config e coloquei em abas
 O faker deveria ter classes para nomes de produtos, marcas, nome de empresas isso deve facilitar a semantica do sistema 
 upload de imagem de produtos, marcas, etc... pra funcionar
 deveria ter links na tela de venda ligando a venda ao cliente ao atendente, ao operrador ao produto

@@ -3,7 +3,7 @@
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1><i class="fa fa-tags  fa-fw"></i>Financeiro <small>Cadastro</small></h1>
+  <h1><i class="fa fa-money  fa-fw"></i>Financeiro <small>Cadastro</small></h1>
   <ol class="breadcrumb">
     <li><a href="{{action('FinancialsController@index')}}"><i class="fa fa-money fa-fw"></i> Financeiro</a></li>
     <li class="active">Cadastro</li>
@@ -35,7 +35,7 @@
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label>Nome</label><input id="name" type="text" name="name" value="{{old('name' , $object->name)}}" class="form-control input-sm name">
+                      <label>Entidade</label><input id="name" type="text" name="name" value="{{old('name' , $object->entity->name)}}" class="form-control input-sm name">
                     </div>
                   </div>
                 </div>
@@ -43,26 +43,7 @@
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label>Cor</label><input id="color" required="required" type="color" name="color" value="{{old('color' , $object->color)}}" class="form-control input-sm color">
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Slug</label><input id="slug" type="text" name="slug" value="{{old('slug',$object->slug)}}" disabled="disabled" class="form-control input-sm name">
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Descrição</label>
-                      <textarea class="form-control input-sm name" name="description" id="description" >
-                      {{old('description', $object->description)}}
-                      </textarea>
+                      <label>Valor</label><input id="color" required="required" type="color" name="color" value="{{old('color' , $object->value)}}" class="form-control input-sm color">
                     </div>
                   </div>
                 </div>
@@ -80,38 +61,11 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="form-group">
-                      <label>Fonecedor</label>
-                      <select name="provider_id" class="form-control select2" >
-                        @if($providers->count()>0)
-                        @foreach($providers as $p)
-                        <option value="{{$p->id}}" @if($object->provider_id == $p->id) selected="selected" @endif  >{{$p->name}}</option>
-                        @endforeach
-                        @endif
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.tab-pane -->
-              <div class="tab-pane" id="tab_2">
-                            <div class="row">
-            @if(count($object->images)>0)  
-              @foreach($object->images as $image)  
-              <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                  <img src="{{URL::to($image)}}" class="img-responsive">
-              </div>
-              @endforeach
-            @else
-              <div class="alert alert-info"><i class="fa fa-exclamation fa-fw"  ></i> Não existem imagens para esse produto </div>
-            @endif  
-             </div> 
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_3">
                 
+
 
                     @if(isset($object->provider))  
 
@@ -119,7 +73,7 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Fornecedor</th>
+                      <th>Baixas Financeiras</th>
                     </tr>
                   </thead>                    
                   <tbody>
