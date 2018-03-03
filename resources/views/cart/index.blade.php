@@ -155,9 +155,9 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Comprador</label> <br>
-                <select style="width : 100%;" id="client_id" name="client_id" class="form-control input-sm select2">
+                <select style="width : 100%;" id="entity_id" name="entity_id" class="form-control input-sm select2">
                   @foreach($clients as $c)
-                    @if($object->client_id ==  $c->id || $c->id == $configuracao->default_client_id) 
+                    @if($object->entity_id ==  $c->id || $c->id == $configuracao->default_client_id) 
                       <option value="{{$c->id}}" selected="selected">{{$c->name}}</option>
                     @else
                       <option value="{{$c->id}}">{{$c->name}}</option>

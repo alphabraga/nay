@@ -24,7 +24,7 @@ class SalesController extends FrontController
         $grid = [
                     'header' => [
                                  ['data' => 'id', 'title' => 'ID'],
-                                 ['data' => 'client.name', 'title' => 'CLIENTE'],
+                                 ['data' => 'entity.name', 'title' => 'CLIENTE'],
                                  ['data' => 'salesman.name', 'title' => 'ATENDENTE'],
                                  ['data' => 'total', 'title' => 'TOTAL'],
                                  ['data' => 'sale_category', 'title' => 'CATEGORIA'],
@@ -39,7 +39,7 @@ class SalesController extends FrontController
     public function search()
     {
 
-        return DataTables::of(\App\Nay\Model\SalesModel::with('client')->with('salesman')->get())
+        return DataTables::of(\App\Nay\Model\SalesModel::with('entity')->with('salesman')->get())
         ->setRowId('id')
         ->addColumn('total', function($object)
         {

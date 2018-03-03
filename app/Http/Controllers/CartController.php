@@ -161,7 +161,7 @@ class CartController extends FrontController
     public function checkout(Request $request)
     {
        $this->validate($request, [ 
-                                    'client_id'        => 'required', 
+                                    'entity_id'        => 'required', 
                                     'payment_method'   => 'required', 
                                     'salesman_id'      => 'required', 
                                     'transction_method'=> 'required'

@@ -16,7 +16,7 @@ class SalesModel extends BaseModel
 
 	protected $fillable = [
 							'id',
-							'client_id',
+							'entity_id',
 							'salesman_id',
 							'status',          
 							'payment_method',
@@ -38,9 +38,9 @@ class SalesModel extends BaseModel
 
 	public $timestamps = true;
 
-	public function client()
+	public function entity()
     {
-		return $this->belongsTo('App\Nay\Model\EntitiesModel', 'client_id');
+		return $this->belongsTo('App\Nay\Model\EntitiesModel', 'entity_id');
     }
 
 	public function salesman()

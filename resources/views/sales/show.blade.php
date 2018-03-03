@@ -42,7 +42,7 @@
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label>Cliente</label><input id="name" disabled="disabled" type="text" name="name" value="{{$object->client->name}}" class="form-control input-sm name">
+                      <label>Cliente</label><input id="name" disabled="disabled" type="text" name="name" value="{{$object->entity->name}}" class="form-control input-sm name">
                     </div>
                   </div>
                  <div class="col-md-4">
