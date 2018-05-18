@@ -83,7 +83,7 @@
             <div class="form-group">
               <label>Tags</label>
               <select name="tags[]" class="form-control select2-tags" multiple >
-                    @if(count($object->tags))
+                    @if(!is_null($object->tags) && count($object->tags))
                         @foreach($object->tags as $t)
                         <option value="{{$t}}" selected="selected">{{$t}}</option>
                         @endforeach
@@ -250,10 +250,12 @@
 
                 <?php $s = $saleItem->sale; ?>
 
+                {{dd($s)}}
+
                 <tr>
                   <td>{{$s->id}}</td>
                   <td>{{$s->status}}</td>
-                  <td>{{$s->client->name}}</td>
+                  <td>{{$s->sale->client->name}}</td>
                   <td>{{__('messages.' . $s->paymentMethodName)}}</td>
                   <td>{{__('messages.' . $s->saleCategoryName)}}</td>
                   <td>{{$s->user->name}}</td>

@@ -1,5 +1,5 @@
 <?php
-
+/*
 
 namespace App\Nay\Model;
 
@@ -57,33 +57,18 @@ class ClientsModel extends BaseModel
     }
 
 
-    /*
-		O sistema deve permitir o cadastro do cliente apenas com o nome 
-		para facilitar o cadastro. Mas deve ser feita essa checagem 
-		antes de ser realizada a venda online
-    */
     public function isValidForOnlineShopping()
     {
 
     	return false;
     }
 
-    /*
-		O sistema deve permitir o cadastro do cliente apenas com o nome 
-		para facilitar o cadastro. Mas deve ser feita essa checagem antes 
-		de ser realizada a venda pelo cartao de credito
-    */
     public function isValidForCreditCardShopping()
     {
 
     	return false;
     }
 
-    /**
-    * Metodo retorna o total de compras efetivamente pagas de um determinado cliente
-    * como ainda vou criar um entidade de lancamento financeiro e baixa de lancamento financeiro 
-    * acedito que isso cai mudar
-    */
 	public function getTotalLiquidAttribute()
 	{
 		$total = 0;
@@ -97,11 +82,6 @@ class ClientsModel extends BaseModel
 	}
 
 
-    /**
-    * Metodo retorna o total que debito de um determinado cliente
-    * como ainda vou criar um entidade de lancamento financeiro e baixa de lancamento financeiro 
-    * acedito que isso cai mudar
-    */
 	public function getTotalDebitAttribute()
 	{
 		$totalDebit = 0;
@@ -118,11 +98,6 @@ class ClientsModel extends BaseModel
 		return $totalDebit;
 	}
 
-    /**
-    * Metodo retorna o total de compras efetivamente pagas de um determinado cliente
-    * como ainda vou criar um entidade de lancamento financeiro e baixa de lancamento financeiro 
-    * acedito que isso cai mudar
-    */
 	public function getTotalPaymentsAttribute()
 	{
 		$totalPayments = 0;
@@ -138,4 +113,4 @@ class ClientsModel extends BaseModel
 		return $totalPayments;
 	}
 
-}
+}*/

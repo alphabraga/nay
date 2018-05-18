@@ -137,7 +137,8 @@ class CartController extends FrontController
         return response()->json($quantity);
     }
 
-    public function subtotal(){
+    public function subtotal()
+    {
 
         $subtotal = \Cart::getSubTotal();
 
@@ -145,7 +146,8 @@ class CartController extends FrontController
     }
 
 
-    public function total(){
+    public function total()
+    {
 
         $total =  \Cart::getTotal();
 

@@ -75,6 +75,16 @@ class ConfigurationsModel extends Model
 		return self::first();
 	}
 
+	/**
+	* Retorna configurações consideradas publicas
+	* configurações que podem ficar disponveis em páginas 
+	* publicas do sistema
+	*/
+	public static function getPublic()
+	{
+		return self::select('message')->first();
+	}
+
 	public function getDatabaseInfo()
 	{
 		$results = \DB::select( \DB::raw("select version()") );

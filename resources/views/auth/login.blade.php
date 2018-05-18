@@ -84,12 +84,27 @@
 <!-- iCheck -->
 <script src="{{URL::to('packages/node_modules/admin-lte/plugins/iCheck/icheck.min.js')}}"></script>
 <script>
-  $(function () {
+  $(function ()
+  {
     $('input').iCheck({
       checkboxClass: 'icheckbox_square-blue',
       radioClass: 'iradio_square-blue',
       increaseArea: '20%' // optional
     });
+
+
+    $.get('/public-configuration', function(data){
+
+     bootbox.confirm('aaaaaaaaaaaaaaaaaaaaaaaaaa', function(confirmation)
+     {
+        if(confirmation == true)
+        {
+          console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaa");          
+        }
+     });
+
+    });
+
   });
 </script>
 </body>

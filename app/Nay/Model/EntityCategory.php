@@ -25,7 +25,7 @@ abstract class EntityCategory
 
     /**
     * Return the constant name using the value
-    * Usefull when you need the get the name of the PaymentMethod over the database
+    * Usefull when you need the get the name of the EntityCategory over the database
     */
     static function name($value)
     {

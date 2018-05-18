@@ -16,6 +16,9 @@
 });*/
 
 
+
+
+
 Auth::routes();
 
 //Password reset link request routes...
@@ -25,6 +28,9 @@ Auth::routes();
 // Password reset routes...
 //Route::get('password/reset/{token}', '\App\Http\Controllers\Auth\ResetPasswordController@getReset');
 //Route::post('password/reset', '\App\Http\Controllers\Auth\ResetPasswordController@postReset');
+
+
+Route::get('/public-configuration', 'PublicController@publicConfigurations');
 
 Route::middleware('auth')->group(function ()
 {

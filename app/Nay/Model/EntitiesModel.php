@@ -98,7 +98,7 @@ class EntitiesModel extends BaseModel
     /**
     * Metodo retorna o total de compras efetivamente pagas de um determinado cliente
     * como ainda vou criar um entidade de lancamento financeiro e baixa de lancamento financeiro 
-    * acedito que isso cai mudar
+    * acedito que isso vai mudar
     */
 	public function getTotalLiquidAttribute()
 	{
@@ -116,7 +116,7 @@ class EntitiesModel extends BaseModel
     /**
     * Metodo retorna o total que debito de um determinado cliente
     * como ainda vou criar um entidade de lancamento financeiro e baixa de lancamento financeiro 
-    * acedito que isso cai mudar
+    * acedito que isso vai mudar
     */
 	public function getTotalDebitAttribute()
 	{
@@ -137,7 +137,7 @@ class EntitiesModel extends BaseModel
     /**
     * Metodo retorna o total de compras efetivamente pagas de um determinado cliente
     * como ainda vou criar um entidade de lancamento financeiro e baixa de lancamento financeiro 
-    * acedito que isso cai mudar
+    * acedito que isso vai mudar
     */
 	public function getTotalPaymentsAttribute()
 	{
