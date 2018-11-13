@@ -124,7 +124,6 @@ $(document).ready(function()
 	});
 
 
-
     $.getJSON('/configuration', function(data)
 	{
       console.log(data);

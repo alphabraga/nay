@@ -19,6 +19,8 @@
 
 <script type="text/javascript">
     
+    console.log(baseUrl);
+
     var table = $('table#data').DataTable(
     {
             "responsive": true,
@@ -33,7 +35,7 @@
         "processing": true,
         "serverSide": true,
         "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "Todos"] ],
-        "ajax": '/'+currentRouteName+'Search',
+        "ajax": '/' + currentRouteName+'Search',
         "type" : "GET",
         "order" : [[0, 'desc']],
         "columns": <?php echo json_encode($grid['header']) ?>
