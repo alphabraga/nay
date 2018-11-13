@@ -1,5 +1,4 @@
 <?php
-/*
 
 namespace App\Nay\Model;
 
@@ -53,7 +52,7 @@ class ClientsModel extends BaseModel
 
     public function sales()
     {
-        return $this->hasMany('App\Nay\Model\SalesModel', 'client_id', 'id');
+        return $this->hasMany('App\Nay\Model\SalesModel', 'entity_id', 'id');
     }
 
 
@@ -113,4 +112,4 @@ class ClientsModel extends BaseModel
 		return $totalPayments;
 	}
 
-}*/
+}

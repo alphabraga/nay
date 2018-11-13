@@ -69,7 +69,7 @@ class EntitiesModel extends BaseModel
 
     public function sales()
     {
-        return $this->hasMany('App\Nay\Model\SalesModel', 'client_id', 'id');
+        return $this->hasMany('App\Nay\Model\SalesModel', 'entity_id', 'id');
     }
 
 

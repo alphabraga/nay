@@ -190,7 +190,7 @@ class ProductsController extends FrontController
 
         $term = $request->input('term');
 
-        $products = \App\Nay\Model\ProductsModel::select('id', 'name', 'sale_price')
+        $products = \App\Nay\Model\ProductsModel::select('id', 'code', 'name', 'sale_price')
                                                   ->where('name', 'like', "%$term%")
                                                   ->orWhere('barcode', '=', $term)
                                                   ->orWhere('code', '=', $term)
@@ -204,7 +204,12 @@ class ProductsController extends FrontController
 
         foreach ($products as $p)
         {
-            $data['results'][] = ['id' => $p->id, 'text' => $p->name, 'sale_price' => $p->sale_price];
+            $data['results'][] = [ 
+                                    'id'         => $p->id, 
+                                    'text'       => $p->name, 
+                                    'sale_price' => $p->sale_price,
+                                    'code'       => $p->code
+                                ];
         }
 
         return response()->json($data);
