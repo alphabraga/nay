@@ -69,7 +69,7 @@
                     <div class="form-group">
                       <label>Tags</label>
                       <select name="tags[]" class="form-control select2-tags" multiple >
-                        @if(count($object->tags))
+                        @if(is_array($object->tags) && count($object->tags))
                         @foreach($object->tags as $t)
                         <option value="{{$t}}" selected="selected">{{$t}}</option>
                         @endforeach
