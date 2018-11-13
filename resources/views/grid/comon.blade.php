@@ -33,7 +33,7 @@
         "processing": true,
         "serverSide": true,
         "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "Todos"] ],
-        "ajax": baseUrl + currentRouteName+'Search',
+        "ajax": baseUrl +'/'+ currentRouteName+'Search',
         "type" : "GET",
         "order" : [[0, 'desc']],
         "columns": <?php echo json_encode($grid['header']) ?>
