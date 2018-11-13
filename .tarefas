@@ -1,3 +1,4 @@
+O campo descrição e o telefone devem ser not null. No banco já esta assim falta no formulário de cadastro de configurações.
 O apelido não esta aparecendo no ver cliente
 quando eu exlcuo uma categoria sou redireionado a home page do sistema
 Quando cadastro uma categoria com uma cor já cadastrada dá esse erro:
