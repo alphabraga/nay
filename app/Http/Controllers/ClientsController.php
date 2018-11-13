@@ -87,6 +87,8 @@ class ClientsController extends FrontController
 
         $client->name = $request->input('name');
 
+        $client->entity_category = \App\Nay\Model\EntityCategory::Client;
+
         $client->save();
 
         return redirect('clients/' . $client->id);

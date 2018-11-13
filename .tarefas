@@ -1,3 +1,8 @@
+no banco de dados o entity_category deve ser not null
+ao cadastrar usuário já setar a validade padrão 1 ano a mais
+já adicionar a permissão de operador por padrão
+colocar a validade como obrigatorio
+colocar a validade na listagem (grid)
 financial
 
 	id
