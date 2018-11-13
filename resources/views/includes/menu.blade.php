@@ -5,7 +5,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-           <img src="/{{$usuario->getPhoto()}}" class="img-circle" alt="{{$usuario->name}}">
+           <img src="{{URL::to($usuario->getPhoto())}}" class="img-circle" alt="{{$usuario->name}}">
         </div>
         <div class="pull-left info">
           <p>{{$usuario->name}}</p>
