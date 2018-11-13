@@ -90,7 +90,7 @@ class ProvidersController extends FrontController
     {
         $object = new \App\Nay\Model\EntitiesModel();
 
-        $this->validate($request, [ 'name' => 'required|unique:brands,name', 'color' => 'required']);
+        $this->validate($request, [ 'name' => 'required|unique:providers,name', 'color' => 'required']);
 
         $formData         = $request->all();
         $formData['slug'] = str_slug($formData['name']);
