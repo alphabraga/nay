@@ -118,13 +118,13 @@ $(document).ready(function()
 		bootbox.alert(info_text);
 	});
 
-	$.getJSON('/system', function(data)
+	$.getJSON(baseUrl+'/system', function(data)
 	{
 		console.log(data);
 	});
 
 
-    $.getJSON('/configuration', function(data)
+    $.getJSON(baseUrl+'/configuration', function(data)
 	{
       console.log(data);
 	});  
@@ -708,7 +708,7 @@ function atualizaCampo(){
                                 $.ajax({
                                   type: "POST",
                                   headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                  url: "/carrinho",
+                                  url: baseUrl+"/carrinho",
                                   data: productData
                                 });
                         },
@@ -718,7 +718,7 @@ function atualizaCampo(){
                                 $.ajax({
                                   type: "PATCH",
                                   headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                  url: "/carrinho/" + id,
+                                  url: baseUrl + "/carrinho/" + id,
                                   data: productData
                                 });
 
@@ -728,7 +728,7 @@ function atualizaCampo(){
                                 $.ajax({
                                   type: "DELETE",
                                   headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                  url: "/carrinho/"+id,
+                                  url: baseUrl + "/carrinho/"+id,
                                   success: function(data){ callBackFunction(data); }
                                 });
 
@@ -739,7 +739,7 @@ function atualizaCampo(){
                                 $.ajax({
                                   type: "GET",
                                   headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                  url: "/carrinhoClear",
+                                  url: baseUrl + "/carrinhoClear",
                                   success: function(data){ callBackFunction(data); }
                                 });
 
@@ -750,7 +750,7 @@ function atualizaCampo(){
                                 $.ajax({
                                   type: "GET",
                                   headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                  url: "/carrinho/1",
+                                  url: baseUrl + "/carrinho/1",
                                   success: function(data){ callBackFunction(data); }
                                 });
                         },
@@ -759,7 +759,7 @@ function atualizaCampo(){
                                 $.ajax({
                                   type: "GET",
                                   headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                  url: "/carrinhoIsEmpty",
+                                  url: baseUrl + "/carrinhoIsEmpty",
                                   success: function(data){ callBackFunction(data); }
                                 });
                         },
@@ -768,7 +768,7 @@ function atualizaCampo(){
                                 $.ajax({
                                   type: "GET",
                                   headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                  url: "/carrinhoTotal",
+                                  url: baseUrl + "/carrinhoTotal",
                                   success: function(data){ callBackFunction(data); }
                                 });
                         },
@@ -777,7 +777,7 @@ function atualizaCampo(){
                                 $.ajax({
                                   type: "GET",
                                   headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                  url: "/carrinhoSubTotal",
+                                  url: baseUrl + "/carrinhoSubTotal",
                                   success: function(data){ callBackFunction(data); }
                                 });
                         },
@@ -786,7 +786,7 @@ function atualizaCampo(){
                               $.ajax({
                                 type: "GET",
                                 headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                                url: "/carrinhoQuantity",
+                                url: baseUrl + "/carrinhoQuantity",
                                 success: function(data){ callBackFunction(data); }
                               });                          
                         }                                                     
