@@ -15,7 +15,7 @@ class EntitiesModel extends BaseModel
 
 	protected $imagePath = 'images/entities/';
 
-	protected $fillable = [
+	public $fillable = [
 							'id',          
 							'slug', 
 							'color',

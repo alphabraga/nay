@@ -83,13 +83,13 @@ class ClientsController extends FrontController
 
         $client = new \App\Nay\Model\EntitiesModel();
 
-        \App\Nay\Model\EntitiesModel::create($request->all());
+        $formData = $request->all();
 
-        $client->name = $request->input('name');
+        $formData['name'] = $request->input('name');
 
-        $client->entity_category = \App\Nay\Model\EntityCategory::Client;
+        $formData['entity_category'] = \App\Nay\Model\EntityCategory::Client;
 
-        $client->save();
+        $client = \App\Nay\Model\EntitiesModel::create($formData);
 
         return redirect('clients/' . $client->id);
     }
