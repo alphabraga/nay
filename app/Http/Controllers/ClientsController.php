@@ -39,7 +39,7 @@ class ClientsController extends FrontController
     public function search()
     {
 
-        return DataTables::of(\App\Nay\Model\EntitiesModel::select('id', 'entity_category', 'name', 'nickname', 'phone', 'cellphone')->where('entity_category', '=', '0')->OrWhere('entity_category', '=', '2'))
+        return DataTables::of(\App\Nay\Model\EntitiesModel::select('id', 'entity_category', 'name', 'nickname', 'phone', 'cellphone')->whereIn('entity_category', ['0', '2']))
         ->setRowId('id')
         ->addColumn('action', function($object)
         {
