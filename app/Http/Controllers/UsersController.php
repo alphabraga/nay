@@ -33,6 +33,7 @@ class UsersController extends FrontController
                                  ['data' => 'name', 'title' => 'Nome'],
                                  ['data' => 'email', 'title' => 'Usuário'],
                                  ['data' => 'activated', 'title' => 'Ativo'],
+                                 ['data' => 'validity', 'title' => 'Validade'],
                                  ['data' => 'username', 'title' => 'Usuário'],
                                 ]
                 ];

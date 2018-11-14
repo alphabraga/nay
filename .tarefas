@@ -3,9 +3,6 @@ Mostrar a foto do usuario na tela de ver usuario
 O cadastro de imagem de usuario só funciona com png se eu mandar um jpg ele não acha
 Na listagen de categoria colocar a categoria mãe como coluna
 no banco de dados o entity_category deve ser not null
-já adicionar a permissão de operador por padrão
-colocar a validade como obrigatorio
-colocar a validade na listagem (grid)
 financial
 
 	id
@@ -73,6 +70,9 @@ colocar a aba de Timelime para funcionar
 
 
 TAREFAS FEITAS
+colocar a validade como obrigatorio
+colocar a validade na listagem (grid)
+já adicionar a permissão de operador por padrão
 ao cadastrar usuário já setar a validade padrão 1 ano a mais
 a categoria mãe não esta aparecendo na aba de ver categorias
 Quando cadastro uma categoria com uma cor já cadastrada dá esse erro:
@@ -109,17 +109,3 @@ melhorar a tela de perfil
 	sales  	     -> salesmen 	FOI
 	sales        -> shipping_company FOI
 colocar a lib de permissoes do sistema vamos usar zizaco mesmo
-
-
-
-
-
-
-
-
-
-
-
-
-
-

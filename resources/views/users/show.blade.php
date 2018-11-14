@@ -44,7 +44,7 @@
                   <td>Validade</td><td>
                   <div class="input-group col-md-6">
                         <!-- /btn-group -->
-                        <input class="form-control input-sm input-data" name="validity" type="text" value="@if(!is_null($object->validity)){{$object->validity->format('d/m/Y')}}@endif" />
+                        <input class="form-control input-sm input-data" name="validity" type="text" value="@if(!is_null($object->validity)){{$object->validity->format('d/m/Y')}}@endif" required="required" />
                         <div class="input-group-btn">
                           <button type="button" class="btn btn-info input-info" data-text="A validade determina uma data limite onde o usuario pode efetuar login"><i class="fa fa-info"></i></button>
                         </div>

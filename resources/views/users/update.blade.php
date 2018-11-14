@@ -15,7 +15,7 @@
     <!-- /.box-header -->
     <div class="box-body">
       @include('includes.painel')
-      <form id="update" name="update" method="post" action="{{action('CategoriesController@update', [$object->id])}}" >
+      <form id="update" name="update" method="post" action="{{action('UsersController@update', [$object->id])}}" >
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
         <input type="hidden" name="_method" value="PATCH" />
         <div class="row">
