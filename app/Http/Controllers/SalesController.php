@@ -26,9 +26,9 @@ class SalesController extends FrontController
                                  ['data' => 'id', 'title' => 'ID'],
                                  ['data' => 'entity.name', 'title' => 'CLIENTE'],
                                  ['data' => 'salesman.name', 'title' => 'ATENDENTE'],
-                                 ['data' => 'total', 'title' => 'TOTAL'],
                                  ['data' => 'sale_category', 'title' => 'CATEGORIA'],
                                  ['data' => 'payment_method', 'title' => 'FORMA DE PAGAMENTO'],
+                                 ['data' => 'total', 'title' => 'TOTAL'],
                                  ['data' => 'action', 'title' => 'Ação', 'orderable' => false, 'searchable' => false]  
                                 ]
                 ];

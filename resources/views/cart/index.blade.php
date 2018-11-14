@@ -127,7 +127,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Registrar Atendimento</h4>
+        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-save fa-fw"></i> Registrar Atendimento</h4>
       </div>
       <div class="modal-body">
 
@@ -242,7 +242,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times fa-fw"></i>Fechar</button>
         <button type="submit" class="btn btn-success"><i class="fa fa-save fa-fw"></i>Registrar</button>
       </form>
       </div>

@@ -48,7 +48,7 @@
               <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <label>Telefone</label><input id="phone" type="text" name="phone" value="{{old('phone', $object->phone)}}" class="form-control input-sm phone" >
+              <label>Telefone</label><input id="phone" type="text" name="phone" value="{{old('phone', $object->phone)}}" class="form-control input-sm fixed-phone" >
             </div>
           </div>
         </div>
