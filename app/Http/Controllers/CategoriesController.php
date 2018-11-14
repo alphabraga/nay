@@ -93,11 +93,11 @@ class CategoriesController extends FrontController
     {
 
         $request->validate([
-                                'name'        => 'required|unique:categories',
+                                'name'        => 'required|unique:categories,name',
                                 'tags'        => 'required',
                                 'description' => 'required',
                                 'level'       => 'required',
-                                'color'       => 'required'
+                                'color'       => 'required|unique:categories,color'
                             ]);
 
         $data = $request->all();

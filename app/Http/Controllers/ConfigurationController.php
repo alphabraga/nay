@@ -93,6 +93,19 @@ class ConfigurationController extends FrontController
      */
     public function update(Request $request, $id)
     {
+
+       $rules = [
+                    'system_name'    => 'required',
+                    'fantasy_name'   => 'required', 
+                    'social_name'    => 'required', 
+                    'description'    => 'required',
+                    'cnpj'           => 'required', 
+                    'phone'          => 'required',
+                    'cellphone'      => 'required',
+                ]; 
+
+       $this->validate($request, $rules);
+
         if(\Auth::user()->hasRole('administrador') ==  false){
 
             \Session::flash('flash_message','Só o administrador do sistema pode alterar essas configurações');

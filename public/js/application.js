@@ -511,19 +511,14 @@ $('div#modal-table-body').on('click', 'table#modal-table tbody tr', function(e)
     {
         e.preventDefault();
 
-        console.log($(this).html());
-
         $that = $(this);
-
 
         var box = bootbox.prompt('Você tem certeza que deseja excluir o registro selecionado? Informe o motivo da exclusão.', function(motivo)
         {
 
-            if(motivo == null){
-
-
+            if(motivo == null)
+            {
                 box.modal('hide');
-
             }
 
 
@@ -552,7 +547,7 @@ $('div#modal-table-body').on('click', 'table#modal-table tbody tr', function(e)
 
                             if(result.error == 2292)
                             {
-                                bootbox.alert('Esse registro nÃ£o pode ser excluÃ­do, pois existem outros cadastros no sistema que utilizam esse registro (ORA:2292)');
+                                bootbox.alert('Esse registro nÃo pode ser excluído, pois existem outros cadastros no sistema que utilizam esse registro');
                             }
                             else
                             {
@@ -561,9 +556,7 @@ $('div#modal-table-body').on('click', 'table#modal-table tbody tr', function(e)
                         }
                         else
                         {
-                            bootbox.alert('Registro excluido com sucesso.\n Um registro excluido');
-
-                            console.log(typeof table); 
+                            bootbox.alert('Registro excluído com sucesso.\n Um registro excluído');
 
                             if(typeof table === 'undefined' || !table)
                             {
@@ -571,7 +564,9 @@ $('div#modal-table-body').on('click', 'table#modal-table tbody tr', function(e)
                                 //depois de 5 segundos redirecionar par o inicio do modulo
                                 window.setTimeout(function()
                                 {
-                                    window.location = 'http://'+window.location.host +'/' + window.location.pathname.split('/')[1];
+                                    //window.location = 'http://'+window.location.host +'/' + window.location.pathname.split('/')[1];
+
+                                     window.location = currentBaseUrl;
                                 },3000);
 
                             }
@@ -590,6 +585,8 @@ $('div#modal-table-body').on('click', 'table#modal-table tbody tr', function(e)
                         }    
                     }
                 });
+
+                return false;
             }
         });
 

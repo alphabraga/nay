@@ -85,7 +85,7 @@ class BrandsController extends FrontController
      */
     public function store(Request $request)
     {
-       $this->validate($request, [ 'name' => 'required|unique:brands,name', 'description' => 'required', 'tags' => 'required', 'color' => 'required']);
+       $this->validate($request, [ 'name' => 'required|unique:brands,name', 'description' => 'required', 'tags' => 'required', 'color' => 'required|unique:brands,color']);
 
        $data         = $request->all();
 

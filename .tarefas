@@ -1,10 +1,6 @@
+Mostrar a foto do usuario na tela de ver usuario
 O cadastro de imagem de usuario só funciona com png se eu mandar um jpg ele não acha
-O campo descrição e o telefone devem ser not null. No banco já esta assim falta no formulário de cadastro de configurações.
-O apelido não esta aparecendo no ver cliente
-quando eu exlcuo uma categoria sou redireionado a home page do sistema
 Quando cadastro uma categoria com uma cor já cadastrada dá esse erro:
-
-
 SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '#000000' for key 'categories_color_unique' (SQL: insert into `categories` (`name`, `color`, `description`, `tags`, `level`, `category_id`, `slug`, `created_by`, `updated_by`, `updated_at`, `created_at`) values (Macaquinho, #000000, Macaquinho, ["Macaquinho"], 1, 1, macaquinho, 1, 1, 2018-11-13 15:15:25, 2018-11-13 15:15:25))
 
 Eu tenho que verificar antes se essa cor já exite no banco de dados
@@ -83,6 +79,8 @@ colocar a aba de Timelime para funcionar
 
 
 TAREFAS FEITAS
+O campo descrição e o telefone devem ser not null. No banco já esta assim falta no formulário de cadastro de configurações.
+quando eu exlcuo uma categoria sou redireionado a home page do sistema
 Nao 'registrar' deixar abrir modal se nao existem itens no carrinho
 Trocar a palavra Acessos por Permissoes na tela de visualização de usuario
 o campo cellphone de fornecedor pode ser nulo e ele esta como n~ao nulo
