@@ -83,9 +83,11 @@ class ProductsController extends FrontController
      */
     public function store(Request $request)
     {
+        (strlen($reuqest->input('id')))? $updateRule = ',' . $request->input('id'):$updateRule = '';
+
        $rules = [
-                    'name'           => 'required|unique:brands,name',
-                    'code'           => 'required|unique:products,code', 
+                    'name'           => 'required|unique:brands,name' . $updateRule,
+                    'code'           => 'required|unique:products,code' . $updateRule,
                     'description'    => 'required', 
                     'tags'           => 'required',
                     'purchase_price' => 'required', 
