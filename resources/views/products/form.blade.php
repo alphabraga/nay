@@ -112,7 +112,7 @@
           <div class="col-md-4">
             <div class="form-group">
               <label>Preço de Compra</label>
-              <input id="purchase_price" type="text" name="purchase_price" value="{{old('purchase_price', $object->purchase_price)}}" class="form-control input-sm price">
+              <input id="purchase_price" type="text" name="purchase_price" value="{{old('purchase_price', $object->purchase_price)}}" class="form-control input-sm price dinheiro">
             </div>
           </div>
         </div>
@@ -120,7 +120,7 @@
           <div class="col-md-4">
             <div class="form-group">
               <label>Preço de Venda</label>
-              <input id="sale_price" type="text" name="sale_price" value="{{old('sale_price', $object->sale_price)}}" class="form-control input-sm price">
+              <input id="sale_price" type="text" name="sale_price" value="{{old('sale_price', $object->sale_price)}}" class="form-control input-sm price dinheiro">
             </div>
           </div>
         </div>
