@@ -39,7 +39,7 @@ class CategoriesController extends FrontController
     public function search()
     {
 
-        return DataTables::of(\App\Nay\Model\CategoriesModel::select('id', 'name','color'))
+        return DataTables::of(\App\Nay\Model\CategoriesModel::select('categories.id', 'categories.name','categories.color'))
         ->setRowId('id')
         ->addColumn('color', function($object)
         {
@@ -125,8 +125,9 @@ class CategoriesController extends FrontController
     {
 
          $object             = \App\Nay\Model\CategoriesModel::find($id);
+         $motherCategory     = $object->categoryParent;
          $categories         = \App\Nay\Model\CategoriesModel::all();
-         $childrenCategories = \App\Nay\Model\CategoriesModel::where('category_id' ,'=', $object->id)->get();
+         $childrenCategories = $object->categoryChilds; //\App\Nay\Model\CategoriesModel::where('category_id' ,'=', $object->id)->get();
 
         if($object === null)
         {
@@ -139,6 +140,7 @@ class CategoriesController extends FrontController
 
         $data = [
                     'object'             => $object,
+                    'motherCategory'     => $motherCategory,
                     'categories'         => $categories,
                     'childrenCategories' => $childrenCategories,
                     'showMode'           => true
