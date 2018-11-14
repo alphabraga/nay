@@ -106,10 +106,13 @@ class UsersController extends FrontController
         $user->email       =  $request->input('email');
         $user->password    =  bcrypt($request->input('password'));
         $user->name        =  $request->input('name');
+        $user->validity    = \Carbon\Carbon::now()->addYear(1);
 
         $user->save();
         $avatar = new Avatar();
         $avatar->create($user->name)->save(public_path('images/users/' . $user->id . '.png'));
+
+        $user->attachRole(3);
 
         return redirect('/users');
     }
