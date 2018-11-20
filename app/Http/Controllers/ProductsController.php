@@ -70,8 +70,8 @@ class ProductsController extends FrontController
 
         $data = [
                     'object'     => new \App\Nay\Model\ProductsModel(),
-                    'brands'     => \App\Nay\Model\BrandsModel::all(),
-                    'categories' => \App\Nay\Model\CategoriesModel::all(),
+                    'brands'     => \App\Nay\Model\BrandsModel::orderBy('name')->get(),
+                    'categories' => \App\Nay\Model\CategoriesModel::orderBy('name')->get(),
                     'showMode'   => false
                 ];
 
@@ -91,11 +91,15 @@ class ProductsController extends FrontController
        $rules = [
                     'name'           => 'required|unique:brands,name' . $updateRule,
                     'code'           => 'required|unique:products,code' . $updateRule,
+                    'barcode'        => 'required|unique:products,barcode' . $updateRule,
                     'description'    => 'required', 
                     'tags'           => 'required',
                     'purchase_price' => 'required', 
                     'sale_price'     => 'required',
                     'brand_id'       => 'required',
+                    'category_id'    => 'required'
+                    'quantity'       => 'required|numeric',
+                    'quantity_limit' => 'required|numeric',
                     'category_id'    => 'required'
                 ]; 
 

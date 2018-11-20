@@ -70,9 +70,18 @@ class BrandsController extends FrontController
     {
         $brand = new \App\Nay\Model\BrandsModel();
 
-        $providers = \App\Nay\Model\ProvidersModel::all();
+        $providers = \App\Nay\Model\EntitiesModel::whereIn('entity_category', 
+                                                                            [
+                                                                             \App\Nay\Model\EntityCategory::Company,
+                                                                             \App\Nay\Model\EntityCategory::ClientAndCompany
+                                                                            ]
+                                                                         )->get();
 
-        $data = ['object' => $brand, 'showMode' => false, 'providers' => $providers];
+        $data = [
+                    'object' => $brand, 
+                    'showMode' => false, 
+                    'providers' => $providers
+                ];
 
         return view('brands.form')->with($data);
     }
@@ -118,9 +127,14 @@ class BrandsController extends FrontController
         }    
 
         $data = [
-                    'object'  => $object,
-                    'showMode'=> true,
-                    'providers' => \App\Nay\Model\ProvidersModel::all(),
+                    'object'    => $object,
+                    'showMode'  => true,
+                    'providers' => \App\Nay\Model\EntitiesModel::whereIn('entity_category', 
+                                                                            [
+                                                                             \App\Nay\Model\EntityCategory::Company,
+                                                                             \App\Nay\Model\EntityCategory::ClientAndCompany
+                                                                            ]
+                                                                         )->get()
 
                 ];
 
@@ -139,7 +153,12 @@ class BrandsController extends FrontController
 
         $data = [
                     'object'    => \App\Nay\Model\BrandsModel::find($id),
-                    'providers' => \App\Nay\Model\ProvidersModel::all(),
+                    'providers' => \App\Nay\Model\EntitiesModel::whereIn('entity_category', 
+                                                                            [
+                                                                             \App\Nay\Model\EntityCategory::Company,
+                                                                             \App\Nay\Model\EntityCategory::ClientAndCompany
+                                                                            ]
+                                                                         )->get(),
                     'showMode'  => false
                 ];
 

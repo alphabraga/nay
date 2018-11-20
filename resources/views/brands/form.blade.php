@@ -85,10 +85,10 @@
                   <div class="col-md-4">
                     <div class="form-group">
                       <label>Fonecedor</label>
-                      <select name="provider_id" class="form-control select2" >
+                      <select name="entity_id" class="form-control select2" >
                         @if($providers->count()>0)
                         @foreach($providers as $p)
-                        <option value="{{$p->id}}" @if($object->provider_id == $p->id) selected="selected" @endif  >{{$p->name}}</option>
+                        <option value="{{$p->id}}" @if($object->entity_id == $p->id) selected="selected" @endif  >{{$p->name}}</option>
                         @endforeach
                         @endif
                       </select>

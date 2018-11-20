@@ -1,3 +1,10 @@
+O sistema tem que verificar antes e existe já o codigo de barras cadastrado
+
+
+SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '7890019085203' for key 'products_barcode_unique' (SQL: insert into `products` (`barcode`, `code`, `external_code`, `name`, `description`, `tags`, `quantity_limit`, `quantity`, `purchase_price`, `sale_price`, `custom_field1`, `custom_field2`, `custom_field3`, `custom_field4`, `custom_field5`, `custom_field6`, `brand_id`, `category_id`, `slug`, `created_by`, `updated_by`, `updated_at`, `created_at`) values (7890019085203, 2856x, 2856x, Vestido Tubinho com babado Maganda Vinho/Azul, Vestido Tubinho com babado Maganda Vinho/Azul, ["dawdawawdawd","awd","aw"], 0, 1, 69.90, 155.00, M, Variadas, , , , , 1, 14, vestido-tubinho-com-babado-maganda-vinhoazul, 1, 1, 2018-11-20 20:48:10, 2018-11-20 20:48:10))
+
+
+COlocar somatorio de quantidades e valores na grid de produtos
 Colocar o link correto no email de reset de password
 COlocar quantidade limite padrão 0 (Zero)
 Opção para remover usuário
