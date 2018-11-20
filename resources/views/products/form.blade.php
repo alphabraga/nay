@@ -18,7 +18,7 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-cube fa-fw"></i>Cadastro</a></a></li>
-          <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-image fa-fw"></i>Galetria de Imagens</a></li>
+          <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-image fa-fw"></i>Galeria de Imagens</a></li>
           <li><a href="#tab_3" data-toggle="tab"><i class="fa fa-money fa-fw"></i>Vendas Recentes</a></li>
         </ul>
         <div class="tab-content">

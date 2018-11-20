@@ -26,6 +26,9 @@ class ProductsController extends FrontController
         $grid = [
                     'header' => [
                                  ['data' => 'id', 'title' => 'ID'],
+                                 ['data' => 'code', 'title' => 'Código'],
+                                 ['data' => 'barcode', 'title' => 'Código de Barras'],
+                                 ['data' => 'external_code', 'title' => 'Código Externo'],
                                  ['data' => 'name', 'title' => 'NOME'],
                                  ['data' => 'quantity', 'title' => 'QUANTIDADE'],
                                  ['data' => 'sale_price', 'title' => 'PREÇO'],
@@ -39,7 +42,7 @@ class ProductsController extends FrontController
     public function search()
     {
 
-        return DataTables::of(\App\Nay\Model\ProductsModel::select('id', 'name', 'sale_price', 'quantity'))
+        return DataTables::of(\App\Nay\Model\ProductsModel::select('id','code','barcode','external_code', 'name', 'sale_price', 'quantity'))
         ->setRowId('id')
         ->addColumn('action', function($object)
         {
