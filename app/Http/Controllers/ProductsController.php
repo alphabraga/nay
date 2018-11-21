@@ -28,10 +28,10 @@ class ProductsController extends FrontController
                                  ['data' => 'id', 'title' => 'ID'],
                                  ['data' => 'code', 'title' => 'Código'],
                                  ['data' => 'barcode', 'title' => 'Código de Barras'],
-                                 ['data' => 'external_code', 'title' => 'Código Externo'],
                                  ['data' => 'name', 'title' => 'NOME'],
                                  ['data' => 'quantity', 'title' => 'QUANTIDADE'],
                                  ['data' => 'sale_price', 'title' => 'PREÇO'],
+                                 ['data' => 'category', 'title' => 'CATEGORIA'],
                                  ['data' => 'action', 'title' => 'Ação', 'orderable' => false, 'searchable' => false]  
                                 ]
                 ];        
@@ -42,7 +42,20 @@ class ProductsController extends FrontController
     public function search()
     {
 
-        return DataTables::of(\App\Nay\Model\ProductsModel::select('id','code','barcode','external_code', 'name', 'sale_price', 'quantity'))
+        $products =  \DB::select('select 
+            p.id, 
+            p.code,
+            p.name,
+            p.quantity,
+            p.barcode,
+            c.name category,
+            p.sale_price
+            from products p
+            left join categories c on c.id = p.category_id
+            where p.deleted_at is null');
+
+
+        return DataTables::of(collect($products))
         ->setRowId('id')
         ->addColumn('action', function($object)
         {
