@@ -94,7 +94,7 @@ class ProvidersController extends FrontController
 
         $formData         = $request->all();
         $formData['slug'] = str_slug($formData['name']);
-        $formData['entity_category'] = 2;
+        $formData['entity_category'] =  \App\Nay\Model\EntityCategory::Company;
 
         $object->create($formData);
 

@@ -27,6 +27,7 @@ class BrandsController extends FrontController
                     'header' => [
                                  ['data' => 'id', 'title' => 'ID'],
                                  ['data' => 'name', 'title' => 'NOME'],
+                                 ['data' => 'provider', 'title' => 'FORNECEDOR'],
                                  ['data' => 'color', 'title' => 'COR'],
                                  ['data' => 'action', 'title' => 'Ação', 'orderable' => false, 'searchable' => false]  
                                 ]
@@ -38,7 +39,17 @@ class BrandsController extends FrontController
     public function search()
     {
 
-        return DataTables::of(\App\Nay\Model\BrandsModel::select('id', 'name', 'color'))
+        $brands =  \DB::select('select 
+                                b.id, 
+                                b.name,
+                                b.color,
+                                p.name provider
+                                from brands b
+                                left join entities p on p.id = b.entity_id
+                                where b.deleted_at is null');
+
+
+        return DataTables::of(collect($brands))
         ->setRowId('id')
         ->addColumn('color', function($object)
         {

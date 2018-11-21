@@ -27,7 +27,7 @@ class HomeController extends FrontController
                     'numeroCategories'      => \App\Nay\Model\CategoriesModel::count(),
                     'numeroBrands'          => \App\Nay\Model\BrandsModel::count(),
                     'numeroSales'           => \App\Nay\Model\SalesModel::count(),
-                    'numeroRequests'        => 145,
+                    'numeroRequests'        => 0,//\App\Nay\Model\RequestsModel::count(),
                     'numeroUsers'           => \App\User::count(),
 
                     'numeroProviders'       => \App\Nay\Model\EntitiesModel::whereIn('entity_category', [ \App\Nay\Model\EntityCategory::Company, \App\Nay\Model\EntityCategory::ClientAndCompany  ])->count(),

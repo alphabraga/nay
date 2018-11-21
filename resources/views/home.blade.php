@@ -70,7 +70,7 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53</h3>
+              <h3>{{$numeroRequests}}</h3>
 
               <p>Pedidos</p>
             </div>
