@@ -30,6 +30,9 @@ class ProductsController extends FrontController
                                  ['data' => 'barcode', 'title' => 'Código de Barras'],
                                  ['data' => 'name', 'title' => 'NOME'],
                                  ['data' => 'quantity', 'title' => 'QUANTIDADE'],
+                                 ['data' => 'size', 'title' => 'TAMANHO'],
+                                 ['data' => 'color', 'title' => 'COR'],
+                                 ['data' => 'brand', 'title' => 'MARCA'],
                                  ['data' => 'sale_price', 'title' => 'PREÇO'],
                                  ['data' => 'category', 'title' => 'CATEGORIA'],
                                  ['data' => 'action', 'title' => 'Ação', 'orderable' => false, 'searchable' => false]  
@@ -43,16 +46,20 @@ class ProductsController extends FrontController
     {
 
         $products =  \DB::select('select 
-            p.id, 
-            p.code,
-            p.name,
-            p.quantity,
-            p.barcode,
-            c.name category,
-            p.sale_price
-            from products p
-            left join categories c on c.id = p.category_id
-            where p.deleted_at is null');
+                                p.id, 
+                                p.code,
+                                p.name,
+                                p.custom_field1 size,
+                                p.custom_field2 color,
+                                p.quantity,
+                                p.barcode,
+                                c.name category,
+                                b.name brand,
+                                p.sale_price
+                                from products p
+                                left join categories c on c.id = p.category_id
+                                left join brands b on b.id = p.brand_id
+                                where p.deleted_at is null');
 
 
         return DataTables::of(collect($products))
