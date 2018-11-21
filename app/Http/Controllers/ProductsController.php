@@ -97,7 +97,7 @@ class ProductsController extends FrontController
                     'purchase_price' => 'required', 
                     'sale_price'     => 'required',
                     'brand_id'       => 'required',
-                    'category_id'    => 'required'
+                    'category_id'    => 'required',
                     'quantity'       => 'required|numeric',
                     'quantity_limit' => 'required|numeric',
                     'category_id'    => 'required'
@@ -180,6 +180,9 @@ class ProductsController extends FrontController
                     'purchase_price' => 'required', 
                     'sale_price'     => 'required',
                     'brand_id'       => 'required',
+                    'category_id'    => 'required',
+                    'quantity'       => 'required|numeric',
+                    'quantity_limit' => 'required|numeric',
                     'category_id'    => 'required'
                 ]); 
 

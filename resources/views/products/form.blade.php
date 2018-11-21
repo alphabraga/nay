@@ -222,7 +222,9 @@
               </div>
               @endforeach
             @else
-              <div class="alert alert-info"><i class="fa fa-exclamation fa-fw"  ></i> Não existem imagens para esse produto </div>
+                <div class="alert alert-info">
+                  <p> <i class="fa fa-exclamation fa-fw"></i> Não existem ainda imagens para esse produto.</p>
+                </div>
             @endif  
              </div> 
 
