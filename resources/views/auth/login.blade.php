@@ -60,13 +60,13 @@
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
+          <button type="submit" class="btn btn-success btn-block btn-flat"><i class="fa fa-sign-in fa-fw"></i> Entrar</button>
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col-xs-12">
-          <a href="{{URL::to('/password/reset')}}" class="btn btn-info btn-block btn-flat">Esqueci minha senha</a>
+          <a href="{{URL::to('/password/reset')}}" class="btn btn-warning btn-block btn-flat"><i class="fa fa-envelope fa-fw"></i>Esqueci minha senha</a>
         </div>
       </div>
 
