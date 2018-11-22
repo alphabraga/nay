@@ -39,7 +39,7 @@ class ProvidersController extends FrontController
     public function search()
     {
 
-       return DataTables::of(\App\Nay\Model\EntitiesModel::select('id', 'name', 'phone', 'color')->where('entity_category', '=', '1')->OrWhere('entity_category', '=', '2'))
+       return DataTables::of(\App\Nay\Model\EntitiesModel::select('id', 'name', 'phone', 'color')->whereIn('entity_category', ['1', '2']))
         ->setRowId('id')
         ->addColumn('color', function($object)
         {
