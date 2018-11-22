@@ -158,7 +158,7 @@
 
                 @if(isset($object->brands))  
 
-                  <table id="data-simple" class="table table-striped table-condensed table-hover">
+                  <table class="table table-striped table-condensed table-hover">
                   <thead>
                     <tr>
                       <th>#</th>

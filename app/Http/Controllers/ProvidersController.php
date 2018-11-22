@@ -151,8 +151,8 @@ class ProvidersController extends FrontController
         $object = \App\Nay\Model\EntitiesModel::find($id);
 
         $this->validate($request, [ 
-                                    'name'      => 'required|unique:brands,name,' . $object->id, 
-                                    'color'     => 'required|unique:brands,color,' . $object->id, 
+                                    'name'      => 'required|unique:brands,name,' . $object->id .',id,deleted_at,NULL',
+                                    'color'     => 'required|unique:brands,color,' . $object->id . ',id,deleted_at,NULL',   
                                     'cellphone' => 'required']);
 
         $formData         = $request->all();

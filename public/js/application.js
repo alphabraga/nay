@@ -500,11 +500,11 @@ $('div#modal-table-body').on('click', 'table#modal-table tbody tr', function(e)
     }
 
     var simpleTable = $('table#data-simple').DataTable( 
-                                { 
-                                    "language": { "url": baseUrl+'/assets/js/datatables-pt-br.json' },
-                                    "bFilter": true,
-                                    'bPaginate':false
-                                } 
+                                                        { 
+                                                            "language": { "url": baseUrl+'/js/datatables-pt-br.json' },
+                                                            "bFilter": true,
+                                                            'bPaginate':false
+                                                        } 
                             ); 
 
     $(document).on( 'click', 'a.delete-link', function (e)
